@@ -143,18 +143,22 @@ export default function GetKeyPage() {
                 disabled={downloading}
                 className="w-full px-6 py-4 rounded-lg bg-[#3B82F6] hover:bg-[#2563EB] disabled:opacity-50 text-white font-semibold text-lg transition-colors blue-glow"
               >
-                {downloading ? "Starting download..." : "Download MakoBot.zip"}
+                {downloading ? "Starting download..." : "Download MakoBot Installer"}
               </button>
               <p className="text-xs text-[#6B7280] text-center mt-3">
-                Windows 10/11 · .NET 8 · ~40 MB zip · No installer needed
+                Windows 10/11 · Signed by Mako Logics LLC · ~53 MB · Includes installer
               </p>
+              <div className="flex items-center justify-center gap-2 mt-3 px-4 py-2 rounded-lg bg-[#1E2330] border border-[#374151]/50">
+                <svg className="w-4 h-4 text-[#10B981] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                <span className="text-xs text-[#8B95A8]">Verified by <span className="text-[#E8EDF3] font-medium">Microsoft Azure Trusted Signing</span> — no SmartScreen warnings</span>
+              </div>
 
               {/* Instructions */}
               <div className="mt-6 p-4 rounded-lg bg-[#1E2330] border border-[#374151]">
                 <p className="text-sm font-medium text-[#E8EDF3] mb-2">Quick Start:</p>
                 <ol className="text-sm text-[#8B95A8] space-y-1 list-decimal list-inside">
-                  <li>Extract the zip anywhere on your PC</li>
-                  <li>Run MakoBot.exe</li>
+                  <li>Extract the zip and run MakoBot-Setup.exe</li>
+                  <li>Follow the installer (choose desktop shortcut, start with Windows)</li>
                   <li>Paste your license key when prompted</li>
                   <li>Add your project folders and you&apos;re done</li>
                 </ol>

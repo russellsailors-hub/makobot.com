@@ -318,10 +318,14 @@ export default function Home() {
       <section className="px-6 py-16 bg-[#252B3B]/50">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <StatCard value="77 MB" label="Single exe, no installer needed" />
+            <StatCard value="53 MB" label="Signed installer, no warnings" />
             <StatCard value="0" label="Cloud dependencies" />
             <StatCard value="6+" label="AI tools supported" />
             <StatCard value="∞" label="Sessions remembered" />
+          </div>
+          <div className="flex items-center justify-center gap-3 mt-8 px-5 py-3 rounded-xl bg-[#1E2330] border border-[#374151]/50 max-w-lg mx-auto">
+            <svg className="w-5 h-5 text-[#10B981] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
+            <span className="text-sm text-[#C0C8D8]">Digitally signed by <span className="text-[#E8EDF3] font-semibold">Mako Logics LLC</span> — verified by Microsoft Azure Trusted Signing</span>
           </div>
         </div>
       </section>
@@ -457,7 +461,10 @@ export default function Home() {
           </a>
 
           <p className="mt-4 text-sm text-[#6B7280]">
-            Windows 10/11 · .NET 8 · Single exe · ~77 MB · No installer needed
+            Windows 10/11 · Digitally signed by Mako Logics LLC · Includes installer
+          </p>
+          <p className="mt-2 text-xs text-[#4B5563]">
+            Verified by Microsoft Azure Trusted Signing — no SmartScreen warnings
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">

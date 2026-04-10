@@ -178,6 +178,12 @@ export function Nav() {
             Compare
           </a>
           <a
+            href="/exchange"
+            className="text-sm text-[#8B95A8] hover:text-[#E8EDF3] transition-colors"
+          >
+            Exchange
+          </a>
+          <a
             href="#download"
             className="inline-flex items-center px-5 py-2 rounded-lg bg-[#3B82F6] hover:bg-[#2563EB] text-white text-sm font-semibold transition-colors"
           >
@@ -245,6 +251,13 @@ export function Nav() {
             className="text-sm text-[#C0C8D8]"
           >
             Compare
+          </a>
+          <a
+            href="/exchange"
+            onClick={() => setOpen(false)}
+            className="text-sm text-[#C0C8D8]"
+          >
+            Exchange
           </a>
           <a
             href="#download"

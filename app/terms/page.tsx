@@ -66,7 +66,7 @@ export default function TermsPage() {
             <h2 className="text-xl font-semibold text-[#E8EDF3] mb-3">Contact</h2>
             <p>
               Mako Logics<br />
-              Email: russell.sailors@gmail.com
+              Email: admin@makobot.com
             </p>
           </section>
         </div>
