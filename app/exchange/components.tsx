@@ -34,20 +34,19 @@ export function ExchangeNav() {
                 className={`flex items-center gap-2 px-4 py-3.5 text-sm font-semibold transition-all border-b-[3px] ${
                   active
                     ? "bg-[#252B3B]"
-                    : "text-[#8B95A8] border-transparent hover:text-[#E8EDF3] hover:bg-[#252B3B]/50"
+                    : "border-transparent hover:bg-[#252B3B]/50"
                 }`}
-                style={active ? { color: link.color, borderBottomColor: link.color } : undefined}
+                style={{ color: link.color, borderBottomColor: active ? link.color : "transparent" }}
               >
                 <svg
                   width="16"
                   height="16"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke={active ? link.color : "#8B95A8"}
+                  stroke={link.color}
                   strokeWidth={2}
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="transition-colors"
                 >
                   <path d={link.icon} />
                 </svg>
