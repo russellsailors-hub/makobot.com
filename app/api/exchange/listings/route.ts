@@ -8,6 +8,76 @@ import {
   getUserByEmail,
 } from "@/lib/db";
 import { CATEGORIES, PLATFORMS, MAX_FILE_SIZE, MAX_CONTENT_LENGTH } from "@/lib/exchange";
+import { moderateExchangeListing } from "@/lib/db";
+
+// AI Auto-moderation: checks content quality and safety
+async function autoModerate(
+  listingId: number,
+  title: string,
+  description: string,
+  content: string | null
+): Promise<boolean> {
+  try {
+    const combined = `${title} ${description} ${content || ""}`.toLowerCase();
+
+    // Reject: obvious spam patterns
+    const spamPatterns = [
+      /buy\s+(cheap|now|online)/,
+      /click\s+here/,
+      /free\s+(money|bitcoin|crypto)/,
+      /\b(viagra|cialis|pharmacy)\b/,
+      /make\s+\$?\d+.*per\s+(day|hour|week)/,
+      /(telegram|whatsapp).*contact/,
+      /bit\.ly|tinyurl|t\.co/,
+    ];
+    for (const pattern of spamPatterns) {
+      if (pattern.test(combined)) return false;
+    }
+
+    // Reject: too short to be useful
+    if (description.length < 20) return false;
+    if (title.length < 5) return false;
+
+    // Reject: no actual content (just title + short description, no substance)
+    if (!content && description.length < 50) return false;
+
+    // Reject: excessive links (likely spam)
+    const linkCount = (combined.match(/https?:\/\//g) || []).length;
+    if (linkCount > 10) return false;
+
+    // Reject: mostly uppercase (shouting)
+    const upperRatio = (combined.match(/[A-Z]/g) || []).length / combined.length;
+    if (upperRatio > 0.5 && combined.length > 50) return false;
+
+    // Reject: contains obvious malicious patterns
+    const maliciousPatterns = [
+      /rm\s+-rf\s+\//,
+      /eval\s*\(\s*atob/,
+      /document\.cookie/,
+      /window\.location\s*=\s*['"]/,
+      /<script[\s>]/i,
+    ];
+    for (const pattern of maliciousPatterns) {
+      if (pattern.test(combined)) return false;
+    }
+
+    // Auto-approve: has meaningful content
+    const hasContent = content && content.length > 50;
+    const hasDescription = description.length >= 50;
+    const hasMeaningfulTitle = title.length >= 10;
+
+    if (hasContent && hasDescription && hasMeaningfulTitle) {
+      await moderateExchangeListing(listingId, "approve");
+      return true;
+    }
+
+    // Everything else stays pending for manual review
+    return false;
+  } catch {
+    // If moderation fails, leave as pending (safe default)
+    return false;
+  }
+}
 
 // GET /api/exchange/listings — Browse listings OR get single by slug (public)
 export async function GET(request: Request) {
@@ -140,9 +210,15 @@ export async function POST(request: Request) {
       screenshot_url: screenshotUrl?.trim() || null,
     });
 
+    // AI Auto-moderation: auto-approve if content passes quality checks
+    const autoApproved = await autoModerate(listing.id, title.trim(), description.trim(), content?.trim() || null);
+
     // Strip file_data from response
     const { file_data: _, ...cleaned } = listing;
-    return NextResponse.json({ listing: cleaned }, { status: 201 });
+    return NextResponse.json({
+      listing: { ...cleaned, status: autoApproved ? "approved" : "pending" },
+      autoApproved,
+    }, { status: 201 });
   } catch (error) {
     console.error("Exchange submit error:", error);
     return NextResponse.json({ error: "Failed to submit listing" }, { status: 500 });
