@@ -302,9 +302,9 @@ export function Footer() {
               product family
             </p>
             <div className="flex gap-4 text-xs text-[#6B7280]">
-              <span>PromptPixel</span>
+              <a href="https://www.makobytes.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C0C8D8] transition-colors">PromptPixel</a>
               <span>·</span>
-              <span>AI Prompt Hive</span>
+              <a href="https://aipromptshive.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C0C8D8] transition-colors">AI Prompt Hive</a>
               <span>·</span>
               <span className="text-[#3B82F6]">MakoBot</span>
             </div>
