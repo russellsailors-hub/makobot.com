@@ -78,6 +78,7 @@ export async function POST(request: Request) {
     const category = formData.get("category") as string;
     const platformsRaw = formData.get("platforms") as string;
     const content = formData.get("content") as string | null;
+    const screenshotUrl = formData.get("screenshot_url") as string | null;
     const file = formData.get("file") as File | null;
 
     // Validate required fields
@@ -136,6 +137,7 @@ export async function POST(request: Request) {
       file_name: fileName,
       file_data: fileData,
       file_size: fileSize,
+      screenshot_url: screenshotUrl?.trim() || null,
     });
 
     // Strip file_data from response

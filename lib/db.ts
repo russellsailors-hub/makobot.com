@@ -81,6 +81,7 @@ export async function setupDatabase() {
       file_name VARCHAR(255),
       file_data BYTEA,
       file_size INTEGER DEFAULT 0,
+      screenshot_url TEXT,
       status VARCHAR(20) DEFAULT 'pending',
       rejection_reason TEXT,
       download_count INTEGER DEFAULT 0,
@@ -351,10 +352,11 @@ export async function createExchangeListing(data: {
   file_name?: string | null;
   file_data?: Buffer | null;
   file_size?: number;
+  screenshot_url?: string | null;
 }) {
   const sql = getDb();
   const result = await sql`
-    INSERT INTO exchange_listings (user_id, title, slug, description, category, platforms, content, file_name, file_data, file_size)
+    INSERT INTO exchange_listings (user_id, title, slug, description, category, platforms, content, file_name, file_data, file_size, screenshot_url)
     VALUES (
       ${data.user_id},
       ${data.title},
@@ -365,7 +367,8 @@ export async function createExchangeListing(data: {
       ${data.content || null},
       ${data.file_name || null},
       ${data.file_data || null},
-      ${data.file_size || 0}
+      ${data.file_size || 0},
+      ${data.screenshot_url || null}
     )
     RETURNING *
   `;
@@ -662,6 +665,7 @@ export async function adminUpdateExchangeListing(id: number, data: {
   platforms?: string[];
   content?: string | null;
   status?: string;
+  screenshot_url?: string | null;
 }) {
   const sql = getDb();
   if (data.title !== undefined) await sql`UPDATE exchange_listings SET title = ${data.title}, updated_at = NOW() WHERE id = ${id}`;
@@ -670,6 +674,7 @@ export async function adminUpdateExchangeListing(id: number, data: {
   if (data.platforms !== undefined) await sql`UPDATE exchange_listings SET platforms = ${data.platforms}, updated_at = NOW() WHERE id = ${id}`;
   if (data.content !== undefined) await sql`UPDATE exchange_listings SET content = ${data.content}, updated_at = NOW() WHERE id = ${id}`;
   if (data.status !== undefined) await sql`UPDATE exchange_listings SET status = ${data.status}, updated_at = NOW() WHERE id = ${id}`;
+  if (data.screenshot_url !== undefined) await sql`UPDATE exchange_listings SET screenshot_url = ${data.screenshot_url}, updated_at = NOW() WHERE id = ${id}`;
   const updated = await sql`SELECT * FROM exchange_listings WHERE id = ${id}`;
   return updated[0] || null;
 }
@@ -728,6 +733,74 @@ export async function getExchangeStats() {
     pendingCount: parseInt(pending[0].count as string),
     approvedCount: parseInt(approved[0].count as string),
     totalDownloads: parseInt(downloads[0].count as string),
+  };
+}
+
+// ─── EXCHANGE: TRENDING ───
+export async function getTrendingExchangeListings(limit = 6) {
+  const sql = getDb();
+  // Trending = combination of recent downloads + recent rating activity, weighted toward recency
+  return sql`
+    SELECT el.*, u.name as author_name, u.avatar_url as author_avatar,
+      (el.download_count * 0.3 + el.rating_count * 2 + el.rating_avg * 1.5 +
+       CASE WHEN el.created_at > NOW() - INTERVAL '7 days' THEN 10 ELSE 0 END +
+       CASE WHEN el.created_at > NOW() - INTERVAL '30 days' THEN 5 ELSE 0 END
+      ) as trending_score
+    FROM exchange_listings el
+    JOIN users u ON el.user_id = u.id
+    WHERE el.status = 'approved'
+    ORDER BY trending_score DESC, el.created_at DESC
+    LIMIT ${limit}
+  `;
+}
+
+export async function getFeaturedExchangeListings(limit = 3) {
+  const sql = getDb();
+  // Featured = highest rated with minimum 1 review, or newest with most downloads
+  return sql`
+    SELECT el.*, u.name as author_name, u.avatar_url as author_avatar
+    FROM exchange_listings el
+    JOIN users u ON el.user_id = u.id
+    WHERE el.status = 'approved'
+    ORDER BY el.rating_avg DESC, el.download_count DESC
+    LIMIT ${limit}
+  `;
+}
+
+// ─── EXCHANGE: USER PROFILES ───
+export async function getExchangeUserProfile(userId: number) {
+  const sql = getDb();
+  const user = await sql`SELECT id, name, avatar_url, created_at FROM users WHERE id = ${userId}`;
+  if (user.length === 0) return null;
+
+  const [listings, stats] = await Promise.all([
+    sql`
+      SELECT el.*, u.name as author_name, u.avatar_url as author_avatar
+      FROM exchange_listings el
+      JOIN users u ON el.user_id = u.id
+      WHERE el.user_id = ${userId} AND el.status = 'approved'
+      ORDER BY el.created_at DESC
+    `,
+    sql`
+      SELECT
+        COUNT(*) as total_listings,
+        COALESCE(SUM(download_count), 0) as total_downloads,
+        COALESCE(AVG(CASE WHEN rating_count > 0 THEN rating_avg ELSE NULL END), 0) as avg_rating,
+        COALESCE(SUM(rating_count), 0) as total_reviews
+      FROM exchange_listings
+      WHERE user_id = ${userId} AND status = 'approved'
+    `,
+  ]);
+
+  return {
+    user: user[0],
+    listings: listings.map((l: Record<string, unknown>) => { const { file_data, ...rest } = l; return rest; }),
+    stats: {
+      totalListings: parseInt(stats[0].total_listings as string),
+      totalDownloads: parseInt(stats[0].total_downloads as string),
+      avgRating: parseFloat(stats[0].avg_rating as string),
+      totalReviews: parseInt(stats[0].total_reviews as string),
+    },
   };
 }
 

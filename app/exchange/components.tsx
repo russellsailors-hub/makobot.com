@@ -404,3 +404,232 @@ export function ExchangeEmpty({ message }: { message: string }) {
     </div>
   );
 }
+
+/* ─── INSTALL BOX ─── */
+export function InstallBox({
+  listing,
+}: {
+  listing: ExchangeListing & { has_file?: boolean };
+}) {
+  const [copied, setCopied] = useState<string | null>(null);
+  const url = typeof window !== "undefined" ? window.location.href : "";
+
+  const installMethods = getInstallMethods(listing, url);
+
+  function copyToClipboard(text: string, label: string) {
+    navigator.clipboard.writeText(text);
+    setCopied(label);
+    setTimeout(() => setCopied(null), 2000);
+  }
+
+  if (installMethods.length === 0) return null;
+
+  return (
+    <div className="bg-[#252B3B] rounded-xl p-5 border border-[#374151]">
+      <h3 className="text-sm font-semibold text-[#E8EDF3] mb-4 flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+          <polyline points="4 17 10 11 4 5" />
+          <line x1="12" y1="19" x2="20" y2="19" />
+        </svg>
+        Quick Install
+      </h3>
+      <div className="space-y-3">
+        {installMethods.map((method) => (
+          <div key={method.label}>
+            <p className="text-xs text-[#6B7280] mb-1">{method.label}</p>
+            <div className="flex items-center gap-2">
+              <code className="flex-1 bg-[#1E2330] rounded-lg px-3 py-2 text-sm text-[#C0C8D8] font-mono border border-[#374151] overflow-x-auto">
+                {method.command}
+              </code>
+              <button
+                onClick={() => copyToClipboard(method.command, method.label)}
+                className="shrink-0 px-3 py-2 rounded-lg bg-[#374151] hover:bg-[#4B5563] text-xs text-[#E8EDF3] font-medium transition-colors"
+              >
+                {copied === method.label ? "Copied" : "Copy"}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function getInstallMethods(listing: ExchangeListing & { has_file?: boolean }, url: string) {
+  const methods: { label: string; command: string }[] = [];
+  const platforms = listing.platforms || [];
+
+  if (listing.category === "configs") {
+    if (platforms.includes("claude")) {
+      methods.push({ label: "Copy to CLAUDE.md", command: `# Paste into ~/.claude/CLAUDE.md` });
+    }
+    if (platforms.includes("cursor")) {
+      methods.push({ label: "Copy to .cursorrules", command: `# Paste into .cursorrules in your project root` });
+    }
+    if (platforms.includes("windsurf")) {
+      methods.push({ label: "Copy to .windsurfrules", command: `# Paste into .windsurfrules in your project root` });
+    }
+  }
+
+  if (listing.category === "mcp") {
+    methods.push({ label: "Add to MCP config", command: `# Paste into your MCP client config (claude_desktop_config.json)` });
+  }
+
+  if (listing.content) {
+    methods.push({ label: "Copy content to clipboard", command: listing.content.slice(0, 200) + (listing.content.length > 200 ? "..." : "") });
+  }
+
+  // Always show the share URL
+  if (url) {
+    methods.push({ label: "Share this listing", command: url });
+  }
+
+  return methods;
+}
+
+/* ─── SHARE BUTTON ─── */
+export function ShareButton({ slug }: { slug: string }) {
+  const [copied, setCopied] = useState(false);
+  const url = typeof window !== "undefined" ? `${window.location.origin}/exchange/${slug}` : "";
+
+  function share() {
+    if (navigator.share) {
+      navigator.share({ url, title: "Check out this AI skill" });
+    } else {
+      navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  }
+
+  return (
+    <button
+      onClick={share}
+      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#252B3B] border border-[#374151] hover:border-[#3B82F6]/50 text-sm text-[#8B95A8] hover:text-[#E8EDF3] transition-colors"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <circle cx="18" cy="5" r="3" />
+        <circle cx="6" cy="12" r="3" />
+        <circle cx="18" cy="19" r="3" />
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+      </svg>
+      {copied ? "Link copied" : "Share"}
+    </button>
+  );
+}
+
+/* ─── COPY CONTENT BUTTON ─── */
+export function CopyContentButton({ content }: { content: string }) {
+  const [copied, setCopied] = useState(false);
+
+  function copy() {
+    navigator.clipboard.writeText(content);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
+
+  return (
+    <button
+      onClick={copy}
+      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#252B3B] border border-[#374151] hover:border-[#3B82F6]/50 text-sm text-[#8B95A8] hover:text-[#E8EDF3] transition-colors"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+      </svg>
+      {copied ? "Copied" : "Copy All Content"}
+    </button>
+  );
+}
+
+/* ─── REMIX / FORK BUTTON ─── */
+export function RemixButton({ listing }: { listing: ExchangeListing }) {
+  return (
+    <Link
+      href={`/exchange/submit?remix=${listing.id}&title=${encodeURIComponent("Remix of " + listing.title)}&category=${listing.category}&platforms=${encodeURIComponent(JSON.stringify(listing.platforms))}`}
+      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#8B5CF6]/10 border border-[#8B5CF6]/30 hover:bg-[#8B5CF6]/20 text-sm text-[#8B5CF6] font-medium transition-colors"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <circle cx="12" cy="18" r="3" />
+        <circle cx="6" cy="6" r="3" />
+        <circle cx="18" cy="6" r="3" />
+        <path d="M18 9a9 9 0 0 1-9 9" />
+        <path d="M6 9a9 9 0 0 0 9 9" />
+      </svg>
+      Remix
+    </Link>
+  );
+}
+
+/* ─── TRENDING BADGE ─── */
+export function TrendingBadge() {
+  return (
+    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-[#F59E0B]/15 text-[#F59E0B]">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+        <polyline points="17 6 23 6 23 12" />
+      </svg>
+      Trending
+    </span>
+  );
+}
+
+/* ─── TRENDING SECTION ─── */
+export function TrendingSection({
+  trending,
+  featured,
+}: {
+  trending: ExchangeListing[];
+  featured: ExchangeListing[];
+}) {
+  if (trending.length === 0 && featured.length === 0) return null;
+
+  return (
+    <section className="px-6 pb-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Featured */}
+        {featured.length > 0 && (
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-4">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#3B82F6" stroke="none">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              <h2 className="text-lg font-bold text-[#E8EDF3]">Featured</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {featured.map((listing) => (
+                <div key={listing.id} className="relative">
+                  <div className="absolute -top-2 -right-2 z-10">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-[#3B82F6] text-white shadow-lg">
+                      Featured
+                    </span>
+                  </div>
+                  <ListingCard listing={listing} />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Trending */}
+        {trending.length > 0 && (
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth={2.5}>
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg>
+              <h2 className="text-lg font-bold text-[#E8EDF3]">Trending</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {trending.map((listing) => (
+                <ListingCard key={listing.id} listing={listing} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}

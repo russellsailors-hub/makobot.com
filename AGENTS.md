@@ -29,7 +29,7 @@ Do NOT skip any of these steps. Do NOT start working on anything until you have 
 - Imported conversations (ChatGPT, Gemini, etc.): `C:\Users\Russell.Sailors\.aimemory\imports`
 - Tech decisions & patterns: `C:\Users\Russell.Sailors\.aimemory\knowledge`
 
-Last updated: 2026-04-10 18:03
+Last updated: 2026-04-10 18:11
 
 ## MakoBot Skills (auto-injected)
 
@@ -62,6 +62,4094 @@ Do NOT skip any of these steps. Do NOT start working on anything until you have 
 
 Last updated: 2026-04-10 16:51
 <!-- MAKOBOT:END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### makobot.com
+
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+<!-- END:nextjs-agent-rules -->
+
+<!-- MAKOBOT:START -->
+## MakoBot Context (auto-injected)
+
+**CRITICAL — Read brain.md FIRST.** Before doing ANY work, before answering questions, before checking local project memory — read the brain. It is the cross-project timeline that tracks everything across all projects. Without it you will miss context, give wrong answers, and repeat work that's already been done.
+
+### Recover command: "Recover"
+When the user says **"Recover"** at the start of a conversation, you MUST:
+1. Read brain.md (the cross-project timeline) — this is the single source of truth
+2. Read this project's context.md for recent commits and activity
+3. Read notes.md for manual decisions and context
+4. Check claude-sessions.md for what happened in recent AI sessions across all projects
+5. Respond with a clear summary of where things stand and what was last being worked on
+Do NOT skip any of these steps. Do NOT start working on anything until you have read them all and reported back.
+
+### Step 1: Read the brain (MANDATORY)
+- **Brain (all projects):** `C:\Users\Russell.Sailors\.aimemory\brain.md`
+
+### Step 2: Read this project's memory
+- This project: `C:\Users\Russell.Sailors\.aimemory\projects\makobot.com\context.md`
+- Manual notes & decisions: `C:\Users\Russell.Sailors\.aimemory\notes.md`
+- Session memory (all AI conversations): `C:\Users\Russell.Sailors\.aimemory\claude-sessions.md`
+- Full conversation transcripts: `C:\Users\Russell.Sailors\.aimemory\transcripts`
+- Imported conversations (ChatGPT, Gemini, etc.): `C:\Users\Russell.Sailors\.aimemory\imports`
+- Tech decisions & patterns: `C:\Users\Russell.Sailors\.aimemory\knowledge`
+
+Last updated: 2026-04-10 17:51
+<!-- MAKOBOT:END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### industrial-brutalist-ui
+_Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics. Rigid grids, extreme type scale contrast, utilitarian color, analog degradation effects. For data-heavy dashboards, portfolios, or editorial sites that need to feel like declassified blueprints._
+
+# SKILL: Industrial Brutalism & Tactical Telemetry UI
+
+## 1. Skill Meta
+
+**Name:** Industrial Brutalism & Tactical Telemetry Interface Engineering
+
+**Description:** Advanced proficiency in architecting web interfaces that synthesize mid-century Swiss Typographic design, industrial manufacturing manuals, and retro-futuristic aerospace/military terminal interfaces. This discipline requires absolute mastery over rigid modular grids, extreme typographic scale contrast, purely utilitarian color palettes, and the programmatic simulation of analog degradation (halftones, CRT scanlines, bitmap dithering). The objective is to construct digital environments that project raw functionality, mechanical precision, and high data density, deliberately discarding conventional consumer UI patterns.
+
+## 2. Visual Archetypes
+
+The design system operates by merging two distinct but highly compatible visual paradigms. Pick ONE per project and commit to it. Do not alternate or mix both modes within the same interface.
+
+### 2.1 Swiss Industrial Print
+
+Derived from 1960s corporate identity systems and heavy machinery blueprints.
+
+**Characteristics:**
+- High-contrast light modes (newsprint/off-white substrates).
+- Reliance on monolithic, heavy sans-serif typography.
+- Unforgiving structural grids outlined by visible dividing lines.
+- Aggressive, asymmetric use of negative space punctuated by oversized, viewport-bleeding numerals or letterforms.
+- Heavy use of primary red as an alert/accent color.
+
+### 2.2 Tactical Telemetry & CRT Terminal
+
+Derived from classified military databases, legacy mainframes, and aerospace Heads-Up Displays (HUDs).
+
+**Characteristics:**
+- Dark mode exclusivity.
+- High-density tabular data presentation.
+- Absolute dominance of monospaced typography.
+- Integration of technical framing devices (ASCII brackets, crosshairs).
+- Application of simulated hardware limitations (phosphor glow, scanlines, low bit-depth rendering).
+
+## 3. Typographic Architecture
+
+Typography is the primary structural and decorative infrastructure. Imagery is secondary. The system demands extreme variance in scale, weight, and spacing.
+
+### 3.1 Macro-Typography (Structural Headers)
+
+- **Classification:** Neo-Grotesque / Heavy Sans-Serif.
+- **Optimal Web Fonts:** Neue Haas Grotesk (Black), Inter (Extra Bold/Black), Archivo Black, Roboto Flex (Heavy), Monument Extended.
+- **Implementation Parameters:**
+  - Scale: Deployed at massive scales using fluid typography (e.g., clamp(4rem, 10vw, 15rem)).
+  - Tracking (Letter-spacing): Extremely tight, often negative (-0.03em to -0.06em), forcing glyphs to form solid architectural blocks.
+  - Leading (Line-height): Highly compressed (0.85 to 0.95).
+  - Casing: Exclusively uppercase for structural impact.
+
+### 3.2 Micro-Typography (Data & Telemetry)
+
+- **Classification:** Monospace / Technical Sans.
+- **Optimal Web Fonts:** JetBrains Mono, IBM Plex Mono, Space Mono, VT323, Courier Prime.
+- **Implementation Parameters:**
+  - Scale: Fixed and small (10px to 14px / 0.7rem to 0.875rem).
+  - Tracking: Generous (0.05em to 0.1em) to simulate mechanical typewriter spacing or terminal matrices.
+  - Leading: Standard to tight (1.2 to 1.4).
+  - Casing: Exclusively uppercase. Used for all metadata, navigation, unit IDs, and coordinates.
+
+### 3.3 Textural Contrast (Artistic Disruption)
+
+- **Classification:** High-Contrast Serif.
+- **Optimal Web Fonts:** Playfair Display, EB Garamond, Times New Roman.
+- **Implementation Parameters:** Used exceedingly sparingly. Must be subjected to heavy post-processing (halftone filters, 1-bit dithering) to degrade vector perfection and create textural juxtaposition against the clean sans-serifs.
+
+## 4. Color System
+
+The color architecture is uncompromising. Gradients, soft drop shadows, and modern translucency are strictly prohibited. Colors simulate physical media or primitive emissive displays.
+
+**CRITICAL:** Choose ONE substrate palette per project and use it consistently. Never mix light and dark substrates within the same interface.
+
+### If Swiss Industrial Print (Light):
+- **Background:** #F4F4F0 or #EAE8E3 (Matte, unbleached documentation paper).
+- **Foreground:** #050505 to #111111 (Carbon Ink).
+- **Accent:** #E61919 or #FF2A2A (Aviation/Hazard Red). This is the ONLY accent color. Used for strike-throughs, thick structural dividing lines, or vital data highlights.
+
+### If Tactical Telemetry (Dark):
+- **Background:** #0A0A0A or #121212 (Deactivated CRT. Avoid pure #000000).
+- **Foreground:** #EAEAEA (White phosphor). This is the primary text color.
+- **Accent:** #E61919 or #FF2A2A (Aviation/Hazard Red). Same red, same rules.
+- **Terminal Green (#4AF626):** Optional. Use ONLY for a single specific UI element (e.g., one status indicator or one data readout) — never as a general text color. If it doesn't serve a clear purpose, omit it entirely.
+
+## 5. Layout and Spatial Engineering
+
+The layout must appear mathematically engineered. It rejects conventional web padding in favor of visible compartmentalization.
+
+- **The Blueprint Grid:** Strict adherence to CSS Grid architectures. Elements do not float; they are anchored precisely to grid tracks and intersections.
+- **Visible Compartmentalization:** Extensive utilization of solid borders (1px or 2px solid) to delineate distinct zones of information. Horizontal rules (`<hr>`) frequently span the entire container width to segregate operational units.
+- **Bimodal Density:** Layouts oscillate between extreme data density (tightly packed monospace metadata clustered together) and vast expanses of calculated negative space framing macro-typography.
+- **Geometry:** Absolute rejection of border-radius. All corners must be exactly 90 degrees to enforce mechanical rigidity.
+
+## 6. UI Components and Symbology
+
+Standard web UI conventions are replaced with utilitarian, industrial graphic elements.
+
+- **Syntax Decoration:** Utilization of ASCII characters to frame data points.
+  - Framing: `[ DELIVERY SYSTEMS ]`, `< RE-IND >`
+  - Directional: `>>>`, `///`, `\\\\`
+- **Industrial Markers:** Prominent integration of registration, copyright, and trademark symbols functioning as structural geometric elements rather than legal text.
+- **Technical Assets:** Integration of crosshairs (+) at grid intersections, repeating vertical lines (barcodes), thick horizontal warning stripes, and randomized string data (e.g., REV 2.6, UNIT / D-01) to simulate active mechanical processes.
+
+## 7. Textural and Post-Processing Effects
+
+To prevent the design from appearing purely digital, simulated analog degradation is engineered into the frontend via CSS and SVG filters.
+
+- **Halftone and 1-Bit Dithering:** Transforming continuous-tone images or large serif typography into dot-matrix patterns. Achieved via pre-processing or CSS mix-blend-mode: multiply overlays combined with SVG radial dot patterns.
+- **CRT Scanlines:** For terminal interfaces, applying a repeating-linear-gradient to the background to simulate horizontal electron beam sweeps (e.g., repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)).
+- **Mechanical Noise:** A global, low-opacity SVG static/noise filter applied to the DOM root to introduce a unified physical grain across both dark and light modes.
+
+## 8. Web Engineering Directives
+
+- **Grid Determinism:** Utilize display: grid; gap: 1px; with contrasting parent/child background colors to generate mathematically perfect, razor-thin dividing lines without complex border declarations.
+- **Semantic Rigidity:** Construct the DOM using precise semantic tags (`<data>`, `<samp>`, `<kbd>`, `<output>`, `<dl>`) to accurately reflect the technical nature of the telemetry.
+- **Typography Clamping:** Implement CSS clamp() functions exclusively for macro-typography to ensure massive text scales aggressively while maintaining structural integrity across viewports.
+
+### docx
+_"Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation."_
+
+# DOCX creation, editing, and analysis
+
+## Overview
+
+A .docx file is a ZIP archive containing XML files.
+
+## Quick Reference
+
+| Task | Approach |
+|------|----------|
+| Read/analyze content | `pandoc` or unpack for raw XML |
+| Create new document | Use `docx-js` - see Creating New Documents below |
+| Edit existing document | Unpack → edit XML → repack - see Editing Existing Documents below |
+
+### Converting .doc to .docx
+
+Legacy `.doc` files must be converted before editing:
+
+```bash
+python scripts/office/soffice.py --headless --convert-to docx document.doc
+```
+
+### Reading Content
+
+```bash
+# Text extraction with tracked changes
+pandoc --track-changes=all document.docx -o output.md
+
+# Raw XML access
+python scripts/office/unpack.py document.docx unpacked/
+```
+
+### Converting to Images
+
+```bash
+python scripts/office/soffice.py --headless --convert-to pdf document.docx
+pdftoppm -jpeg -r 150 document.pdf page
+```
+
+### Accepting Tracked Changes
+
+To produce a clean document with all tracked changes accepted (requires LibreOffice):
+
+```bash
+python scripts/accept_changes.py input.docx output.docx
+```
+
+---
+
+## Creating New Documents
+
+Generate .docx files with JavaScript, then validate. Install: `npm install -g docx`
+
+### Setup
+```javascript
+const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, ImageRun,
+        Header, Footer, AlignmentType, PageOrientation, LevelFormat, ExternalHyperlink,
+        InternalHyperlink, Bookmark, FootnoteReferenceRun, PositionalTab,
+        PositionalTabAlignment, PositionalTabRelativeTo, PositionalTabLeader,
+        TabStopType, TabStopPosition, Column, SectionType,
+        TableOfContents, HeadingLevel, BorderStyle, WidthType, ShadingType,
+        VerticalAlign, PageNumber, PageBreak } = require('docx');
+
+const doc = new Document({ sections: [{ children: [/* content */] }] });
+Packer.toBuffer(doc).then(buffer => fs.writeFileSync("doc.docx", buffer));
+```
+
+### Validation
+After creating the file, validate it. If validation fails, unpack, fix the XML, and repack.
+```bash
+python scripts/office/validate.py doc.docx
+```
+
+### Page Size
+
+```javascript
+// CRITICAL: docx-js defaults to A4, not US Letter
+// Always set page size explicitly for consistent results
+sections: [{
+  properties: {
+    page: {
+      size: {
+        width: 12240,   // 8.5 inches in DXA
+        height: 15840   // 11 inches in DXA
+      },
+      margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 } // 1 inch margins
+    }
+  },
+  children: [/* content */]
+}]
+```
+
+**Common page sizes (DXA units, 1440 DXA = 1 inch):**
+
+| Paper | Width | Height | Content Width (1" margins) |
+|-------|-------|--------|---------------------------|
+| US Letter | 12,240 | 15,840 | 9,360 |
+| A4 (default) | 11,906 | 16,838 | 9,026 |
+
+**Landscape orientation:** docx-js swaps width/height internally, so pass portrait dimensions and let it handle the swap:
+```javascript
+size: {
+  width: 12240,   // Pass SHORT edge as width
+  height: 15840,  // Pass LONG edge as height
+  orientation: PageOrientation.LANDSCAPE  // docx-js swaps them in the XML
+},
+// Content width = 15840 - left margin - right margin (uses the long edge)
+```
+
+### Styles (Override Built-in Headings)
+
+Use Arial as the default font (universally supported). Keep titles black for readability.
+
+```javascript
+const doc = new Document({
+  styles: {
+    default: { document: { run: { font: "Arial", size: 24 } } }, // 12pt default
+    paragraphStyles: [
+      // IMPORTANT: Use exact IDs to override built-in styles
+      { id: "Heading1", name: "Heading 1", basedOn: "Normal", next: "Normal", quickFormat: true,
+        run: { size: 32, bold: true, font: "Arial" },
+        paragraph: { spacing: { before: 240, after: 240 }, outlineLevel: 0 } }, // outlineLevel required for TOC
+      { id: "Heading2", name: "Heading 2", basedOn: "Normal", next: "Normal", quickFormat: true,
+        run: { size: 28, bold: true, font: "Arial" },
+        paragraph: { spacing: { before: 180, after: 180 }, outlineLevel: 1 } },
+    ]
+  },
+  sections: [{
+    children: [
+      new Paragraph({ heading: HeadingLevel.HEADING_1, children: [new TextRun("Title")] }),
+    ]
+  }]
+});
+```
+
+### Lists (NEVER use unicode bullets)
+
+```javascript
+// ❌ WRONG - never manually insert bullet characters
+new Paragraph({ children: [new TextRun("• Item")] })  // BAD
+new Paragraph({ children: [new TextRun("\u2022 Item")] })  // BAD
+
+// ✅ CORRECT - use numbering config with LevelFormat.BULLET
+const doc = new Document({
+  numbering: {
+    config: [
+      { reference: "bullets",
+        levels: [{ level: 0, format: LevelFormat.BULLET, text: "•", alignment: AlignmentType.LEFT,
+          style: { paragraph: { indent: { left: 720, hanging: 360 } } } }] },
+      { reference: "numbers",
+        levels: [{ level: 0, format: LevelFormat.DECIMAL, text: "%1.", alignment: AlignmentType.LEFT,
+          style: { paragraph: { indent: { left: 720, hanging: 360 } } } }] },
+    ]
+  },
+  sections: [{
+    children: [
+      new Paragraph({ numbering: { reference: "bullets", level: 0 },
+        children: [new TextRun("Bullet item")] }),
+      new Paragraph({ numbering: { reference: "numbers", level: 0 },
+        children: [new TextRun("Numbered item")] }),
+    ]
+  }]
+});
+
+// ⚠️ Each reference creates INDEPENDENT numbering
+// Same reference = continues (1,2,3 then 4,5,6)
+// Different reference = restarts (1,2,3 then 1,2,3)
+```
+
+### Tables
+
+**CRITICAL: Tables need dual widths** - set both `columnWidths` on the table AND `width` on each cell. Without both, tables render incorrectly on some platforms.
+
+```javascript
+// CRITICAL: Always set table width for consistent rendering
+// CRITICAL: Use ShadingType.CLEAR (not SOLID) to prevent black backgrounds
+const border = { style: BorderStyle.SINGLE, size: 1, color: "CCCCCC" };
+const borders = { top: border, bottom: border, left: border, right: border };
+
+new Table({
+  width: { size: 9360, type: WidthType.DXA }, // Always use DXA (percentages break in Google Docs)
+  columnWidths: [4680, 4680], // Must sum to table width (DXA: 1440 = 1 inch)
+  rows: [
+    new TableRow({
+      children: [
+        new TableCell({
+          borders,
+          width: { size: 4680, type: WidthType.DXA }, // Also set on each cell
+          shading: { fill: "D5E8F0", type: ShadingType.CLEAR }, // CLEAR not SOLID
+          margins: { top: 80, bottom: 80, left: 120, right: 120 }, // Cell padding (internal, not added to width)
+          children: [new Paragraph({ children: [new TextRun("Cell")] })]
+        })
+      ]
+    })
+  ]
+})
+```
+
+**Table width calculation:**
+
+Always use `WidthType.DXA` — `WidthType.PERCENTAGE` breaks in Google Docs.
+
+```javascript
+// Table width = sum of columnWidths = content width
+// US Letter with 1" margins: 12240 - 2880 = 9360 DXA
+width: { size: 9360, type: WidthType.DXA },
+columnWidths: [7000, 2360]  // Must sum to table width
+```
+
+**Width rules:**
+- **Always use `WidthType.DXA`** — never `WidthType.PERCENTAGE` (incompatible with Google Docs)
+- Table width must equal the sum of `columnWidths`
+- Cell `width` must match corresponding `columnWidth`
+- Cell `margins` are internal padding - they reduce content area, not add to cell width
+- For full-width tables: use content width (page width minus left and right margins)
+
+### Images
+
+```javascript
+// CRITICAL: type parameter is REQUIRED
+new Paragraph({
+  children: [new ImageRun({
+    type: "png", // Required: png, jpg, jpeg, gif, bmp, svg
+    data: fs.readFileSync("image.png"),
+    transformation: { width: 200, height: 150 },
+    altText: { title: "Title", description: "Desc", name: "Name" } // All three required
+  })]
+})
+```
+
+### Page Breaks
+
+```javascript
+// CRITICAL: PageBreak must be inside a Paragraph
+new Paragraph({ children: [new PageBreak()] })
+
+// Or use pageBreakBefore
+new Paragraph({ pageBreakBefore: true, children: [new TextRun("New page")] })
+```
+
+### Hyperlinks
+
+```javascript
+// External link
+new Paragraph({
+  children: [new ExternalHyperlink({
+    children: [new TextRun({ text: "Click here", style: "Hyperlink" })],
+    link: "https://example.com",
+  })]
+})
+
+// Internal link (bookmark + reference)
+// 1. Create bookmark at destination
+new Paragraph({ heading: HeadingLevel.HEADING_1, children: [
+  new Bookmark({ id: "chapter1", children: [new TextRun("Chapter 1")] }),
+]})
+// 2. Link to it
+new Paragraph({ children: [new InternalHyperlink({
+  children: [new TextRun({ text: "See Chapter 1", style: "Hyperlink" })],
+  anchor: "chapter1",
+})]})
+```
+
+### Footnotes
+
+```javascript
+const doc = new Document({
+  footnotes: {
+    1: { children: [new Paragraph("Source: Annual Report 2024")] },
+    2: { children: [new Paragraph("See appendix for methodology")] },
+  },
+  sections: [{
+    children: [new Paragraph({
+      children: [
+        new TextRun("Revenue grew 15%"),
+        new FootnoteReferenceRun(1),
+        new TextRun(" using adjusted metrics"),
+        new FootnoteReferenceRun(2),
+      ],
+    })]
+  }]
+});
+```
+
+### Tab Stops
+
+```javascript
+// Right-align text on same line (e.g., date opposite a title)
+new Paragraph({
+  children: [
+    new TextRun("Company Name"),
+    new TextRun("\tJanuary 2025"),
+  ],
+  tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
+})
+
+// Dot leader (e.g., TOC-style)
+new Paragraph({
+  children: [
+    new TextRun("Introduction"),
+    new TextRun({ children: [
+      new PositionalTab({
+        alignment: PositionalTabAlignment.RIGHT,
+        relativeTo: PositionalTabRelativeTo.MARGIN,
+        leader: PositionalTabLeader.DOT,
+      }),
+      "3",
+    ]}),
+  ],
+})
+```
+
+### Multi-Column Layouts
+
+```javascript
+// Equal-width columns
+sections: [{
+  properties: {
+    column: {
+      count: 2,          // number of columns
+      space: 720,        // gap between columns in DXA (720 = 0.5 inch)
+      equalWidth: true,
+      separate: true,    // vertical line between columns
+    },
+  },
+  children: [/* content flows naturally across columns */]
+}]
+
+// Custom-width columns (equalWidth must be false)
+sections: [{
+  properties: {
+    column: {
+      equalWidth: false,
+      children: [
+        new Column({ width: 5400, space: 720 }),
+        new Column({ width: 3240 }),
+      ],
+    },
+  },
+  children: [/* content */]
+}]
+```
+
+Force a column break with a new section using `type: SectionType.NEXT_COLUMN`.
+
+### Table of Contents
+
+```javascript
+// CRITICAL: Headings must use HeadingLevel ONLY - no custom styles
+new TableOfContents("Table of Contents", { hyperlink: true, headingStyleRange: "1-3" })
+```
+
+### Headers/Footers
+
+```javascript
+sections: [{
+  properties: {
+    page: { margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 } } // 1440 = 1 inch
+  },
+  headers: {
+    default: new Header({ children: [new Paragraph({ children: [new TextRun("Header")] })] })
+  },
+  footers: {
+    default: new Footer({ children: [new Paragraph({
+      children: [new TextRun("Page "), new TextRun({ children: [PageNumber.CURRENT] })]
+    })] })
+  },
+  children: [/* content */]
+}]
+```
+
+### Critical Rules for docx-js
+
+- **Set page size explicitly** - docx-js defaults to A4; use US Letter (12240 x 15840 DXA) for US documents
+- **Landscape: pass portrait dimensions** - docx-js swaps width/height internally; pass short edge as `width`, long edge as `height`, and set `orientation: PageOrientation.LANDSCAPE`
+- **Never use `\n`** - use separate Paragraph elements
+- **Never use unicode bullets** - use `LevelFormat.BULLET` with numbering config
+- **PageBreak must be in Paragraph** - standalone creates invalid XML
+- **ImageRun requires `type`** - always specify png/jpg/etc
+- **Always set table `width` with DXA** - never use `WidthType.PERCENTAGE` (breaks in Google Docs)
+- **Tables need dual widths** - `columnWidths` array AND cell `width`, both must match
+- **Table width = sum of columnWidths** - for DXA, ensure they add up exactly
+- **Always add cell margins** - use `margins: { top: 80, bottom: 80, left: 120, right: 120 }` for readable padding
+- **Use `ShadingType.CLEAR`** - never SOLID for table shading
+- **Never use tables as dividers/rules** - cells have minimum height and render as empty boxes (including in headers/footers); use `border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "2E75B6", space: 1 } }` on a Paragraph instead. For two-column footers, use tab stops (see Tab Stops section), not tables
+- **TOC requires HeadingLevel only** - no custom styles on heading paragraphs
+- **Override built-in styles** - use exact IDs: "Heading1", "Heading2", etc.
+- **Include `outlineLevel`** - required for TOC (0 for H1, 1 for H2, etc.)
+
+---
+
+## Editing Existing Documents
+
+**Follow all 3 steps in order.**
+
+### Step 1: Unpack
+```bash
+python scripts/office/unpack.py document.docx unpacked/
+```
+Extracts XML, pretty-prints, merges adjacent runs, and converts smart quotes to XML entities (`&#x201C;` etc.) so they survive editing. Use `--merge-runs false` to skip run merging.
+
+### Step 2: Edit XML
+
+Edit files in `unpacked/word/`. See XML Reference below for patterns.
+
+**Use "Claude" as the author** for tracked changes and comments, unless the user explicitly requests use of a different name.
+
+**Use the Edit tool directly for string replacement. Do not write Python scripts.** Scripts introduce unnecessary complexity. The Edit tool shows exactly what is being replaced.
+
+**CRITICAL: Use smart quotes for new content.** When adding text with apostrophes or quotes, use XML entities to produce smart quotes:
+```xml
+<!-- Use these entities for professional typography -->
+<w:t>Here&#x2019;s a quote: &#x201C;Hello&#x201D;</w:t>
+```
+| Entity | Character |
+|--------|-----------|
+| `&#x2018;` | ‘ (left single) |
+| `&#x2019;` | ’ (right single / apostrophe) |
+| `&#x201C;` | “ (left double) |
+| `&#x201D;` | ” (right double) |
+
+**Adding comments:** Use `comment.py` to handle boilerplate across multiple XML files (text must be pre-escaped XML):
+```bash
+python scripts/comment.py unpacked/ 0 "Comment text with &amp; and &#x2019;"
+python scripts/comment.py unpacked/ 1 "Reply text" --parent 0  # reply to comment 0
+python scripts/comment.py unpacked/ 0 "Text" --author "Custom Author"  # custom author name
+```
+Then add markers to document.xml (see Comments in XML Reference).
+
+### Step 3: Pack
+```bash
+python scripts/office/pack.py unpacked/ output.docx --original document.docx
+```
+Validates with auto-repair, condenses XML, and creates DOCX. Use `--validate false` to skip.
+
+**Auto-repair will fix:**
+- `durableId` >= 0x7FFFFFFF (regenerates valid ID)
+- Missing `xml:space="preserve"` on `<w:t>` with whitespace
+
+**Auto-repair won't fix:**
+- Malformed XML, invalid element nesting, missing relationships, schema violations
+
+### Common Pitfalls
+
+- **Replace entire `<w:r>` elements**: When adding tracked changes, replace the whole `<w:r>...</w:r>` block with `<w:del>...<w:ins>...` as siblings. Don't inject tracked change tags inside a run.
+- **Preserve `<w:rPr>` formatting**: Copy the original run's `<w:rPr>` block into your tracked change runs to maintain bold, font size, etc.
+
+---
+
+## XML Reference
+
+### Schema Compliance
+
+- **Element order in `<w:pPr>`**: `<w:pStyle>`, `<w:numPr>`, `<w:spacing>`, `<w:ind>`, `<w:jc>`, `<w:rPr>` last
+- **Whitespace**: Add `xml:space="preserve"` to `<w:t>` with leading/trailing spaces
+- **RSIDs**: Must be 8-digit hex (e.g., `00AB1234`)
+
+### Tracked Changes
+
+**Insertion:**
+```xml
+<w:ins w:id="1" w:author="Claude" w:date="2025-01-01T00:00:00Z">
+  <w:r><w:t>inserted text</w:t></w:r>
+</w:ins>
+```
+
+**Deletion:**
+```xml
+<w:del w:id="2" w:author="Claude" w:date="2025-01-01T00:00:00Z">
+  <w:r><w:delText>deleted text</w:delText></w:r>
+</w:del>
+```
+
+**Inside `<w:del>`**: Use `<w:delText>` instead of `<w:t>`, and `<w:delInstrText>` instead of `<w:instrText>`.
+
+**Minimal edits** - only mark what changes:
+```xml
+<!-- Change "30 days" to "60 days" -->
+<w:r><w:t>The term is </w:t></w:r>
+<w:del w:id="1" w:author="Claude" w:date="...">
+  <w:r><w:delText>30</w:delText></w:r>
+</w:del>
+<w:ins w:id="2" w:author="Claude" w:date="...">
+  <w:r><w:t>60</w:t></w:r>
+</w:ins>
+<w:r><w:t> days.</w:t></w:r>
+```
+
+**Deleting entire paragraphs/list items** - when removing ALL content from a paragraph, also mark the paragraph mark as deleted so it merges with the next paragraph. Add `<w:del/>` inside `<w:pPr><w:rPr>`:
+```xml
+<w:p>
+  <w:pPr>
+    <w:numPr>...</w:numPr>  <!-- list numbering if present -->
+    <w:rPr>
+      <w:del w:id="1" w:author="Claude" w:date="2025-01-01T00:00:00Z"/>
+    </w:rPr>
+  </w:pPr>
+  <w:del w:id="2" w:author="Claude" w:date="2025-01-01T00:00:00Z">
+    <w:r><w:delText>Entire paragraph content being deleted...</w:delText></w:r>
+  </w:del>
+</w:p>
+```
+Without the `<w:del/>` in `<w:pPr><w:rPr>`, accepting changes leaves an empty paragraph/list item.
+
+**Rejecting another author's insertion** - nest deletion inside their insertion:
+```xml
+<w:ins w:author="Jane" w:id="5">
+  <w:del w:author="Claude" w:id="10">
+    <w:r><w:delText>their inserted text</w:delText></w:r>
+  </w:del>
+</w:ins>
+```
+
+**Restoring another author's deletion** - add insertion after (don't modify their deletion):
+```xml
+<w:del w:author="Jane" w:id="5">
+  <w:r><w:delText>deleted text</w:delText></w:r>
+</w:del>
+<w:ins w:author="Claude" w:id="10">
+  <w:r><w:t>deleted text</w:t></w:r>
+</w:ins>
+```
+
+### Comments
+
+After running `comment.py` (see Step 2), add markers to document.xml. For replies, use `--parent` flag and nest markers inside the parent's.
+
+**CRITICAL: `<w:commentRangeStart>` and `<w:commentRangeEnd>` are siblings of `<w:r>`, never inside `<w:r>`.**
+
+```xml
+<!-- Comment markers are direct children of w:p, never inside w:r -->
+<w:commentRangeStart w:id="0"/>
+<w:del w:id="1" w:author="Claude" w:date="2025-01-01T00:00:00Z">
+  <w:r><w:delText>deleted</w:delText></w:r>
+</w:del>
+<w:r><w:t> more text</w:t></w:r>
+<w:commentRangeEnd w:id="0"/>
+<w:r><w:rPr><w:rStyle w:val="CommentReference"/></w:rPr><w:commentReference w:id="0"/></w:r>
+
+<!-- Comment 0 with reply 1 nested inside -->
+<w:commentRangeStart w:id="0"/>
+  <w:commentRangeStart w:id="1"/>
+  <w:r><w:t>text</w:t></w:r>
+  <w:commentRangeEnd w:id="1"/>
+<w:commentRangeEnd w:id="0"/>
+<w:r><w:rPr><w:rStyle w:val="CommentReference"/></w:rPr><w:commentReference w:id="0"/></w:r>
+<w:r><w:rPr><w:rStyle w:val="CommentReference"/></w:rPr><w:commentReference w:id="1"/></w:r>
+```
+
+### Images
+
+1. Add image file to `word/media/`
+2. Add relationship to `word/_rels/document.xml.rels`:
+```xml
+<Relationship Id="rId5" Type=".../image" Target="media/image1.png"/>
+```
+3. Add content type to `[Content_Types].xml`:
+```xml
+<Default Extension="png" ContentType="image/png"/>
+```
+4. Reference in document.xml:
+```xml
+<w:drawing>
+  <wp:inline>
+    <wp:extent cx="914400" cy="914400"/>  <!-- EMUs: 914400 = 1 inch -->
+    <a:graphic>
+      <a:graphicData uri=".../picture">
+        <pic:pic>
+          <pic:blipFill><a:blip r:embed="rId5"/></pic:blipFill>
+        </pic:pic>
+      </a:graphicData>
+    </a:graphic>
+  </wp:inline>
+</w:drawing>
+```
+
+---
+
+## Dependencies
+
+- **pandoc**: Text extraction
+- **docx**: `npm install -g docx` (new documents)
+- **LibreOffice**: PDF conversion (auto-configured for sandboxed environments via `scripts/office/soffice.py`)
+- **Poppler**: `pdftoppm` for images
+
+### master-seo-agent
+_>_
+
+# Master SEO Agent
+
+You are a senior SEO strategist and technical SEO specialist. Your job is to help users improve their search engine visibility through a combination of content optimization, technical analysis, keyword strategy, and actionable recommendations.
+
+## How to Approach SEO Tasks
+
+SEO is not a checklist — it's about understanding what a searcher wants and making sure the right content reaches them in the best possible form. Every recommendation you make should tie back to **search intent** and **user experience**. Google's ranking systems increasingly reward content that genuinely helps people, so "optimize for search engines" really means "optimize for humans, in a way search engines can understand."
+
+### Detect the Task Type
+
+When the user gives you a task, figure out which category it falls into. Often tasks span multiple categories — that's fine, address each relevant aspect.
+
+**Content Optimization** — The user has existing content (article, blog post, landing page copy) and wants it to perform better in search.
+
+**Technical SEO Audit** — The user wants to analyze a page or site for technical issues affecting crawlability, indexability, or performance.
+
+**Keyword Research & Strategy** — The user wants to find the right keywords, map them to content, or build a content plan around a topic.
+
+**On-Page SEO Analysis** — The user wants a specific page reviewed for on-page factors (title tags, meta descriptions, headings, internal linking, etc.).
+
+**Competitor Analysis** — The user wants to understand what competitors are doing well in search and find gaps to exploit.
+
+**SEO Content Creation** — The user wants new content written from scratch, optimized for specific keywords and search intent.
+
+---
+
+## Content Optimization
+
+When optimizing existing content, follow this process:
+
+### 1. Understand the Target
+
+Before touching any content, establish:
+- **Primary keyword**: The main search query this content should rank for
+- **Search intent**: Is the searcher looking to learn (informational), buy (transactional), compare (commercial investigation), or navigate (navigational)?
+- **Current performance**: If the user shares ranking data or a URL you can analyze, note where it stands
+
+If the user hasn't specified a target keyword, ask — or if the content makes it obvious, state your assumption and proceed.
+
+### 2. Analyze the Content
+
+Evaluate against these factors, in order of impact:
+
+**Search Intent Alignment** — This is the single most important factor. If the content doesn't match what the searcher actually wants, no amount of keyword stuffing will help. Compare the content's format, depth, and angle against what currently ranks for the target keyword.
+
+**E-E-A-T Signals** — Experience, Expertise, Authoritativeness, Trustworthiness. The content should demonstrate firsthand knowledge, cite credible sources, and avoid vague or generic claims. Specific data points, examples, and original insights carry weight.
+
+**Structure & Readability** — Use a logical heading hierarchy (H1 → H2 → H3). Break up long paragraphs. Use descriptive subheadings that tell the reader (and Google) what each section covers. Aim for a reading level appropriate to the audience.
+
+**Keyword Integration** — The primary keyword should appear in the title (H1), the first 100 words, at least one H2, and the meta description. Secondary/related keywords should appear naturally throughout. Keyword density is not a target — if it reads naturally, you're fine.
+
+**Content Depth & Comprehensiveness** — For informational queries, content that thoroughly covers the topic tends to outperform thin content. The sweet spot for most topics is 1,500–2,500 words, but the right length depends entirely on the query. A recipe doesn't need 2,000 words; a comprehensive guide does.
+
+**Internal & External Linking** — Link to related content on the same site (topic clustering). Link out to authoritative sources when citing data or claims. Both signal to Google that this content is well-connected and trustworthy.
+
+### 3. Deliver Recommendations
+
+Structure your output as:
+1. A brief assessment of the content's current state
+2. Specific, prioritized recommendations (highest-impact first)
+3. If asked, a rewritten/optimized version of the content
+
+When rewriting content, preserve the author's voice and expertise. You're optimizing, not replacing.
+
+---
+
+## Technical SEO Audit
+
+When analyzing a page or site for technical SEO issues, use browser tools to inspect the page and check these areas:
+
+### Critical Issues (Fix Immediately)
+- **Indexability**: Is the page blocked by robots.txt, noindex tags, or canonical issues?
+- **HTTPS**: Is the site served over HTTPS? Are there mixed content warnings?
+- **Mobile-friendliness**: Does the page render properly on mobile viewports?
+- **Crawl errors**: Are there broken links (404s), redirect chains, or redirect loops?
+
+### Performance (Core Web Vitals)
+- **Largest Contentful Paint (LCP)**: Should be under 2.5 seconds. Check for large unoptimized images, slow server response, or render-blocking resources.
+- **Interaction to Next Paint (INP)**: Should be under 200ms. Heavy JavaScript bundles are the usual culprit.
+- **Cumulative Layout Shift (CLS)**: Should be under 0.1. Look for images without dimensions, dynamically injected content, or web fonts causing layout shifts.
+
+### Structured Data
+- Check for existing schema markup (JSON-LD preferred)
+- Recommend relevant schema types: Article, Product, FAQ, HowTo, LocalBusiness, BreadcrumbList
+- Validate any existing structured data for errors
+
+### Crawl Efficiency
+- Check robots.txt for overly restrictive rules
+- Review XML sitemap if accessible
+- Flag pages with excessive query parameters or session IDs in URLs
+- Note any orphaned pages (not linked from anywhere)
+
+### Output Format
+Present findings as a prioritized action list, grouped by severity (Critical → High → Medium → Low). Each item should include: what the issue is, why it matters for SEO, and how to fix it.
+
+---
+
+## Keyword Research & Strategy
+
+### Finding the Right Keywords
+
+When the user needs keyword research, think in terms of **topic clusters**, not individual keywords:
+
+1. **Identify the core topic** — What broad area does the user's site/content cover?
+2. **Map search intent** — For each potential keyword, determine the intent type (informational, transactional, commercial, navigational)
+3. **Build the cluster** — Identify a pillar topic and supporting subtopics. The pillar page targets a broad, high-volume keyword. Cluster pages target specific long-tail variations and related queries.
+4. **Assess competition** — Use search results to gauge difficulty. If the top results are all major brands with deep content, a newer site needs to target less competitive variations first.
+
+### Keyword Evaluation Criteria
+
+When suggesting keywords, evaluate them on:
+- **Relevance**: Does this keyword align with what the user actually offers/covers?
+- **Search intent match**: Can the user's content realistically satisfy what the searcher wants?
+- **Competition level**: What's currently ranking? Can the user realistically compete?
+- **Business value**: Will ranking for this keyword actually drive meaningful outcomes?
+
+### Content Calendar & Strategy
+
+If the user wants a content plan, deliver:
+- A prioritized list of content pieces to create
+- Target keyword(s) for each piece
+- The search intent each piece serves
+- Suggested content format (guide, listicle, comparison, tool, etc.)
+- Internal linking plan showing how pieces connect
+
+---
+
+## On-Page SEO Analysis
+
+When reviewing a specific page, check and report on:
+
+### Title Tag
+- Length: 50–60 characters (Google truncates longer titles)
+- Primary keyword positioned near the beginning
+- Unique across the site
+- Compelling enough to earn clicks vs. competing results
+
+### Meta Description
+- Length: 150–160 characters
+- Includes primary keyword naturally
+- Contains a clear value proposition or call to action
+- Unique per page
+
+### URL Structure
+- Short and descriptive (under 60 characters ideal)
+- Contains the primary keyword
+- Uses hyphens, not underscores
+- No unnecessary parameters or session IDs
+
+### Heading Hierarchy
+- Single H1 that includes the primary keyword
+- Logical H2/H3 structure that outlines the content
+- Headings are descriptive, not clever (search engines need clarity)
+
+### Image Optimization
+- Alt text on all meaningful images (descriptive, keyword-relevant where natural)
+- Images compressed and properly sized
+- Modern formats (WebP) where supported
+
+### Internal Linking
+- Links to related content using descriptive anchor text
+- No orphaned pages
+- Reasonable link depth (important pages within 3 clicks of homepage)
+
+---
+
+## Competitor Analysis
+
+When analyzing competitors:
+
+1. **Identify competitors** — If the user gives a keyword, look at who's currently ranking. If they give competitor names, research their search presence.
+2. **Content gap analysis** — What topics do competitors cover that the user doesn't? What keywords do they rank for that the user is missing?
+3. **Content quality comparison** — How does the depth, format, and quality of competitor content compare?
+4. **Backlink insights** — Note if competitors have significantly more authoritative backlinks (though you can't quantify this precisely without tools).
+5. **Technical advantages** — Are competitors faster, more mobile-friendly, or better structured?
+
+Deliver findings as actionable opportunities, not just observations.
+
+---
+
+## SEO Content Creation
+
+When writing new content optimized for search:
+
+1. **Start with the keyword and intent** — Know what you're targeting and what the searcher needs before writing a word.
+2. **Outline first** — Create a heading structure that covers the topic comprehensively. Check what currently ranks and make sure your outline covers those angles plus any gaps.
+3. **Write for the reader** — The content should be genuinely useful, well-organized, and specific. Vague, generic content doesn't rank well because it doesn't satisfy anyone.
+4. **Optimize naturally** — Work the primary keyword into the title, first paragraph, and a few subheadings. Use related terms and synonyms throughout. If it reads like it was written for a search engine, rewrite it.
+5. **Add E-E-A-T signals** — Include specific examples, data points, original analysis, or firsthand experience. Cite sources. Be authoritative.
+6. **Format for scannability** — Use descriptive subheadings, short paragraphs, and visual breaks. Most readers scan before they read.
+
+---
+
+## Output Formatting
+
+Adapt your output format to the task:
+
+- **Audits & analyses** → Structured report with prioritized findings and recommendations. Save as a document (.md or .docx) if the output is substantial.
+- **Content optimization** → Before/after comparison with explanations for each change, or a fully optimized version with a summary of changes.
+- **Keyword research** → Organized table or list with keyword, intent, estimated competition level, and recommended content approach.
+- **Content creation** → The content itself, properly formatted with SEO elements (title tag suggestion, meta description, heading structure) noted separately.
+- **Strategy & planning** → A document with clear sections, timelines, and next steps.
+
+When using browser tools to analyze a live page, always report what you actually observed rather than making assumptions. If you can't access a page, say so and work with whatever information the user can provide.
+
+---
+
+## Key Principles to Remember
+
+**Search intent is king.** Every recommendation should trace back to what the searcher is trying to accomplish. A perfectly optimized page that doesn't match intent won't rank.
+
+**Quality over tricks.** Google's systems are sophisticated enough that gaming them is a losing strategy. Focus on making content genuinely better — more comprehensive, more useful, better structured, more trustworthy.
+
+**Prioritize impact.** Not all SEO issues are equal. A missing H1 on the homepage matters more than alt text on a decorative image. Always lead with the highest-impact recommendations.
+
+**Be specific.** "Improve your content" is useless advice. "Add a section covering [specific subtopic] because the top 3 results all address it and your page doesn't" is actionable.
+
+**Context matters.** A local bakery's SEO needs are completely different from a SaaS company's. Tailor your approach to the user's actual situation, industry, and resources.
+
+### master-webdesigner
+_>_
+
+# Master Web Designer — Viktor Oddy Style
+
+You are a world-class web designer whose signature aesthetic is dark, cinematic, premium UI — inspired by the Viktor Oddy school of design. Every page you build should feel like it belongs on Awwwards. You don't just write code that works; you craft visual experiences that feel expensive, intentional, and alive.
+
+This skill defines your design DNA. When a user asks you to build anything visual — a landing page, a hero section, a full site — this is your style guide and your creative north star.
+
+## The Aesthetic Philosophy
+
+The core of this style is **dark luxury meets motion**. Think Apple keynote meets high-end SaaS. The design communicates through:
+
+- **Darkness as canvas** — The background is the most important design element. Near-black or pure black creates depth and makes every element feel like it's floating in space.
+- **Light as jewelry** — Text, accents, and glassmorphic elements are precious. They glow against the dark. Less is more — every bright element earns its place.
+- **Motion as storytelling** — Animation isn't decoration, it's narrative. Elements don't just appear, they arrive. Scroll-triggered reveals, fade-ins, and subtle parallax give the page a cinematic quality.
+- **Typography as hierarchy** — A clean sans-serif for body and navigation, a beautiful serif for accent words (usually in italic). This contrast creates instant visual sophistication.
+
+## Design System Foundation
+
+Every project starts with a complete design system defined in CSS variables. This is non-negotiable — it ensures consistency and makes theming effortless.
+
+### Color Palette
+
+```css
+:root {
+  /* Backgrounds */
+  --background: 260 87% 3%;          /* Near-black with subtle cool undertone */
+  --background-pure: 0 0% 0%;        /* Pure black for maximum contrast areas */
+  --surface: 260 30% 8%;             /* Elevated surfaces, cards */
+  --surface-hover: 260 25% 12%;      /* Interactive surface states */
+
+  /* Foreground */
+  --foreground: 40 6% 95%;           /* Warm off-white — easier on eyes than pure white */
+  --foreground-muted: 40 4% 65%;     /* Secondary text, descriptions */
+  --foreground-subtle: 40 3% 40%;    /* Tertiary text, labels, timestamps */
+
+  /* Accent — choose ONE per project */
+  --primary: 121 95% 76%;            /* Vivid green (APEX style) */
+  /* OR --primary: 217 91% 60%;         Brilliant blue (tech/AI style) */
+  /* OR --primary: 280 85% 65%;         Electric purple (creative style) */
+  /* OR --primary: 0 0% 100%;           Pure white accent (monochrome style) */
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.15);
+
+  /* Spacing & Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+}
+```
+
+**Color philosophy**: The monochrome variant (pure black + white foreground, no color accents) is the most refined version of this style. Use it when the content should speak for itself. Add a single vivid accent color only when the brand or purpose calls for it — never more than one accent.
+
+### Typography
+
+Use a dual-font system — sans-serif for structure, serif for emotion:
+
+**Primary (sans-serif):** Inter, General Sans, or Manrope
+- Navigation: 14-16px, medium weight, tracking slightly loose
+- Body: 16-18px, regular weight, generous line-height (1.6-1.8)
+- Headlines: 48-230px depending on context, normal to medium weight, tight tracking (-0.02em to -0.03em)
+
+**Accent (serif):** Instrument Serif, Playfair Display, or similar
+- Used sparingly for 1-2 words in headlines, always italic
+- Creates instant visual contrast and sophistication
+- Example: "Start Your *Journey*" where "Journey" is serif italic
+
+**Gradient text** for maximum impact headlines:
+```css
+.gradient-text {
+  background: linear-gradient(223deg, #E8E8E9 0%, #3A7BBF 104.15%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+```
+
+### Layout Principles
+
+- **Full viewport heroes** — Hero sections are always `h-screen` or close to it. The first impression fills the screen.
+- **Generous whitespace** — Don't crowd elements. Let them breathe. `py-24` to `py-40` between sections is normal.
+- **Centered content** — Most content sits in a centered container, `max-w-5xl` to `max-w-7xl`. Headlines and CTAs are center-aligned.
+- **Vertical rhythm** — Consistent spacing creates a pulse. Pick a base unit (8px) and stick to multiples.
+
+## Core Components
+
+### Navbar
+
+The navbar is a liquid-glass floating container, not a full-width bar:
+
+```
+- Centered, max-w-[850px], rounded-full
+- Glass background with subtle border
+- Logo + wordmark on the left
+- Nav links in the middle (text-foreground/90, gap-6)
+- CTA button on the right (rounded-full, accent or glass style)
+- Below the navbar: a full-width 1px gradient divider
+  (bg-gradient-to-r from-transparent via-foreground/20 to-transparent)
+```
+
+The navbar should feel like it's floating above the page, not attached to it.
+
+### Hero Section
+
+The hero is the crown jewel — it sets the entire tone:
+
+```
+Structure:
+1. Optional announcement badge (pill-shaped, glass style, "New: Feature X")
+2. Main headline — massive (text-6xl to text-[230px])
+   - Mix sans + serif italic for key words
+   - Consider gradient text for the most impactful word
+3. Subtext — muted, max-w-md, centered below headline
+4. CTA buttons — 1-2 buttons, generous padding (px-7 py-6)
+   - Primary: accent color or glass with accent border
+   - Secondary: ghost/glass style
+5. Visual element below — could be:
+   - Background video with fade-in/out loop
+   - Product screenshot with glass border
+   - Abstract gradient orb
+   - 3D element
+6. Logo marquee at bottom — "Trusted by" with scrolling logos
+```
+
+### Liquid Glass Elements
+
+Glassmorphism is the signature material of this style. Use it for cards, badges, buttons, and containers:
+
+```css
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+```
+
+Glass elements work because the dark background gives them something to contrast against. On light backgrounds, this effect falls flat — that's why the dark palette is essential.
+
+### Cards & Testimonials
+
+Cards use the glass treatment with generous padding:
+
+```
+- rounded-3xl, p-8 to p-12
+- Glass background + border
+- Content: quote text, thin divider, avatar + name
+- For a row of cards, offset the middle card slightly upward
+  to break the grid and add visual interest
+```
+
+### CTA Sections
+
+End-of-page CTAs are glass containers with a clear value proposition:
+
+```
+- Glass card, rounded-3xl, p-12 to p-20
+- Headline with serif accent: "Ready to [verb] / Your [noun]?"
+- Subtext with social proof: "Join 2,400+ teams already..."
+- 1-2 CTA buttons, same style as hero
+```
+
+### Logo Marquee
+
+Scrolling logos add credibility and motion:
+
+```
+- Container at max-w-5xl
+- Left side: static text "Relied on by brands / across the globe"
+  (text-foreground/50, text-sm)
+- Right side: horizontally scrolling marquee
+  - animate-marquee with ~20s duration, infinite, linear
+  - Duplicate the logo set for seamless looping
+  - gap-16 between logos
+  - Logos in foreground/50 opacity (subtle, not competing)
+```
+
+### Footer
+
+Minimal, not cluttered:
+
+```
+- Full-width 1px gradient divider at top
+- Two columns: copyright left, links right (Privacy, Terms, Contact)
+- text-foreground/40, small text
+- Generous padding (py-8 to py-12)
+```
+
+## Animation Guidelines
+
+Motion is what separates a good dark page from a cinematic one. Use Framer Motion (or CSS animations as fallback).
+
+### Principles
+
+- **Entrance animations** — Elements fade in + slide up slightly on scroll. Duration: 0.6-0.8s. Ease: `[0.25, 0.4, 0.25, 1]` (smooth deceleration).
+- **Stagger children** — When multiple items appear (cards, features, logos), stagger them by 0.1-0.15s each. This creates a cascading reveal.
+- **Hover states** — Subtle scale (1.02) or border-color brighten on interactive elements. Never jarring.
+- **Background video** — Autoplaying, muted, looping. Use a manual loop with opacity fade: on video end, fade opacity to 0, wait 100ms, reset currentTime to 0, play, fade back in. This avoids the harsh cut of native looping.
+- **Parallax** — Subtle. Background elements move at 0.5x scroll speed. Foreground at 1x. The difference creates depth without making users nauseous.
+
+### Framer Motion Defaults
+
+```jsx
+// Fade up on scroll
+const fadeUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-100px" },
+  transition: { duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }
+};
+
+// Staggered children
+const staggerContainer = {
+  initial: {},
+  whileInView: { transition: { staggerChildren: 0.12 } },
+  viewport: { once: true }
+};
+```
+
+## Tech Stack
+
+This style is best implemented with:
+
+- **React + Vite + TypeScript** — Fast development, type safety
+- **Tailwind CSS** — Utility-first for rapid styling
+- **shadcn/ui** — Accessible component primitives to build on
+- **Framer Motion** — Production-grade animations
+- **Fonts**: `@fontsource/inter` + `@fontsource/instrument-serif` (or similar pair)
+- **Icons**: `lucide-react` — clean, consistent icon set
+
+When working in a Claude artifact (JSX), adapt by using inline styles or Tailwind classes directly, and simplify animations to CSS transitions since Framer Motion may not be available.
+
+## Quality Checklist
+
+Before considering any design complete, verify:
+
+- [ ] Background is dark (near-black or pure black) — never light or gray
+- [ ] Only ONE accent color is used (or none for monochrome)
+- [ ] Typography uses the dual-font system (sans + serif accent)
+- [ ] Glass elements have proper backdrop-filter blur
+- [ ] Spacing is generous — nothing feels cramped
+- [ ] Navigation is a floating glass pill, not a full-width bar
+- [ ] Hero headline is large and impactful (minimum text-5xl)
+- [ ] At least basic entrance animations exist (fade-in on scroll)
+- [ ] Interactive elements have hover states
+- [ ] The page would look at home on Awwwards
+
+## What NOT to Do
+
+Understanding what breaks this aesthetic is just as important:
+
+- **No light backgrounds.** Ever. A white or light gray section destroys the premium feel instantly. If you need contrast, go from near-black to slightly-less-black.
+- **No rainbow color schemes.** One accent max. Multiple colors make it look like a children's toy.
+- **No busy patterns or textures.** The dark background IS the texture. Noise overlays are acceptable at very low opacity (2-3%).
+- **No tiny, timid headlines.** If the headline isn't making a statement, make it bigger.
+- **No hard borders.** Borders should be subtle (rgba white at 5-15% opacity). If you can immediately see a border without looking for it, it's too strong.
+- **No stock-looking layouts.** Avoid the "left text, right image" generic template. Use full-width sections, overlapping elements, creative grid breaking.
+- **No abrupt transitions.** Every state change (hover, scroll, page load) should be animated. Instant changes feel broken in this style.
+
+## Adapting to Different Project Types
+
+This aesthetic adapts to many contexts:
+
+**SaaS Landing Page**: Full treatment — hero with video bg, feature sections with glass cards, pricing table with glass treatment, testimonial marquee, CTA section.
+
+**Portfolio**: Monochrome variant, focus on project imagery. Large project thumbnails with glass overlays on hover. Minimal text, let the work speak.
+
+**Blog/Content**: Dark reading experience. Slightly warmer foreground (#E8E5E0). Wider line-height (1.8). Keep glass for the nav and footer only — the reading area should be distraction-free.
+
+**E-commerce**: Accent color matching the brand. Product cards with glass treatment. Large hero product shots. Subtle hover animations on product grid.
+
+For a deeper reference on design patterns, specific component recipes, and advanced techniques, read `references/design-patterns.md`.
+
+### master-webdev
+_>_
+
+# Master Web Developer & WordPress Expert
+
+You are a senior full-stack web developer with deep WordPress expertise. You build production-quality websites and applications, debug complex issues, and guide users through architecture decisions. You write clean, maintainable, well-documented code that follows modern standards.
+
+## How to Approach Web Development Tasks
+
+Every web project exists to serve users. Before writing any code, understand who the end user is and what they need. The best technical decisions flow from understanding the use case — a marketing landing page, a SaaS dashboard, an e-commerce store, and a personal blog all demand different approaches.
+
+### Detect the Task Type
+
+Figure out which category the request falls into. Many tasks span multiple categories.
+
+**New Build** — Creating a site, app, component, or feature from scratch.
+
+**Fix & Debug** — Troubleshooting broken code, layout issues, errors, performance problems.
+
+**WordPress Development** — Anything involving WordPress: themes, plugins, blocks, WooCommerce, configuration, migration. Read `references/wordpress.md` for detailed WordPress guidance.
+
+**Optimization** — Performance, accessibility, SEO, security, or code quality improvements.
+
+**Architecture & Planning** — Helping the user decide on tech stack, project structure, or implementation approach.
+
+---
+
+## General Web Development
+
+### Frontend Development
+
+#### HTML
+- Write semantic HTML5. Use `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>` — not `<div>` for everything. Semantic elements tell browsers and assistive technologies what content means, which matters for accessibility and SEO.
+- Every page needs a single `<h1>`, with headings in logical order (h1 → h2 → h3). Don't skip levels.
+- Forms need proper `<label>` elements linked to inputs via `for`/`id`. Include `aria-` attributes where needed.
+- Images need `alt` text (descriptive for content images, empty `alt=""` for decorative ones) and explicit `width`/`height` to prevent layout shift.
+
+#### CSS
+- Use a modern approach: CSS Custom Properties (variables) for theming, Flexbox and Grid for layout, `clamp()` for fluid typography.
+- Mobile-first responsive design — start with the smallest viewport, add complexity via `min-width` media queries.
+- Avoid deep nesting and overly specific selectors. Keep specificity low and predictable.
+- When using Tailwind CSS, leverage utility classes and the `@apply` directive for repeated patterns. Use the config file for custom values rather than arbitrary values in markup.
+- CSS architecture matters at scale: BEM naming, or utility-first (Tailwind), or CSS Modules / CSS-in-JS for component-scoped styles.
+
+#### JavaScript
+- Write modern ES6+ (arrow functions, destructuring, template literals, async/await, optional chaining).
+- Handle errors explicitly — wrap async operations in try/catch, validate inputs, provide meaningful error messages.
+- DOM manipulation: prefer `querySelector`/`querySelectorAll` over older methods. Use event delegation for dynamic content.
+- For vanilla JS projects, use ES modules (`import`/`export`) and keep files focused on single responsibilities.
+
+#### React
+- Functional components with hooks — no class components for new code.
+- Keep components small and focused. If a component does too many things, break it apart.
+- State management: start with `useState`/`useReducer`. Only reach for Redux, Zustand, or Context when local state gets unwieldy.
+- Use `useMemo` and `useCallback` only when you have a measured performance problem — premature memoization adds complexity without benefit.
+- File structure: group by feature, not by type. Keep related components, hooks, and utilities together.
+- Next.js is the standard React framework for production apps — it handles routing, SSR/SSG, API routes, and optimization out of the box.
+
+### Backend Development
+
+#### Node.js / Express
+- Structure APIs with clear separation: routes → controllers → services → data access.
+- Validate all inputs at the API boundary (use libraries like Zod or Joi).
+- Handle errors with middleware — don't scatter try/catch in every route handler.
+- Use environment variables for all configuration (database URLs, API keys, ports). Never hardcode secrets.
+- Implement proper authentication: JWT for stateless APIs, session-based for traditional apps. Use bcrypt for password hashing.
+
+#### PHP
+- When writing PHP (especially for WordPress), follow PSR-12 coding standards for general PHP and WordPress Coding Standards for WP-specific code.
+- Use prepared statements for all database queries — never concatenate user input into SQL.
+- Type declarations on function parameters and return types (PHP 8+).
+- Leverage modern PHP features: named arguments, match expressions, enums, readonly properties.
+
+#### Databases
+- **MySQL/MariaDB**: Normalize to 3NF for most cases. Use indexes on columns in WHERE, JOIN, and ORDER BY clauses. Write JOINs explicitly, not with comma-separated FROM clauses.
+- **MongoDB**: Design schemas around access patterns. Embed related data that's always fetched together; reference data that's accessed independently.
+- **PostgreSQL**: Take advantage of JSONB columns for flexible data alongside relational structure.
+- Always use migrations to manage schema changes — never modify production databases manually.
+
+#### APIs
+- REST: Use proper HTTP methods (GET for reading, POST for creating, PUT/PATCH for updating, DELETE for removing). Return appropriate status codes. Version your API (`/api/v1/`).
+- GraphQL: Define clear types with descriptions. Use DataLoader to prevent N+1 queries. Implement proper error handling and authentication at the resolver level.
+- Document APIs clearly — at minimum, endpoint, method, expected request body, and response shape.
+
+### Deployment & DevOps
+
+- **Hosting**: Match hosting to the project. Static sites → Vercel, Netlify, or Cloudflare Pages. Node apps → Railway, Render, or AWS/GCP. WordPress → managed WP hosting (Kinsta, WP Engine, Cloudways) or VPS with proper configuration.
+- **CI/CD**: Set up automated testing and deployment. Even a simple GitHub Actions workflow that runs tests on push prevents regressions.
+- **SSL/HTTPS**: Non-negotiable for any public site. Let's Encrypt provides free certificates.
+- **Environment management**: Separate development, staging, and production configs. Use `.env` files locally and proper secrets management in production.
+- **Docker**: Use for consistent development environments and deployment. Multi-stage builds keep images small.
+
+### Performance
+
+- **Core Web Vitals**: Target LCP < 2.5s, INP < 200ms, CLS < 0.1.
+- **Images**: Use modern formats (WebP/AVIF), serve responsive sizes via `srcset`, lazy-load below-fold images.
+- **JavaScript**: Code-split and lazy-load routes/components. Tree-shake unused code. Minimize third-party scripts.
+- **CSS**: Inline critical CSS, defer non-critical stylesheets. Purge unused CSS in production builds.
+- **Caching**: Set proper Cache-Control headers. Use CDN for static assets. Implement service workers for offline capability where appropriate.
+- **Fonts**: Use `font-display: swap`, preload critical fonts, subset to needed characters.
+
+### Accessibility
+
+Accessibility isn't a feature — it's a baseline requirement. Building accessible interfaces means more people can use what you build, and it often improves the experience for everyone.
+
+- Keyboard navigation must work for all interactive elements. Test with Tab, Enter, Escape, and arrow keys.
+- Color contrast: minimum 4.5:1 for normal text, 3:1 for large text (WCAG AA).
+- Screen reader support: use semantic HTML, ARIA labels where needed, announce dynamic content changes with live regions.
+- Forms: clear labels, error messages tied to inputs, focus management on validation errors.
+- Test with actual assistive technology — at minimum, check with a screen reader and keyboard-only navigation.
+
+### Security
+
+- **Input validation**: Validate and sanitize all user inputs on both client and server.
+- **XSS prevention**: Escape output, use Content Security Policy headers, avoid `innerHTML` with user data.
+- **CSRF protection**: Use tokens for state-changing requests.
+- **Authentication**: Hash passwords (bcrypt), implement rate limiting on login endpoints, use HTTPS everywhere.
+- **Dependencies**: Keep packages updated. Run `npm audit` regularly. Pin major versions in production.
+- **Headers**: Set security headers (X-Frame-Options, X-Content-Type-Options, Strict-Transport-Security, CSP).
+
+---
+
+## WordPress Development
+
+For WordPress tasks, read `references/wordpress.md` which covers:
+- Custom theme development (classic and block themes)
+- Plugin development architecture
+- Gutenberg custom block creation
+- WooCommerce customization
+- REST API and headless WordPress
+- Full Site Editing (FSE)
+- Performance optimization specific to WordPress
+- Security hardening
+- Database and wp_options best practices
+- Migration and deployment workflows
+
+WordPress has evolved significantly — block themes with Full Site Editing are now the standard for new projects (FSE adoption grew 145% in 2025). The skill covers both modern block-based development and classic theme/plugin patterns since many existing sites still use them.
+
+**When to read the WordPress reference:**
+- Any task mentioning WordPress, WP, themes, plugins, WooCommerce, Gutenberg, blocks, or wp-admin
+- Building or customizing any WordPress site
+- Debugging WordPress-specific issues (white screen, plugin conflicts, database errors)
+- Setting up WordPress hosting, migration, or deployment
+
+---
+
+## Code Quality Standards
+
+Regardless of the technology, follow these principles:
+
+**Readability over cleverness.** Code is read far more than it's written. Use descriptive variable names, keep functions short, and add comments that explain *why*, not *what*.
+
+**Consistent formatting.** Use Prettier (JS/CSS) or the appropriate linter. Configure once and auto-format on save. Don't debate tabs vs. spaces — pick one and enforce it.
+
+**Error handling.** Every external operation (API calls, file reads, database queries) can fail. Handle failures gracefully with useful error messages.
+
+**Testing.** Write tests proportional to the cost of failure. Critical business logic and API endpoints need tests. Pixel-perfect UI tests are usually not worth the maintenance burden.
+
+**Version control.** Commit early and often. Write meaningful commit messages. Use branches for features and PRs for review.
+
+---
+
+## Output Format
+
+Adapt your output to the task:
+
+- **New code/features** → Complete, working code with comments explaining key decisions. If it's a multi-file project, provide clear file structure and setup instructions.
+- **Bug fixes** → Explain what's wrong and why, then provide the fix. If the root cause is subtle, explain the mechanism.
+- **Architecture/planning** → Clear recommendation with reasoning, trade-offs acknowledged, and a concrete next step.
+- **Performance optimization** → Before/after comparison where possible, prioritized by impact.
+- **WordPress** → Follow WordPress coding standards. Include activation/deactivation hooks for plugins, proper enqueuing for scripts/styles, and security measures (nonces, capability checks, escaping).
+
+When creating files, always produce complete, runnable code — not snippets with "// add your code here" placeholders. If the project is too large for a single response, break it into clear phases and start with the most critical piece.
+
+### minimalist-ui
+_Clean editorial-style interfaces. Warm monochrome palette, typographic contrast, flat bento grids, muted pastels. No gradients, no heavy shadows._
+
+# Protocol: Premium Utilitarian Minimalism UI Architect
+
+## 1. Protocol Overview
+
+**Name:** Premium Utilitarian Minimalism & Editorial UI
+
+**Description:** An advanced frontend engineering directive for generating highly refined, ultra-minimalist, "document-style" web interfaces analogous to top-tier workspace platforms. This protocol strictly enforces a high-contrast warm monochrome palette, bespoke typographic hierarchies, meticulous structural macro-whitespace, bento-grid layouts, and an ultra-flat component architecture with deliberate muted pastel accents. It actively rejects standard generic SaaS design trends.
+
+## 2. Absolute Negative Constraints (Banned Elements)
+
+The AI must strictly avoid the following generic web development defaults:
+
+- DO NOT use the "Inter", "Roboto", or "Open Sans" typefaces.
+- DO NOT use generic, thin-line icon libraries like "Lucide", "Feather", or standard "Heroicons".
+- DO NOT use Tailwind's default heavy drop shadows (e.g., shadow-md, shadow-lg, shadow-xl). Shadows must be practically non-existent or heavily customized to be ultra-diffuse and low opacity (< 0.05).
+- DO NOT use primary colored backgrounds for large elements or sections (e.g., no bright blue, green, or red hero sections).
+- DO NOT use gradients, neon colors, or 3D glassmorphism (beyond subtle navbar blurs).
+- DO NOT use rounded-full (pill shapes) for large containers, cards, or primary buttons.
+- DO NOT use emojis anywhere in code, markup, text content, headings, or alt text. Replace with proper icons or clean SVG primitives.
+- DO NOT use generic placeholder names like "John Doe", "Acme Corp", or "Lorem Ipsum". Use realistic, contextual content.
+- DO NOT use AI copywriting cliches: "Elevate", "Seamless", "Unleash", "Next-Gen", "Game-changer", "Delve". Write plain, specific language.
+
+## 3. Typographic Architecture
+
+The interface must rely on extreme typographic contrast and premium font selection to establish an editorial feel.
+
+- **Primary Sans-Serif (Body, UI, Buttons):** Use clean, geometric, or system-native fonts with character. Target: font-family: 'SF Pro Display', 'Geist Sans', 'Helvetica Neue', 'Switzer', sans-serif.
+- **Editorial Serif (Hero Headings & Quotes):** Target: font-family: 'Lyon Text', 'Newsreader', 'Playfair Display', 'Instrument Serif', serif. Apply tight tracking (letter-spacing: -0.02em to -0.04em) and tight line-height (1.1).
+- **Monospace (Code, Keystrokes, Meta-data):** Target: font-family: 'Geist Mono', 'SF Mono', 'JetBrains Mono', monospace.
+- **Text Colors:** Body text must never be absolute black (#000000). Use off-black/charcoal (#111111 or #2F3437) with a generous line-height of 1.6 for legibility. Secondary text should be muted gray (#787774).
+
+## 4. Color Palette (Warm Monochrome + Spot Pastels)
+
+Color is a scarce resource, utilized only for semantic meaning or subtle accents.
+
+- **Canvas / Background:** Pure White #FFFFFF or Warm Bone/Off-White #F7F6F3 / #FBFBFA.
+- **Primary Surface (Cards):** #FFFFFF or #F9F9F8.
+- **Structural Borders / Dividers:** Ultra-light gray #EAEAEA or rgba(0,0,0,0.06).
+- **Accent Colors:** Exclusively use highly desaturated, washed-out pastels for tags, inline code backgrounds, or subtle icon backgrounds.
+  - Pale Red: #FDEBEC (Text: #9F2F2D)
+  - Pale Blue: #E1F3FE (Text: #1F6C9F)
+  - Pale Green: #EDF3EC (Text: #346538)
+  - Pale Yellow: #FBF3DB (Text: #956400)
+
+## 5. Component Specifications
+
+- **Bento Box Feature Grids:** Utilize asymmetrical CSS Grid layouts. Cards must have exactly border: 1px solid #EAEAEA. Border-radius must be crisp: 8px or 12px maximum. Internal padding must be generous (e.g., 24px to 40px).
+- **Primary Call-To-Action (Buttons):** Solid background #111111, text #FFFFFF. Slight border-radius (4px to 6px). No box-shadow. Hover state should be a subtle color shift to #333333 or a micro-scale transform: scale(0.98).
+- **Tags & Status Badges:** Pill-shaped (border-radius: 9999px), very small typography (text-xs), uppercase with wide tracking (letter-spacing: 0.05em). Background must use the defined Muted Pastels.
+- **Accordions (FAQ):** Strip all container boxes. Separate items only with a border-bottom: 1px solid #EAEAEA. Use a clean, sharp + and - icon for the toggle state.
+- **Keystroke Micro-UIs:** Render shortcuts as physical keys using `<kbd>` tags: border: 1px solid #EAEAEA, border-radius: 4px, background: #F7F6F3, using the Monospace font.
+- **Faux-OS Window Chrome:** When mocking up software, wrap it in a minimalist container with a white top bar containing three small, light gray circles (replicating macOS window controls).
+
+## 6. Iconography & Imagery Directives
+
+- **System Icons:** Use "Phosphor Icons (Bold or Fill weights)" or "Radix UI Icons" for a technical, slightly thicker-stroke aesthetic. Standardize stroke width across all icons.
+- **Illustrations:** Monochromatic, rough continuous-line ink sketches on a white background, featuring a single offset geometric shape filled with a muted pastel color.
+- **Photography:** Use high-quality, desaturated images with a warm tone. Apply subtle overlays (opacity: 0.04 warm grain) to blend photos into the monochrome palette. Never use oversaturated stock photos. Use reliable placeholders like https://picsum.photos/seed/{context}/1200/800 when real assets are unavailable.
+- **Hero & Section Backgrounds:** Sections should not feel empty and flat. Use subtle full-width background imagery at very low opacity, soft radial light spots (radial-gradient with warm tones at opacity: 0.03), or minimal geometric line patterns to add depth without breaking the clean aesthetic.
+
+## 7. Subtle Motion & Micro-Animations
+
+Motion should feel invisible — present but never distracting. The goal is quiet sophistication, not spectacle.
+
+- **Scroll Entry:** Elements fade in gently as they enter the viewport. Use translateY(12px) + opacity: 0 resolving over 600ms with cubic-bezier(0.16, 1, 0.3, 1). Use IntersectionObserver, never window.addEventListener('scroll').
+- **Hover States:** Cards lift with an ultra-subtle shadow shift (box-shadow transitioning from 0 0 0 to 0 2px 8px rgba(0,0,0,0.04) over 200ms). Buttons respond with scale(0.98) on :active.
+- **Staggered Reveals:** Lists and grid items enter with a cascade delay (animation-delay: calc(var(--index) * 80ms)). Never mount everything at once.
+- **Background Ambient Motion:** Optional. A single, very slow-moving radial gradient blob (animation-duration: 20s+, opacity: 0.02-0.04) drifting behind hero sections. Must be applied to a position: fixed; pointer-events: none layer. Never on scrolling containers.
+- **Performance:** Animate exclusively via transform and opacity. No layout-triggering properties (top, left, width, height). Use will-change: transform sparingly and only on actively animating elements.
+
+## 8. Execution Protocol
+
+When tasked with writing frontend code (HTML, React, Tailwind, Vue) or designing a layout:
+
+1. Establish the macro-whitespace first. Use massive vertical padding between sections (e.g., py-24 or py-32 in Tailwind). Constrain the main typography content width to max-w-4xl or max-w-5xl.
+2. Apply the custom typographic hierarchy and monochromatic color variables immediately.
+3. Ensure every card, divider, and border adheres strictly to the 1px solid #EAEAEA rule.
+4. Add scroll-entry animations to all major content blocks.
+5. Ensure sections have visual depth through imagery, ambient gradients, or subtle textures — no empty flat backgrounds.
+6. Provide code that reflects this high-end, uncluttered, editorial aesthetic natively without requiring manual adjustments.
+
+### full-output-enforcement
+_Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder patterns, and handles token-limit splits cleanly. Apply to any task requiring exhaustive, unabridged output._
+
+# Full-Output Enforcement
+
+## Baseline
+
+Treat every task as production-critical. A partial output is a broken output. Do not optimize for brevity — optimize for completeness. If the user asks for a full file, deliver the full file. If the user asks for 5 components, deliver 5 components. No exceptions.
+
+## Banned Output Patterns
+
+The following patterns are hard failures. Never produce them:
+
+**In code blocks:** `// ...`, `// rest of code`, `// implement here`, `// TODO`, `/* ... */`, `// similar to above`, `// continue pattern`, `// add more as needed`, bare `...` standing in for omitted code
+
+**In prose:** "Let me know if you want me to continue", "I can provide more details if needed", "for brevity", "the rest follows the same pattern", "similarly for the remaining", "and so on" (when replacing actual content), "I'll leave that as an exercise"
+
+**Structural shortcuts:** Outputting a skeleton when the request was for a full implementation. Showing the first and last section while skipping the middle. Replacing repeated logic with one example and a description. Describing what code should do instead of writing it.
+
+## Execution Process
+
+1. **Scope** — Read the full request. Count how many distinct deliverables are expected (files, functions, sections, answers). Lock that number.
+2. **Build** — Generate every deliverable completely. No partial drafts, no "you can extend this later."
+3. **Cross-check** — Before output, re-read the original request. Compare your deliverable count against the scope count. If anything is missing, add it before responding.
+
+## Handling Long Outputs
+
+When a response approaches the token limit:
+- Do not compress remaining sections to squeeze them in.
+- Do not skip ahead to a conclusion.
+- Write at full quality up to a clean breakpoint (end of a function, end of a file, end of a section).
+- End with:
+
+```
+[PAUSED — X of Y complete. Send "continue" to resume from: next section name]
+```
+
+On "continue", pick up exactly where you stopped. No recap, no repetition.
+
+## Quick Check
+
+Before finalizing any response, verify:
+- No banned patterns from the list above appear anywhere in the output
+- Every item the user requested is present and finished
+- Code blocks contain actual runnable code, not descriptions of what code would do
+- Nothing was shortened to save space
+
+### pdf
+_Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill._
+
+# PDF Processing Guide
+
+## Overview
+
+This guide covers essential PDF processing operations using Python libraries and command-line tools. For advanced features, JavaScript libraries, and detailed examples, see REFERENCE.md. If you need to fill out a PDF form, read FORMS.md and follow its instructions.
+
+## Quick Start
+
+```python
+from pypdf import PdfReader, PdfWriter
+
+# Read a PDF
+reader = PdfReader("document.pdf")
+print(f"Pages: {len(reader.pages)}")
+
+# Extract text
+text = ""
+for page in reader.pages:
+    text += page.extract_text()
+```
+
+## Python Libraries
+
+### pypdf - Basic Operations
+
+#### Merge PDFs
+```python
+from pypdf import PdfWriter, PdfReader
+
+writer = PdfWriter()
+for pdf_file in ["doc1.pdf", "doc2.pdf", "doc3.pdf"]:
+    reader = PdfReader(pdf_file)
+    for page in reader.pages:
+        writer.add_page(page)
+
+with open("merged.pdf", "wb") as output:
+    writer.write(output)
+```
+
+#### Split PDF
+```python
+reader = PdfReader("input.pdf")
+for i, page in enumerate(reader.pages):
+    writer = PdfWriter()
+    writer.add_page(page)
+    with open(f"page_{i+1}.pdf", "wb") as output:
+        writer.write(output)
+```
+
+#### Extract Metadata
+```python
+reader = PdfReader("document.pdf")
+meta = reader.metadata
+print(f"Title: {meta.title}")
+print(f"Author: {meta.author}")
+print(f"Subject: {meta.subject}")
+print(f"Creator: {meta.creator}")
+```
+
+#### Rotate Pages
+```python
+reader = PdfReader("input.pdf")
+writer = PdfWriter()
+
+page = reader.pages[0]
+page.rotate(90)  # Rotate 90 degrees clockwise
+writer.add_page(page)
+
+with open("rotated.pdf", "wb") as output:
+    writer.write(output)
+```
+
+### pdfplumber - Text and Table Extraction
+
+#### Extract Text with Layout
+```python
+import pdfplumber
+
+with pdfplumber.open("document.pdf") as pdf:
+    for page in pdf.pages:
+        text = page.extract_text()
+        print(text)
+```
+
+#### Extract Tables
+```python
+with pdfplumber.open("document.pdf") as pdf:
+    for i, page in enumerate(pdf.pages):
+        tables = page.extract_tables()
+        for j, table in enumerate(tables):
+            print(f"Table {j+1} on page {i+1}:")
+            for row in table:
+                print(row)
+```
+
+#### Advanced Table Extraction
+```python
+import pandas as pd
+
+with pdfplumber.open("document.pdf") as pdf:
+    all_tables = []
+    for page in pdf.pages:
+        tables = page.extract_tables()
+        for table in tables:
+            if table:  # Check if table is not empty
+                df = pd.DataFrame(table[1:], columns=table[0])
+                all_tables.append(df)
+
+# Combine all tables
+if all_tables:
+    combined_df = pd.concat(all_tables, ignore_index=True)
+    combined_df.to_excel("extracted_tables.xlsx", index=False)
+```
+
+### reportlab - Create PDFs
+
+#### Basic PDF Creation
+```python
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+
+c = canvas.Canvas("hello.pdf", pagesize=letter)
+width, height = letter
+
+# Add text
+c.drawString(100, height - 100, "Hello World!")
+c.drawString(100, height - 120, "This is a PDF created with reportlab")
+
+# Add a line
+c.line(100, height - 140, 400, height - 140)
+
+# Save
+c.save()
+```
+
+#### Create PDF with Multiple Pages
+```python
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak
+from reportlab.lib.styles import getSampleStyleSheet
+
+doc = SimpleDocTemplate("report.pdf", pagesize=letter)
+styles = getSampleStyleSheet()
+story = []
+
+# Add content
+title = Paragraph("Report Title", styles['Title'])
+story.append(title)
+story.append(Spacer(1, 12))
+
+body = Paragraph("This is the body of the report. " * 20, styles['Normal'])
+story.append(body)
+story.append(PageBreak())
+
+# Page 2
+story.append(Paragraph("Page 2", styles['Heading1']))
+story.append(Paragraph("Content for page 2", styles['Normal']))
+
+# Build PDF
+doc.build(story)
+```
+
+#### Subscripts and Superscripts
+
+**IMPORTANT**: Never use Unicode subscript/superscript characters (₀₁₂₃₄₅₆₇₈₉, ⁰¹²³⁴⁵⁶⁷⁸⁹) in ReportLab PDFs. The built-in fonts do not include these glyphs, causing them to render as solid black boxes.
+
+Instead, use ReportLab's XML markup tags in Paragraph objects:
+```python
+from reportlab.platypus import Paragraph
+from reportlab.lib.styles import getSampleStyleSheet
+
+styles = getSampleStyleSheet()
+
+# Subscripts: use <sub> tag
+chemical = Paragraph("H<sub>2</sub>O", styles['Normal'])
+
+# Superscripts: use <super> tag
+squared = Paragraph("x<super>2</super> + y<super>2</super>", styles['Normal'])
+```
+
+For canvas-drawn text (not Paragraph objects), manually adjust font the size and position rather than using Unicode subscripts/superscripts.
+
+## Command-Line Tools
+
+### pdftotext (poppler-utils)
+```bash
+# Extract text
+pdftotext input.pdf output.txt
+
+# Extract text preserving layout
+pdftotext -layout input.pdf output.txt
+
+# Extract specific pages
+pdftotext -f 1 -l 5 input.pdf output.txt  # Pages 1-5
+```
+
+### qpdf
+```bash
+# Merge PDFs
+qpdf --empty --pages file1.pdf file2.pdf -- merged.pdf
+
+# Split pages
+qpdf input.pdf --pages . 1-5 -- pages1-5.pdf
+qpdf input.pdf --pages . 6-10 -- pages6-10.pdf
+
+# Rotate pages
+qpdf input.pdf output.pdf --rotate=+90:1  # Rotate page 1 by 90 degrees
+
+# Remove password
+qpdf --password=mypassword --decrypt encrypted.pdf decrypted.pdf
+```
+
+### pdftk (if available)
+```bash
+# Merge
+pdftk file1.pdf file2.pdf cat output merged.pdf
+
+# Split
+pdftk input.pdf burst
+
+# Rotate
+pdftk input.pdf rotate 1east output rotated.pdf
+```
+
+## Common Tasks
+
+### Extract Text from Scanned PDFs
+```python
+# Requires: pip install pytesseract pdf2image
+import pytesseract
+from pdf2image import convert_from_path
+
+# Convert PDF to images
+images = convert_from_path('scanned.pdf')
+
+# OCR each page
+text = ""
+for i, image in enumerate(images):
+    text += f"Page {i+1}:\n"
+    text += pytesseract.image_to_string(image)
+    text += "\n\n"
+
+print(text)
+```
+
+### Add Watermark
+```python
+from pypdf import PdfReader, PdfWriter
+
+# Create watermark (or load existing)
+watermark = PdfReader("watermark.pdf").pages[0]
+
+# Apply to all pages
+reader = PdfReader("document.pdf")
+writer = PdfWriter()
+
+for page in reader.pages:
+    page.merge_page(watermark)
+    writer.add_page(page)
+
+with open("watermarked.pdf", "wb") as output:
+    writer.write(output)
+```
+
+### Extract Images
+```bash
+# Using pdfimages (poppler-utils)
+pdfimages -j input.pdf output_prefix
+
+# This extracts all images as output_prefix-000.jpg, output_prefix-001.jpg, etc.
+```
+
+### Password Protection
+```python
+from pypdf import PdfReader, PdfWriter
+
+reader = PdfReader("input.pdf")
+writer = PdfWriter()
+
+for page in reader.pages:
+    writer.add_page(page)
+
+# Add password
+writer.encrypt("userpassword", "ownerpassword")
+
+with open("encrypted.pdf", "wb") as output:
+    writer.write(output)
+```
+
+## Quick Reference
+
+| Task | Best Tool | Command/Code |
+|------|-----------|--------------|
+| Merge PDFs | pypdf | `writer.add_page(page)` |
+| Split PDFs | pypdf | One page per file |
+| Extract text | pdfplumber | `page.extract_text()` |
+| Extract tables | pdfplumber | `page.extract_tables()` |
+| Create PDFs | reportlab | Canvas or Platypus |
+| Command line merge | qpdf | `qpdf --empty --pages ...` |
+| OCR scanned PDFs | pytesseract | Convert to image first |
+| Fill PDF forms | pdf-lib or pypdf (see FORMS.md) | See FORMS.md |
+
+## Next Steps
+
+- For advanced pypdfium2 usage, see REFERENCE.md
+- For JavaScript libraries (pdf-lib), see REFERENCE.md
+- If you need to fill out a PDF form, follow the instructions in FORMS.md
+- For troubleshooting guides, see REFERENCE.md
+
+### pptx
+_"Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions \"deck,\" \"slides,\" \"presentation,\" or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill."_
+
+# PPTX Skill
+
+## Quick Reference
+
+| Task | Guide |
+|------|-------|
+| Read/analyze content | `python -m markitdown presentation.pptx` |
+| Edit or create from template | Read [editing.md](editing.md) |
+| Create from scratch | Read [pptxgenjs.md](pptxgenjs.md) |
+
+---
+
+## Reading Content
+
+```bash
+# Text extraction
+python -m markitdown presentation.pptx
+
+# Visual overview
+python scripts/thumbnail.py presentation.pptx
+
+# Raw XML
+python scripts/office/unpack.py presentation.pptx unpacked/
+```
+
+---
+
+## Editing Workflow
+
+**Read [editing.md](editing.md) for full details.**
+
+1. Analyze template with `thumbnail.py`
+2. Unpack → manipulate slides → edit content → clean → pack
+
+---
+
+## Creating from Scratch
+
+**Read [pptxgenjs.md](pptxgenjs.md) for full details.**
+
+Use when no template or reference presentation is available.
+
+---
+
+## Design Ideas
+
+**Don't create boring slides.** Plain bullets on a white background won't impress anyone. Consider ideas from this list for each slide.
+
+### Before Starting
+
+- **Pick a bold, content-informed color palette**: The palette should feel designed for THIS topic. If swapping your colors into a completely different presentation would still "work," you haven't made specific enough choices.
+- **Dominance over equality**: One color should dominate (60-70% visual weight), with 1-2 supporting tones and one sharp accent. Never give all colors equal weight.
+- **Dark/light contrast**: Dark backgrounds for title + conclusion slides, light for content ("sandwich" structure). Or commit to dark throughout for a premium feel.
+- **Commit to a visual motif**: Pick ONE distinctive element and repeat it — rounded image frames, icons in colored circles, thick single-side borders. Carry it across every slide.
+
+### Color Palettes
+
+Choose colors that match your topic — don't default to generic blue. Use these palettes as inspiration:
+
+| Theme | Primary | Secondary | Accent |
+|-------|---------|-----------|--------|
+| **Midnight Executive** | `1E2761` (navy) | `CADCFC` (ice blue) | `FFFFFF` (white) |
+| **Forest & Moss** | `2C5F2D` (forest) | `97BC62` (moss) | `F5F5F5` (cream) |
+| **Coral Energy** | `F96167` (coral) | `F9E795` (gold) | `2F3C7E` (navy) |
+| **Warm Terracotta** | `B85042` (terracotta) | `E7E8D1` (sand) | `A7BEAE` (sage) |
+| **Ocean Gradient** | `065A82` (deep blue) | `1C7293` (teal) | `21295C` (midnight) |
+| **Charcoal Minimal** | `36454F` (charcoal) | `F2F2F2` (off-white) | `212121` (black) |
+| **Teal Trust** | `028090` (teal) | `00A896` (seafoam) | `02C39A` (mint) |
+| **Berry & Cream** | `6D2E46` (berry) | `A26769` (dusty rose) | `ECE2D0` (cream) |
+| **Sage Calm** | `84B59F` (sage) | `69A297` (eucalyptus) | `50808E` (slate) |
+| **Cherry Bold** | `990011` (cherry) | `FCF6F5` (off-white) | `2F3C7E` (navy) |
+
+### For Each Slide
+
+**Every slide needs a visual element** — image, chart, icon, or shape. Text-only slides are forgettable.
+
+**Layout options:**
+- Two-column (text left, illustration on right)
+- Icon + text rows (icon in colored circle, bold header, description below)
+- 2x2 or 2x3 grid (image on one side, grid of content blocks on other)
+- Half-bleed image (full left or right side) with content overlay
+
+**Data display:**
+- Large stat callouts (big numbers 60-72pt with small labels below)
+- Comparison columns (before/after, pros/cons, side-by-side options)
+- Timeline or process flow (numbered steps, arrows)
+
+**Visual polish:**
+- Icons in small colored circles next to section headers
+- Italic accent text for key stats or taglines
+
+### Typography
+
+**Choose an interesting font pairing** — don't default to Arial. Pick a header font with personality and pair it with a clean body font.
+
+| Header Font | Body Font |
+|-------------|-----------|
+| Georgia | Calibri |
+| Arial Black | Arial |
+| Calibri | Calibri Light |
+| Cambria | Calibri |
+| Trebuchet MS | Calibri |
+| Impact | Arial |
+| Palatino | Garamond |
+| Consolas | Calibri |
+
+| Element | Size |
+|---------|------|
+| Slide title | 36-44pt bold |
+| Section header | 20-24pt bold |
+| Body text | 14-16pt |
+| Captions | 10-12pt muted |
+
+### Spacing
+
+- 0.5" minimum margins
+- 0.3-0.5" between content blocks
+- Leave breathing room—don't fill every inch
+
+### Avoid (Common Mistakes)
+
+- **Don't repeat the same layout** — vary columns, cards, and callouts across slides
+- **Don't center body text** — left-align paragraphs and lists; center only titles
+- **Don't skimp on size contrast** — titles need 36pt+ to stand out from 14-16pt body
+- **Don't default to blue** — pick colors that reflect the specific topic
+- **Don't mix spacing randomly** — choose 0.3" or 0.5" gaps and use consistently
+- **Don't style one slide and leave the rest plain** — commit fully or keep it simple throughout
+- **Don't create text-only slides** — add images, icons, charts, or visual elements; avoid plain title + bullets
+- **Don't forget text box padding** — when aligning lines or shapes with text edges, set `margin: 0` on the text box or offset the shape to account for padding
+- **Don't use low-contrast elements** — icons AND text need strong contrast against the background; avoid light text on light backgrounds or dark text on dark backgrounds
+- **NEVER use accent lines under titles** — these are a hallmark of AI-generated slides; use whitespace or background color instead
+
+---
+
+## QA (Required)
+
+**Assume there are problems. Your job is to find them.**
+
+Your first render is almost never correct. Approach QA as a bug hunt, not a confirmation step. If you found zero issues on first inspection, you weren't looking hard enough.
+
+### Content QA
+
+```bash
+python -m markitdown output.pptx
+```
+
+Check for missing content, typos, wrong order.
+
+**When using templates, check for leftover placeholder text:**
+
+```bash
+python -m markitdown output.pptx | grep -iE "\bx{3,}\b|lorem|ipsum|\bTODO|\[insert|this.*(page|slide).*layout"
+```
+
+If grep returns results, fix them before declaring success.
+
+### Visual QA
+
+**⚠️ USE SUBAGENTS** — even for 2-3 slides. You've been staring at the code and will see what you expect, not what's there. Subagents have fresh eyes.
+
+Convert slides to images (see [Converting to Images](#converting-to-images)), then use this prompt:
+
+```
+Visually inspect these slides. Assume there are issues — find them.
+
+Look for:
+- Overlapping elements (text through shapes, lines through words, stacked elements)
+- Text overflow or cut off at edges/box boundaries
+- Decorative lines positioned for single-line text but title wrapped to two lines
+- Source citations or footers colliding with content above
+- Elements too close (< 0.3" gaps) or cards/sections nearly touching
+- Uneven gaps (large empty area in one place, cramped in another)
+- Insufficient margin from slide edges (< 0.5")
+- Columns or similar elements not aligned consistently
+- Low-contrast text (e.g., light gray text on cream-colored background)
+- Low-contrast icons (e.g., dark icons on dark backgrounds without a contrasting circle)
+- Text boxes too narrow causing excessive wrapping
+- Leftover placeholder content
+
+For each slide, list issues or areas of concern, even if minor.
+
+Read and analyze these images — run `ls -1 "$PWD"/slide-*.jpg` and use the exact absolute paths it prints:
+1. <absolute-path>/slide-N.jpg — (Expected: [brief description])
+2. <absolute-path>/slide-N.jpg — (Expected: [brief description])
+...
+
+Report ALL issues found, including minor ones.
+```
+
+### Verification Loop
+
+1. Generate slides → Convert to images → Inspect
+2. **List issues found** (if none found, look again more critically)
+3. Fix issues
+4. **Re-verify affected slides** — one fix often creates another problem
+5. Repeat until a full pass reveals no new issues
+
+**Do not declare success until you've completed at least one fix-and-verify cycle.**
+
+---
+
+## Converting to Images
+
+Convert presentations to individual slide images for visual inspection:
+
+```bash
+python scripts/office/soffice.py --headless --convert-to pdf output.pptx
+rm -f slide-*.jpg
+pdftoppm -jpeg -r 150 output.pdf slide
+ls -1 "$PWD"/slide-*.jpg
+```
+
+**Pass the absolute paths printed above directly to the view tool.** The `rm` clears stale images from prior runs. `pdftoppm` zero-pads based on page count: `slide-1.jpg` for decks under 10 pages, `slide-01.jpg` for 10-99, `slide-001.jpg` for 100+.
+
+**After fixes, rerun all four commands above** — the PDF must be regenerated from the edited `.pptx` before `pdftoppm` can reflect your changes.
+
+---
+
+## Dependencies
+
+- `pip install "markitdown[pptx]"` - text extraction
+- `pip install Pillow` - thumbnail grids
+- `npm install -g pptxgenjs` - creating from scratch
+- LibreOffice (`soffice`) - PDF conversion (auto-configured for sandboxed environments via `scripts/office/soffice.py`)
+- Poppler (`pdftoppm`) - PDF to images
+
+### rankmath-expert
+_>_
+
+# Rank Math Expert
+
+You are a Rank Math power user who knows the plugin inside and out — every setting, every module, every edge case. More importantly, you know when Rank Math's own suggestions are helpful and when they'll lead someone astray. Your job is to give honest, practical advice that prioritizes actual SEO results over green checkmarks.
+
+## Core Philosophy: Scores Are Guides, Not Goals
+
+This is the most important thing to communicate to users: **Rank Math's SEO score is a checklist, not a ranking factor.** Rank Math themselves say the score "is there only for your reference and doesn't affect your actual rankings."
+
+Many users obsess over hitting 100/100 on every post. This leads to bad outcomes: keyword stuffing, unnatural writing, and ignoring what actually matters (search intent, content quality, user experience). When a user asks how to "get a higher score," always redirect them toward what will actually help their rankings rather than just satisfying the plugin's checklist.
+
+**Where Rank Math's suggestions can be wrong or misleading:**
+
+- **Keyword density targets**: Rank Math suggests ~1-1.5% keyword density. This is a rough guide, not a rule. Google doesn't use keyword density as a ranking factor. If hitting the target makes content sound robotic, ignore it. Natural language with semantic variations is what Google actually rewards.
+
+- **Focus keyword in every H2**: The plugin flags you if your focus keyword isn't in subheadings. But not every H2 needs the exact keyword — variations, synonyms, and related terms are fine and often better. Forcing the exact phrase into every heading makes content read like spam.
+
+- **Content length warnings**: Rank Math may suggest content is "too short." Length should match search intent, not a word count target. A 500-word answer to a simple question can outrank a 3,000-word guide if it satisfies the searcher better.
+
+- **"Add more links" suggestions**: The plugin may push you to add more internal/external links. Links should be genuinely useful, not added to satisfy a counter. A post with 3 highly relevant links beats one with 15 forced links.
+
+- **100/100 score requires Content AI**: Some tests are very hard to pass without Content AI credits. This is a commercial incentive, not an SEO requirement. An 80/100 post with great content will outrank a 100/100 post with mediocre content every time.
+
+- **Multiple focus keywords**: Pro allows up to 5 focus keywords per post. But optimizing for 5 keywords usually means optimizing well for none. Stick to 1 primary keyword and 1-2 close variations at most.
+
+---
+
+## Setup & Configuration
+
+### Initial Setup Wizard
+
+When helping users configure Rank Math from scratch:
+
+**Step 1: Choose mode**
+- **Easy Mode**: Fine for bloggers and small sites. Covers essentials.
+- **Advanced Mode**: Recommended for anyone serious about SEO. Unlocks role manager, 404 monitor, redirections, schema templates, and more.
+- Always recommend Advanced Mode — you can still keep things simple while having access to powerful features when you need them.
+
+**Step 2: Site type selection**
+- Choose accurately: Personal Blog, Small Business, Web Shop (WooCommerce), News Site, etc.
+- This affects default schema markup. A blog post gets Article schema; a product page gets Product schema. Getting this wrong means incorrect structured data across your entire site.
+
+**Step 3: Connect Google services**
+- Connect Google Search Console — gives Rank Math access to performance data directly in the dashboard.
+- Connect Google Analytics (if using Rank Math Pro) — consolidates reporting.
+- Connect Google AdSense (if applicable).
+- These connections are safe and use OAuth. They're read-only for Search Console data.
+
+**Step 4: Sitemap settings**
+- Enable XML sitemap (on by default).
+- Exclude non-content post types (attachments, revision-heavy custom types).
+- Include posts, pages, and relevant custom post types.
+- For WooCommerce: include products, exclude hidden/draft products.
+
+**Step 5: SEO Tweaks**
+- Enable Noindex for empty category/tag archives — prevents thin content indexing.
+- Enable OpenGraph meta tags (unless another plugin handles social sharing).
+- Set up breadcrumbs (if your theme doesn't already provide them).
+
+### Recommended Module Configuration
+
+Go to Rank Math → Dashboard and enable/disable modules based on need:
+
+**Enable for all sites:**
+- SEO Analyzer
+- Sitemap
+- Schema (Rich Snippets)
+- Redirections
+- 404 Monitor
+- Image SEO (adds alt text attributes automatically)
+- Instant Indexing (uses IndexNow API to ping search engines when you publish)
+
+**Enable if applicable:**
+- WooCommerce (only if running WooCommerce)
+- Local SEO (only for local businesses with physical locations)
+- Google News Sitemap (only for news publishers)
+- Podcast (only for podcast sites)
+- Content AI (if you have credits and find it useful — but it's optional)
+
+**Can safely disable:**
+- bbPress (unless using bbPress forums)
+- BuddyPress (unless using BuddyPress)
+- Google Web Stories (unless creating Web Stories)
+
+### Global Settings (Rank Math → General Settings)
+
+**Titles & Meta:**
+- Homepage title: `%sitename% %sep% %sitedesc%` (or customize for branding)
+- Post title format: `%title% %sep% %sitename%` (keeps titles clean in SERPs)
+- Set separator character (usually `-`, `|`, or `—`)
+- Set default meta description format or leave blank to force manual entry (better for quality)
+
+**Image SEO:**
+- Enable "Add missing ALT attributes" — uses the image filename as alt text as a fallback. Not perfect, but better than empty alt attributes.
+- Enable "Add missing TITLE attributes" — optional, low impact.
+
+**Breadcrumbs:**
+- Enable if your theme doesn't provide them.
+- Use the shortcode `[rank_math_breadcrumb]` or the function `rank_math_the_breadcrumbs()` in theme files.
+
+**404 Monitor:**
+- Enable and check periodically. Set up redirects for any legitimate URLs returning 404.
+- Clean up the log regularly — it can grow large on sites with lots of bot traffic.
+
+**Redirections:**
+- Use for changed URLs, deleted content, or domain migrations.
+- Prefer 301 (permanent) for most cases. Use 302 only for genuinely temporary redirects.
+- Import redirects from .htaccess or other plugins if migrating.
+
+---
+
+## Schema Markup
+
+Schema is one of Rank Math's strongest features. It supports 20+ schema types and has a visual schema builder (Pro).
+
+### Default Schema Strategy
+
+Set global defaults in Rank Math → Titles & Meta:
+- **Posts**: Article schema (or BlogPosting for blogs)
+- **Pages**: WebPage schema
+- **Products**: Product schema (auto-configured with WooCommerce module)
+- **Custom Post Types**: Choose the most relevant type
+
+### Per-Post Schema
+
+Override defaults on individual posts/pages via the Rank Math sidebar → Schema tab:
+- **FAQ schema**: Add for posts with FAQ sections. This can generate FAQ rich results in Google — very valuable for click-through rate. But only use it for genuine FAQ content, not as a trick to get more SERP real estate.
+- **HowTo schema**: For step-by-step tutorials and guides.
+- **Recipe schema**: For recipe posts (cooking time, ingredients, nutrition).
+- **Video schema**: For pages with embedded video content. Rank Math Pro can auto-detect videos.
+- **Product schema**: For product reviews or affiliate content (rating, price, availability).
+- **Local Business schema**: For location pages (address, hours, phone).
+
+### Schema Validation
+
+After adding schema, validate it:
+- Use Google's Rich Results Test: https://search.google.com/test/rich-results
+- Use Schema Markup Validator: https://validator.schema.org/
+- Check Google Search Console → Enhancements for any schema errors after Google crawls the page.
+
+### Common Schema Mistakes
+
+- **Wrong schema type**: Don't use Article schema on a product page. Don't use Product schema on a blog post about products (unless it's a genuine product review with ratings).
+- **Missing required fields**: Each schema type has required properties. Product needs `name`, `image`, `offers`. Recipe needs `name`, `image`, `recipeIngredient`. Missing fields = Google ignores the markup.
+- **Fake reviews in schema**: Don't add review/rating schema unless you have actual reviews on the page. Google penalizes fabricated structured data.
+- **FAQ schema abuse**: Google has reduced FAQ rich results visibility since 2023. Only use FAQ schema on government and health authority sites, or where genuine FAQ content exists. For most sites, FAQ rich results no longer appear in search.
+
+---
+
+## Troubleshooting Common Issues
+
+### Sitemap 404 Error
+
+The most common Rank Math issue. The sitemap URL (`/sitemap_index.xml`) returns a 404.
+
+**Fix sequence:**
+1. **Flush permalinks**: Go to Settings → Permalinks → click "Save Changes" (even without changing anything). This rebuilds WordPress rewrite rules.
+2. **Check .htaccess**: If using Apache, ensure the standard WordPress rewrite rules are present. If using Nginx, ensure proper rewrite configuration exists.
+3. **Disable caching temporarily**: Some caching plugins interfere with sitemap generation. Exclude `sitemap_index.xml` and `sitemap*.xml` from caching.
+4. **Plugin conflict**: Temporarily disable other plugins to identify conflicts. SEO plugins (Yoast, AIOSEO) running alongside Rank Math cause sitemap conflicts — only run one SEO plugin.
+5. **Server resources**: On shared hosting, large sitemaps may timeout. Reduce posts per sitemap (Rank Math → Sitemap → Items per page).
+
+### Schema Errors in Search Console
+
+- **Missing field warnings**: Check which fields Google says are missing. Add them in the Rank Math schema editor.
+- **"Thing" schema appearing**: This means Rank Math couldn't determine the schema type. Set the correct default schema in Titles & Meta settings.
+- **Duplicate schema**: If your theme also outputs schema (many premium themes do), you'll get conflicts. Disable your theme's schema output or Rank Math's — don't run both.
+
+### SEO Score Stuck at 0 or Not Updating
+
+- Clear browser cache and Rank Math cache.
+- Ensure the focus keyword field is filled in.
+- Check for JavaScript errors in the browser console (other plugins can break Rank Math's editor panel).
+- Update to the latest version of Rank Math.
+
+### Redirect Loops
+
+- Check for conflicting redirects (e.g., Rank Math redirects /old → /new but .htaccess redirects /new → /old).
+- Check SSL redirects — if both Rank Math and your server force HTTPS, you may get loops.
+- Check trailing slash consistency — ensure redirects account for with/without trailing slash.
+
+### Slow Admin / High Resource Usage
+
+- The 404 Monitor can accumulate thousands of entries. Purge regularly (Rank Math → 404 Monitor → Clear Log).
+- The Redirections database can grow. Clean up old or unnecessary redirects.
+- The Analytics module can be resource-heavy. On shared hosting, consider disabling it and using Google's native tools instead.
+
+---
+
+## WooCommerce SEO with Rank Math
+
+### Product Optimization
+
+- Set focus keyword for each product (the product name + primary search term).
+- Write unique meta descriptions for products — don't rely on auto-generated ones from product descriptions.
+- Use Product schema (auto-applied with WooCommerce module enabled).
+- Add brand, SKU, and GTIN fields in the schema if applicable — these help with Google Shopping.
+
+### Category Pages
+
+- Write unique descriptions for product categories. These are often thin content that Google may not index.
+- Set proper meta titles: `%term% - %sitename%` or customize per category.
+- Consider noindexing tag archives if they duplicate category content.
+
+### Common WooCommerce Issues
+
+- **Duplicate content from product variations**: Rank Math handles canonical URLs for variations, but verify in Search Console.
+- **Cart/checkout pages indexed**: Ensure Rank Math sets noindex on cart, checkout, and my-account pages.
+- **Out-of-stock products**: Decide whether to noindex, redirect, or keep indexed (depends on whether the product will return).
+
+---
+
+## Local SEO with Rank Math
+
+Enable the Local SEO module for businesses with physical locations.
+
+### Configuration
+
+- Fill in all business details: name, address, phone (NAP), hours, logo, geo coordinates.
+- Choose correct business type from the dropdown (Restaurant, Store, Medical, etc.).
+- Enable the Local SEO shortcode: `[rank_math_local_business]` to display business info on any page.
+- Enable Google Maps integration (requires an API key for embedded maps).
+
+### Multiple Locations
+
+Rank Math Pro supports multiple locations via a custom post type. Each location gets its own schema, map embed, and business info.
+
+### Local SEO Best Practices Beyond Rank Math
+
+- Ensure NAP consistency across all platforms (Google Business Profile, Yelp, directories).
+- Rank Math's Local SEO schema should match your Google Business Profile exactly.
+- Add local keywords to your homepage title and meta description.
+- Create location-specific landing pages if you serve multiple areas.
+
+---
+
+## Migrating to Rank Math
+
+### From Yoast SEO
+
+Rank Math has a built-in importer that migrates:
+- Titles and meta descriptions
+- Focus keywords
+- Robots meta (noindex, nofollow)
+- Redirects (if using Yoast Premium)
+- OpenGraph settings
+
+**Process:**
+1. Install and activate Rank Math (keep Yoast active during import).
+2. Run the Setup Wizard — it will detect Yoast and offer to import.
+3. Verify 10-20 key pages after import to confirm titles/descriptions transferred correctly.
+4. Deactivate and delete Yoast after confirming the migration.
+
+### From All in One SEO
+
+Same process — Rank Math imports from AIOSEO including meta data, sitemaps, and schema settings.
+
+### Post-Migration Checklist
+
+- Verify sitemap is working: visit `/sitemap_index.xml`
+- Check 5-10 key pages for correct title tags and meta descriptions
+- Verify schema markup with Google's Rich Results Test
+- Resubmit sitemap in Google Search Console
+- Monitor Search Console for crawl errors over the next 2 weeks
+- Check that redirects from the old plugin still work
+
+---
+
+## Free vs Pro: When to Upgrade
+
+**Free is sufficient for:**
+- Single site, personal blog, or small business
+- Basic SEO optimization with 1 focus keyword per post
+- Schema markup (most types available free)
+- Sitemap, 404 monitor, redirections
+- Image SEO, breadcrumbs
+
+**Pro is worth it for:**
+- Multiple focus keywords per post (up to 5)
+- Google Analytics integration in dashboard
+- Advanced schema builder with custom schema
+- Content AI tools (AI-generated meta descriptions, content suggestions)
+- Instant Indexing via IndexNow API
+- Keyword rank tracking
+- Local SEO with multiple locations
+- WooCommerce advanced SEO
+- Email reporting
+- Priority support
+
+**Pricing context (2026):**
+- Pro: $6.99/month (1 site) to $13.99/month (unlimited sites)
+- Business: $20.99/month with more Content AI credits
+- Much cheaper than Yoast Premium + extensions for equivalent features
+
+---
+
+## Advanced Tips
+
+### Instant Indexing (IndexNow)
+
+Enable the Instant Indexing module. It automatically pings Bing, Yandex, and other IndexNow-compatible engines when you publish or update content. For Google, you can also configure the Google Indexing API (requires a service account), though Google's adoption of IndexNow is still limited.
+
+### Content AI (Pro)
+
+Content AI suggests related keywords, questions, and content structure based on top-ranking pages. It's useful for research but don't blindly follow every suggestion — the recommendations are generated algorithmically and may not match your specific content angle. Use it as inspiration, not gospel.
+
+### Role Manager
+
+Control which user roles can access Rank Math features. Useful for multi-author sites where you want editors to set focus keywords but not change redirects or schema settings.
+
+### Analytics Module
+
+Shows Search Console data inside WordPress. Useful for quick checks, but for serious analysis, use Google Search Console directly — it has more data and better visualizations.
+
+### redesign-existing-projects
+_Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS._
+
+# Redesign Skill
+
+## How This Works
+
+When applied to an existing project, follow this sequence:
+
+1. **Scan** — Read the codebase. Identify the framework, styling method (Tailwind, vanilla CSS, styled-components, etc.), and current design patterns.
+2. **Diagnose** — Run through the audit below. List every generic pattern, weak point, and missing state you find.
+3. **Fix** — Apply targeted upgrades working with the existing stack. Do not rewrite from scratch. Improve what's there.
+
+## Design Audit
+
+### Typography
+
+Check for these problems and fix them:
+
+- Browser default fonts or Inter everywhere. Replace with a font that has character. Good options: Geist, Outfit, Cabinet Grotesk, Satoshi. For editorial/creative projects, pair a serif header with a sans-serif body.
+- Headlines lack presence. Increase size for display text, tighten letter-spacing, reduce line-height. Headlines should feel heavy and intentional.
+- Body text too wide. Limit paragraph width to roughly 65 characters. Increase line-height for readability.
+- Only Regular (400) and Bold (700) weights used. Introduce Medium (500) and SemiBold (600) for more subtle hierarchy.
+- Numbers in proportional font. Use a monospace font or enable tabular figures (font-variant-numeric: tabular-nums) for data-heavy interfaces.
+- Missing letter-spacing adjustments. Use negative tracking for large headers, positive tracking for small caps or labels.
+- All-caps subheaders everywhere. Try lowercase italics, sentence case, or small-caps instead.
+- Orphaned words. Single words sitting alone on the last line. Fix with text-wrap: balance or text-wrap: pretty.
+
+### Color and Surfaces
+
+- Pure #000000 background. Replace with off-black, dark charcoal, or tinted dark (#0a0a0a, #121212, or a dark navy).
+- Oversaturated accent colors. Keep saturation below 80%. Desaturate accents so they blend with neutrals instead of screaming.
+- More than one accent color. Pick one. Remove the rest. Consistency beats variety.
+- Mixing warm and cool grays. Stick to one gray family. Tint all grays with a consistent hue (warm or cool, not both).
+- Purple/blue "AI gradient" aesthetic. This is the most common AI design fingerprint. Replace with neutral bases and a single, considered accent.
+- Generic box-shadow. Tint shadows to match the background hue. Use colored shadows (e.g., dark blue shadow on a blue background) instead of pure black at low opacity.
+- Flat design with zero texture. Add subtle noise, grain, or micro-patterns to backgrounds. Pure flat vectors feel sterile.
+- Perfectly even gradients. Break the uniformity with radial gradients, noise overlays, or mesh gradients instead of standard linear 45-degree fades.
+- Inconsistent lighting direction. Audit all shadows to ensure they suggest a single, consistent light source.
+- Random dark sections in a light mode page (or vice versa). A single dark-background section breaking an otherwise light page looks like a copy-paste accident. Either commit to a full dark mode or keep a consistent background tone throughout. If contrast is needed, use a slightly darker shade of the same palette — not a sudden jump to #111 in the middle of a cream page.
+- Empty, flat sections with no visual depth. Sections that are just text on a plain background feel unfinished. Add high-quality background imagery (blurred, overlaid, or masked), subtle patterns, or ambient gradients. Use reliable placeholder sources like https://picsum.photos/seed/{name}/1920/1080 when real assets are not available. Experiment with background images behind hero sections, feature blocks, or CTAs — even a subtle full-width photo at low opacity adds presence.
+
+### Layout
+
+- Everything centered and symmetrical. Break symmetry with offset margins, mixed aspect ratios, or left-aligned headers over centered content.
+- Three equal card columns as feature row. This is the most generic AI layout. Replace with a 2-column zig-zag, asymmetric grid, horizontal scroll, or masonry layout.
+- Using height: 100vh for full-screen sections. Replace with min-height: 100dvh to prevent layout jumping on mobile browsers (iOS Safari viewport bug).
+- Complex flexbox percentage math. Replace with CSS Grid for reliable multi-column structures.
+- No max-width container. Add a container constraint (around 1200-1440px) with auto margins so content doesn't stretch edge-to-edge on wide screens.
+- Cards of equal height forced by flexbox. Allow variable heights or use masonry when content varies in length.
+- Uniform border-radius on everything. Vary the radius: tighter on inner elements, softer on containers.
+- No overlap or depth. Elements sit flat next to each other. Use negative margins to create layering and visual depth.
+- Symmetrical vertical padding. Top and bottom padding are always identical. Adjust optically — bottom padding often needs to be slightly larger.
+- Dashboard always has a left sidebar. Try top navigation, a floating command menu, or a collapsible panel instead.
+- Missing whitespace. Double the spacing. Let the design breathe. Dense layouts work for data dashboards, not for marketing pages.
+- Buttons not bottom-aligned in card groups. When cards have different content lengths, CTAs end up at random heights. Pin buttons to the bottom of each card so they form a clean horizontal line regardless of content above.
+- Feature lists starting at different vertical positions. In pricing tables or comparison cards, the list of features should start at the same Y position across all columns. Use consistent spacing above the list or fixed-height title/price blocks.
+- Inconsistent vertical rhythm in side-by-side elements. When placing cards, columns, or panels next to each other, align shared elements (titles, descriptions, prices, buttons) across all items. Misaligned baselines make the layout look broken.
+- Mathematical alignment that looks optically wrong. Centering by the math doesn't always look centered to the eye. Icons next to text, play buttons in circles, or text in buttons often need 1-2px optical adjustments to feel right.
+
+### Interactivity and States
+
+- No hover states on buttons. Add background shift, slight scale, or translate on hover.
+- No active/pressed feedback. Add a subtle scale(0.98) or translateY(1px) on press to simulate a physical click.
+- Instant transitions with zero duration. Add smooth transitions (200-300ms) to all interactive elements.
+- Missing focus ring. Ensure visible focus indicators for keyboard navigation. This is an accessibility requirement, not optional.
+- No loading states. Replace generic circular spinners with skeleton loaders that match the layout shape.
+- No empty states. An empty dashboard showing nothing is a missed opportunity. Design a composed "getting started" view.
+- No error states. Add clear, inline error messages for forms. Do not use window.alert().
+- Dead links. Buttons that link to #. Either link to real destinations or visually disable them.
+- No indication of current page in navigation. Style the active nav link differently so users know where they are.
+- Scroll jumping. Anchor clicks jump instantly. Add scroll-behavior: smooth.
+- Animations using top, left, width, height. Switch to transform and opacity for GPU-accelerated, smooth animation.
+
+### Content
+
+- Generic names like "John Doe" or "Jane Smith". Use diverse, realistic-sounding names.
+- Fake round numbers like 99.99%, 50%, $100.00. Use organic, messy data: 47.2%, $99.00, +1 (312) 847-1928.
+- Placeholder company names like "Acme Corp", "Nexus", "SmartFlow". Invent contextual, believable brand names.
+- AI copywriting cliches. Never use "Elevate", "Seamless", "Unleash", "Next-Gen", "Game-changer", "Delve", "Tapestry", or "In the world of...". Write plain, specific language.
+- Exclamation marks in success messages. Remove them. Be confident, not loud.
+- "Oops!" error messages. Be direct: "Connection failed. Please try again."
+- Passive voice. Use active voice: "We couldn't save your changes" instead of "Mistakes were made."
+- All blog post dates identical. Randomize dates to appear real.
+- Same avatar image for multiple users. Use unique assets for every distinct person.
+- Lorem Ipsum. Never use placeholder latin text. Write real draft copy.
+- Title Case On Every Header. Use sentence case instead.
+
+### Component Patterns
+
+- Generic card look (border + shadow + white background). Remove the border, or use only background color, or use only spacing. Cards should exist only when elevation communicates hierarchy.
+- Always one filled button + one ghost button. Add text links or tertiary styles to reduce visual noise.
+- Pill-shaped "New" and "Beta" badges. Try square badges, flags, or plain text labels.
+- Accordion FAQ sections. Use a side-by-side list, searchable help, or inline progressive disclosure.
+- 3-card carousel testimonials with dots. Replace with a masonry wall, embedded social posts, or a single rotating quote.
+- Pricing table with 3 towers. Highlight the recommended tier with color and emphasis, not just extra height.
+- Modals for everything. Use inline editing, slide-over panels, or expandable sections instead of popups for simple actions.
+- Avatar circles exclusively. Try squircles or rounded squares for a less generic look.
+- Light/dark toggle always a sun/moon switch. Use a dropdown, system preference detection, or integrate it into settings.
+- Footer link farm with 4 columns. Simplify. Focus on main navigational paths and legally required links.
+
+### Iconography
+
+- Lucide or Feather icons exclusively. These are the "default" AI icon choice. Use Phosphor, Heroicons, or a custom set for differentiation.
+- Rocketship for "Launch", shield for "Security". Replace cliche metaphors with less obvious icons (bolt, fingerprint, spark, vault).
+- Inconsistent stroke widths across icons. Audit all icons and standardize to one stroke weight.
+- Missing favicon. Always include a branded favicon.
+- Stock "diverse team" photos. Use real team photos, candid shots, or a consistent illustration style instead of uncanny stock imagery.
+
+### Code Quality
+
+- Div soup. Use semantic HTML: `<nav>`, `<main>`, `<article>`, `<aside>`, `<section>`.
+- Inline styles mixed with CSS classes. Move all styling to the project's styling system.
+- Hardcoded pixel widths. Use relative units (%, rem, em, max-width) for flexible layouts.
+- Missing alt text on images. Describe image content for screen readers. Never leave alt="" or alt="image" on meaningful images.
+- Arbitrary z-index values like 9999. Establish a clean z-index scale in the theme/variables.
+- Commented-out dead code. Remove all debug artifacts before shipping.
+- Import hallucinations. Check that every import actually exists in package.json or the project dependencies.
+- Missing meta tags. Add proper `<title>`, description, og:image, and social sharing meta tags.
+
+### Strategic Omissions (What AI Typically Forgets)
+
+- No legal links. Add privacy policy and terms of service links in the footer.
+- No "back" navigation. Dead ends in user flows. Every page needs a way back.
+- No custom 404 page. Design a helpful, branded "page not found" experience.
+- No form validation. Add client-side validation for emails, required fields, and format checks.
+- No "skip to content" link. Essential for keyboard users. Add a hidden skip-link.
+- No cookie consent. If required by jurisdiction, add a compliant consent banner.
+
+## Upgrade Techniques
+
+When upgrading a project, pull from these high-impact techniques to replace generic patterns:
+
+### Typography Upgrades
+- Variable font animation. Interpolate weight or width on scroll or hover for text that feels alive.
+- Outlined-to-fill transitions. Text starts as a stroke outline and fills with color on scroll entry or interaction.
+- Text mask reveals. Large typography acting as a window to video or animated imagery behind it.
+
+### Layout Upgrades
+- Broken grid / asymmetry. Elements that deliberately ignore column structure — overlapping, bleeding off-screen, or offset with calculated randomness.
+- Whitespace maximization. Aggressive use of negative space to force focus on a single element.
+- Parallax card stacks. Sections that stick and physically stack over each other during scroll.
+- Split-screen scroll. Two halves of the screen sliding in opposite directions.
+
+### Motion Upgrades
+- Smooth scroll with inertia. Decouple scrolling from browser defaults for a heavier, cinematic feel.
+- Staggered entry. Elements cascade in with slight delays, combining Y-axis translation with opacity fade. Never mount everything at once.
+- Spring physics. Replace linear easing with spring-based motion for a natural, weighty feel on all interactive elements.
+- Scroll-driven reveals. Content entering through expanding masks, wipes, or draw-on SVG paths tied to scroll progress.
+
+### Surface Upgrades
+- True glassmorphism. Go beyond backdrop-filter: blur. Add a 1px inner border and a subtle inner shadow to simulate edge refraction.
+- Spotlight borders. Card borders that illuminate dynamically under the cursor.
+- Grain and noise overlays. A fixed, pointer-events-none overlay with subtle noise to break digital flatness.
+- Colored, tinted shadows. Shadows that carry the hue of the background rather than using generic black.
+
+## Fix Priority
+
+Apply changes in this order for maximum visual impact with minimum risk:
+
+1. Font swap — biggest instant improvement, lowest risk
+2. Color palette cleanup — remove clashing or oversaturated colors
+3. Hover and active states — makes the interface feel alive
+4. Layout and spacing — proper grid, max-width, consistent padding
+5. Replace generic components — swap cliche patterns for modern alternatives
+6. Add loading, empty, and error states — makes it feel finished
+7. Polish typography scale and spacing — the premium final touch
+
+## Rules
+
+- Work with the existing tech stack. Do not migrate frameworks or styling libraries.
+- Do not break existing functionality. Test after every change.
+- Before importing any new library, check the project's dependency file first.
+- If the project uses Tailwind, check the version (v3 vs v4) before modifying config.
+- If the project has no framework, use vanilla CSS.
+- Keep changes reviewable and focused. Small, targeted improvements over big rewrites.
+
+### schedule
+_"Create a scheduled task that can be run on demand or automatically on an interval."_
+
+You are creating a reusable shortcut from the current session. Follow these steps:
+
+## 1. Analyze the session
+
+Review the session history to identify the core task the user performed or requested. Distill it into a single, repeatable objective.
+
+## 2. Draft a prompt
+
+The prompt will be used for future autonomous runs — it must be entirely self-contained. Future runs will NOT have access to this session, so never reference "the current conversation," "the above," or any ephemeral context.
+
+Include in the description:
+- A clear objective statement (what to accomplish)
+- Specific steps to execute
+- Any relevant file paths, URLs, repositories, or tool names
+- Expected output or success criteria
+- Any constraints or preferences the user expressed
+
+Write the description in second-person imperative ("Check the inbox…", "Run the test suite…"). Keep it concise but complete enough that another Claude session could execute it cold.
+
+## 3. Choose a taskName
+
+Pick a short, descriptive name in kebab-case (e.g. "daily-inbox-summary", "weekly-dep-audit", "format-pr-description").
+
+## 4. Determine scheduling
+
+Pick one:
+- **Recurring** ("every morning", "weekdays at 5pm", "hourly") → `cronExpression`
+- **One-time with a specific moment** ("remind me in 5 minutes", "tomorrow at 3pm", "next Friday") → `fireAt` ISO timestamp
+- **Ad-hoc** (no automatic run; user will trigger manually) → omit both
+- **Ambiguous** → propose a schedule and ask the user to confirm before proceeding
+
+**cronExpression:** Evaluated in the user's LOCAL timezone, not UTC. Use local times directly — e.g. "8am every Friday" → `0 8 * * 5`.
+
+**fireAt:** Compute the exact moment and emit a full ISO 8601 string with timezone offset, e.g. `2026-03-05T14:30:00-08:00`. Never use cron for one-time tasks — cron has no one-shot semantics.
+
+Finally, call the "create_scheduled_task" tool.
+
+### skill-creator
+_Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy._
+
+# Skill Creator
+
+A skill for creating new skills and iteratively improving them.
+
+At a high level, the process of creating a skill goes like this:
+
+- Decide what you want the skill to do and roughly how it should do it
+- Write a draft of the skill
+- Create a few test prompts and run claude-with-access-to-the-skill on them
+- Help the user evaluate the results both qualitatively and quantitatively
+  - While the runs happen in the background, draft some quantitative evals if there aren't any (if there are some, you can either use as is or modify if you feel something needs to change about them). Then explain them to the user (or if they already existed, explain the ones that already exist)
+  - Use the `eval-viewer/generate_review.py` script to show the user the results for them to look at, and also let them look at the quantitative metrics
+- Rewrite the skill based on feedback from the user's evaluation of the results (and also if there are any glaring flaws that become apparent from the quantitative benchmarks)
+- Repeat until you're satisfied
+- Expand the test set and try again at larger scale
+
+Your job when using this skill is to figure out where the user is in this process and then jump in and help them progress through these stages. So for instance, maybe they're like "I want to make a skill for X". You can help narrow down what they mean, write a draft, write the test cases, figure out how they want to evaluate, run all the prompts, and repeat.
+
+On the other hand, maybe they already have a draft of the skill. In this case you can go straight to the eval/iterate part of the loop.
+
+Of course, you should always be flexible and if the user is like "I don't need to run a bunch of evaluations, just vibe with me", you can do that instead.
+
+Then after the skill is done (but again, the order is flexible), you can also run the skill description improver, which we have a whole separate script for, to optimize the triggering of the skill.
+
+Cool? Cool.
+
+## Communicating with the user
+
+The skill creator is liable to be used by people across a wide range of familiarity with coding jargon. If you haven't heard (and how could you, it's only very recently that it started), there's a trend now where the power of Claude is inspiring plumbers to open up their terminals, parents and grandparents to google "how to install npm". On the other hand, the bulk of users are probably fairly computer-literate.
+
+So please pay attention to context cues to understand how to phrase your communication! In the default case, just to give you some idea:
+
+- "evaluation" and "benchmark" are borderline, but OK
+- for "JSON" and "assertion" you want to see serious cues from the user that they know what those things are before using them without explaining them
+
+It's OK to briefly explain terms if you're in doubt, and feel free to clarify terms with a short definition if you're unsure if the user will get it.
+
+---
+
+## Creating a skill
+
+### Capture Intent
+
+Start by understanding the user's intent. The current conversation might already contain a workflow the user wants to capture (e.g., they say "turn this into a skill"). If so, extract answers from the conversation history first — the tools used, the sequence of steps, corrections the user made, input/output formats observed. The user may need to fill the gaps, and should confirm before proceeding to the next step.
+
+1. What should this skill enable Claude to do?
+2. When should this skill trigger? (what user phrases/contexts)
+3. What's the expected output format?
+4. Should we set up test cases to verify the skill works? Skills with objectively verifiable outputs (file transforms, data extraction, code generation, fixed workflow steps) benefit from test cases. Skills with subjective outputs (writing style, art) often don't need them. Suggest the appropriate default based on the skill type, but let the user decide.
+
+### Interview and Research
+
+Proactively ask questions about edge cases, input/output formats, example files, success criteria, and dependencies. Wait to write test prompts until you've got this part ironed out.
+
+Check available MCPs - if useful for research (searching docs, finding similar skills, looking up best practices), research in parallel via subagents if available, otherwise inline. Come prepared with context to reduce burden on the user.
+
+### Write the SKILL.md
+
+Based on the user interview, fill in these components:
+
+- **name**: Skill identifier
+- **description**: When to trigger, what it does. This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Note: currently Claude has a tendency to "undertrigger" skills -- to not use them when they'd be useful. To combat this, please make the skill descriptions a little bit "pushy". So for instance, instead of "How to build a simple fast dashboard to display internal Anthropic data.", you might write "How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'"
+- **compatibility**: Required tools, dependencies (optional, rarely needed)
+- **the rest of the skill :)**
+
+### Skill Writing Guide
+
+#### Anatomy of a Skill
+
+```
+skill-name/
+├── SKILL.md (required)
+│   ├── YAML frontmatter (name, description required)
+│   └── Markdown instructions
+└── Bundled Resources (optional)
+    ├── scripts/    - Executable code for deterministic/repetitive tasks
+    ├── references/ - Docs loaded into context as needed
+    └── assets/     - Files used in output (templates, icons, fonts)
+```
+
+#### Progressive Disclosure
+
+Skills use a three-level loading system:
+1. **Metadata** (name + description) - Always in context (~100 words)
+2. **SKILL.md body** - In context whenever skill triggers (<500 lines ideal)
+3. **Bundled resources** - As needed (unlimited, scripts can execute without loading)
+
+These word counts are approximate and you can feel free to go longer if needed.
+
+**Key patterns:**
+- Keep SKILL.md under 500 lines; if you're approaching this limit, add an additional layer of hierarchy along with clear pointers about where the model using the skill should go next to follow up.
+- Reference files clearly from SKILL.md with guidance on when to read them
+- For large reference files (>300 lines), include a table of contents
+
+**Domain organization**: When a skill supports multiple domains/frameworks, organize by variant:
+```
+cloud-deploy/
+├── SKILL.md (workflow + selection)
+└── references/
+    ├── aws.md
+    ├── gcp.md
+    └── azure.md
+```
+Claude reads only the relevant reference file.
+
+#### Principle of Lack of Surprise
+
+This goes without saying, but skills must not contain malware, exploit code, or any content that could compromise system security. A skill's contents should not surprise the user in their intent if described. Don't go along with requests to create misleading skills or skills designed to facilitate unauthorized access, data exfiltration, or other malicious activities. Things like a "roleplay as an XYZ" are OK though.
+
+#### Writing Patterns
+
+Prefer using the imperative form in instructions.
+
+**Defining output formats** - You can do it like this:
+```markdown
+## Report structure
+ALWAYS use this exact template:
+# [Title]
+## Executive summary
+## Key findings
+## Recommendations
+```
+
+**Examples pattern** - It's useful to include examples. You can format them like this (but if "Input" and "Output" are in the examples you might want to deviate a little):
+```markdown
+## Commit message format
+**Example 1:**
+Input: Added user authentication with JWT tokens
+Output: feat(auth): implement JWT-based authentication
+```
+
+### Writing Style
+
+Try to explain to the model why things are important in lieu of heavy-handed musty MUSTs. Use theory of mind and try to make the skill general and not super-narrow to specific examples. Start by writing a draft and then look at it with fresh eyes and improve it.
+
+### Test Cases
+
+After writing the skill draft, come up with 2-3 realistic test prompts — the kind of thing a real user would actually say. Share them with the user: [you don't have to use this exact language] "Here are a few test cases I'd like to try. Do these look right, or do you want to add more?" Then run them.
+
+Save test cases to `evals/evals.json`. Don't write assertions yet — just the prompts. You'll draft assertions in the next step while the runs are in progress.
+
+```json
+{
+  "skill_name": "example-skill",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "User's task prompt",
+      "expected_output": "Description of expected result",
+      "files": []
+    }
+  ]
+}
+```
+
+See `references/schemas.md` for the full schema (including the `assertions` field, which you'll add later).
+
+## Running and evaluating test cases
+
+This section is one continuous sequence — don't stop partway through. Do NOT use `/skill-test` or any other testing skill.
+
+Put results in `<skill-name>-workspace/` as a sibling to the skill directory. Within the workspace, organize results by iteration (`iteration-1/`, `iteration-2/`, etc.) and within that, each test case gets a directory (`eval-0/`, `eval-1/`, etc.). Don't create all of this upfront — just create directories as you go.
+
+### Step 1: Spawn all runs (with-skill AND baseline) in the same turn
+
+For each test case, spawn two subagents in the same turn — one with the skill, one without. This is important: don't spawn the with-skill runs first and then come back for baselines later. Launch everything at once so it all finishes around the same time.
+
+**With-skill run:**
+
+```
+Execute this task:
+- Skill path: <path-to-skill>
+- Task: <eval prompt>
+- Input files: <eval files if any, or "none">
+- Save outputs to: <workspace>/iteration-<N>/eval-<ID>/with_skill/outputs/
+- Outputs to save: <what the user cares about — e.g., "the .docx file", "the final CSV">
+```
+
+**Baseline run** (same prompt, but the baseline depends on context):
+- **Creating a new skill**: no skill at all. Same prompt, no skill path, save to `without_skill/outputs/`.
+- **Improving an existing skill**: the old version. Before editing, snapshot the skill (`cp -r <skill-path> <workspace>/skill-snapshot/`), then point the baseline subagent at the snapshot. Save to `old_skill/outputs/`.
+
+Write an `eval_metadata.json` for each test case (assertions can be empty for now). Give each eval a descriptive name based on what it's testing — not just "eval-0". Use this name for the directory too. If this iteration uses new or modified eval prompts, create these files for each new eval directory — don't assume they carry over from previous iterations.
+
+```json
+{
+  "eval_id": 0,
+  "eval_name": "descriptive-name-here",
+  "prompt": "The user's task prompt",
+  "assertions": []
+}
+```
+
+### Step 2: While runs are in progress, draft assertions
+
+Don't just wait for the runs to finish — you can use this time productively. Draft quantitative assertions for each test case and explain them to the user. If assertions already exist in `evals/evals.json`, review them and explain what they check.
+
+Good assertions are objectively verifiable and have descriptive names — they should read clearly in the benchmark viewer so someone glancing at the results immediately understands what each one checks. Subjective skills (writing style, design quality) are better evaluated qualitatively — don't force assertions onto things that need human judgment.
+
+Update the `eval_metadata.json` files and `evals/evals.json` with the assertions once drafted. Also explain to the user what they'll see in the viewer — both the qualitative outputs and the quantitative benchmark.
+
+### Step 3: As runs complete, capture timing data
+
+When each subagent task completes, you receive a notification containing `total_tokens` and `duration_ms`. Save this data immediately to `timing.json` in the run directory:
+
+```json
+{
+  "total_tokens": 84852,
+  "duration_ms": 23332,
+  "total_duration_seconds": 23.3
+}
+```
+
+This is the only opportunity to capture this data — it comes through the task notification and isn't persisted elsewhere. Process each notification as it arrives rather than trying to batch them.
+
+### Step 4: Grade, aggregate, and launch the viewer
+
+Once all runs are done:
+
+1. **Grade each run** — spawn a grader subagent (or grade inline) that reads `agents/grader.md` and evaluates each assertion against the outputs. Save results to `grading.json` in each run directory. The grading.json expectations array must use the fields `text`, `passed`, and `evidence` (not `name`/`met`/`details` or other variants) — the viewer depends on these exact field names. For assertions that can be checked programmatically, write and run a script rather than eyeballing it — scripts are faster, more reliable, and can be reused across iterations.
+
+2. **Aggregate into benchmark** — run the aggregation script from the skill-creator directory:
+   ```bash
+   python -m scripts.aggregate_benchmark <workspace>/iteration-N --skill-name <name>
+   ```
+   This produces `benchmark.json` and `benchmark.md` with pass_rate, time, and tokens for each configuration, with mean ± stddev and the delta. If generating benchmark.json manually, see `references/schemas.md` for the exact schema the viewer expects.
+Put each with_skill version before its baseline counterpart.
+
+3. **Do an analyst pass** — read the benchmark data and surface patterns the aggregate stats might hide. See `agents/analyzer.md` (the "Analyzing Benchmark Results" section) for what to look for — things like assertions that always pass regardless of skill (non-discriminating), high-variance evals (possibly flaky), and time/token tradeoffs.
+
+4. **Launch the viewer** with both qualitative outputs and quantitative data:
+   ```bash
+   nohup python <skill-creator-path>/eval-viewer/generate_review.py \
+     <workspace>/iteration-N \
+     --skill-name "my-skill" \
+     --benchmark <workspace>/iteration-N/benchmark.json \
+     > /dev/null 2>&1 &
+   VIEWER_PID=$!
+   ```
+   For iteration 2+, also pass `--previous-workspace <workspace>/iteration-<N-1>`.
+
+   **Cowork / headless environments:** If `webbrowser.open()` is not available or the environment has no display, use `--static <output_path>` to write a standalone HTML file instead of starting a server. Feedback will be downloaded as a `feedback.json` file when the user clicks "Submit All Reviews". After download, copy `feedback.json` into the workspace directory for the next iteration to pick up.
+
+Note: please use generate_review.py to create the viewer; there's no need to write custom HTML.
+
+5. **Tell the user** something like: "I've opened the results in your browser. There are two tabs — 'Outputs' lets you click through each test case and leave feedback, 'Benchmark' shows the quantitative comparison. When you're done, come back here and let me know."
+
+### What the user sees in the viewer
+
+The "Outputs" tab shows one test case at a time:
+- **Prompt**: the task that was given
+- **Output**: the files the skill produced, rendered inline where possible
+- **Previous Output** (iteration 2+): collapsed section showing last iteration's output
+- **Formal Grades** (if grading was run): collapsed section showing assertion pass/fail
+- **Feedback**: a textbox that auto-saves as they type
+- **Previous Feedback** (iteration 2+): their comments from last time, shown below the textbox
+
+The "Benchmark" tab shows the stats summary: pass rates, timing, and token usage for each configuration, with per-eval breakdowns and analyst observations.
+
+Navigation is via prev/next buttons or arrow keys. When done, they click "Submit All Reviews" which saves all feedback to `feedback.json`.
+
+### Step 5: Read the feedback
+
+When the user tells you they're done, read `feedback.json`:
+
+```json
+{
+  "reviews": [
+    {"run_id": "eval-0-with_skill", "feedback": "the chart is missing axis labels", "timestamp": "..."},
+    {"run_id": "eval-1-with_skill", "feedback": "", "timestamp": "..."},
+    {"run_id": "eval-2-with_skill", "feedback": "perfect, love this", "timestamp": "..."}
+  ],
+  "status": "complete"
+}
+```
+
+Empty feedback means the user thought it was fine. Focus your improvements on the test cases where the user had specific complaints.
+
+Kill the viewer server when you're done with it:
+
+```bash
+kill $VIEWER_PID 2>/dev/null
+```
+
+---
+
+## Improving the skill
+
+This is the heart of the loop. You've run the test cases, the user has reviewed the results, and now you need to make the skill better based on their feedback.
+
+### How to think about improvements
+
+1. **Generalize from the feedback.** The big picture thing that's happening here is that we're trying to create skills that can be used a million times (maybe literally, maybe even more who knows) across many different prompts. Here you and the user are iterating on only a few examples over and over again because it helps move faster. The user knows these examples in and out and it's quick for them to assess new outputs. But if the skill you and the user are codeveloping works only for those examples, it's useless. Rather than put in fiddly overfitty changes, or oppressively constrictive MUSTs, if there's some stubborn issue, you might try branching out and using different metaphors, or recommending different patterns of working. It's relatively cheap to try and maybe you'll land on something great.
+
+2. **Keep the prompt lean.** Remove things that aren't pulling their weight. Make sure to read the transcripts, not just the final outputs — if it looks like the skill is making the model waste a bunch of time doing things that are unproductive, you can try getting rid of the parts of the skill that are making it do that and seeing what happens.
+
+3. **Explain the why.** Try hard to explain the **why** behind everything you're asking the model to do. Today's LLMs are *smart*. They have good theory of mind and when given a good harness can go beyond rote instructions and really make things happen. Even if the feedback from the user is terse or frustrated, try to actually understand the task and why the user is writing what they wrote, and what they actually wrote, and then transmit this understanding into the instructions. If you find yourself writing ALWAYS or NEVER in all caps, or using super rigid structures, that's a yellow flag — if possible, reframe and explain the reasoning so that the model understands why the thing you're asking for is important. That's a more humane, powerful, and effective approach.
+
+4. **Look for repeated work across test cases.** Read the transcripts from the test runs and notice if the subagents all independently wrote similar helper scripts or took the same multi-step approach to something. If all 3 test cases resulted in the subagent writing a `create_docx.py` or a `build_chart.py`, that's a strong signal the skill should bundle that script. Write it once, put it in `scripts/`, and tell the skill to use it. This saves every future invocation from reinventing the wheel.
+
+This task is pretty important (we are trying to create billions a year in economic value here!) and your thinking time is not the blocker; take your time and really mull things over. I'd suggest writing a draft revision and then looking at it anew and making improvements. Really do your best to get into the head of the user and understand what they want and need.
+
+### The iteration loop
+
+After improving the skill:
+
+1. Apply your improvements to the skill
+2. Rerun all test cases into a new `iteration-<N+1>/` directory, including baseline runs. If you're creating a new skill, the baseline is always `without_skill` (no skill) — that stays the same across iterations. If you're improving an existing skill, use your judgment on what makes sense as the baseline: the original version the user came in with, or the previous iteration.
+3. Launch the reviewer with `--previous-workspace` pointing at the previous iteration
+4. Wait for the user to review and tell you they're done
+5. Read the new feedback, improve again, repeat
+
+Keep going until:
+- The user says they're happy
+- The feedback is all empty (everything looks good)
+- You're not making meaningful progress
+
+---
+
+## Advanced: Blind comparison
+
+For situations where you want a more rigorous comparison between two versions of a skill (e.g., the user asks "is the new version actually better?"), there's a blind comparison system. Read `agents/comparator.md` and `agents/analyzer.md` for the details. The basic idea is: give two outputs to an independent agent without telling it which is which, and let it judge quality. Then analyze why the winner won.
+
+This is optional, requires subagents, and most users won't need it. The human review loop is usually sufficient.
+
+---
+
+## Description Optimization
+
+The description field in SKILL.md frontmatter is the primary mechanism that determines whether Claude invokes a skill. After creating or improving a skill, offer to optimize the description for better triggering accuracy.
+
+### Step 1: Generate trigger eval queries
+
+Create 20 eval queries — a mix of should-trigger and should-not-trigger. Save as JSON:
+
+```json
+[
+  {"query": "the user prompt", "should_trigger": true},
+  {"query": "another prompt", "should_trigger": false}
+]
+```
+
+The queries must be realistic and something a Claude Code or Claude.ai user would actually type. Not abstract requests, but requests that are concrete and specific and have a good amount of detail. For instance, file paths, personal context about the user's job or situation, column names and values, company names, URLs. A little bit of backstory. Some might be in lowercase or contain abbreviations or typos or casual speech. Use a mix of different lengths, and focus on edge cases rather than making them clear-cut (the user will get a chance to sign off on them).
+
+Bad: `"Format this data"`, `"Extract text from PDF"`, `"Create a chart"`
+
+Good: `"ok so my boss just sent me this xlsx file (its in my downloads, called something like 'Q4 sales final FINAL v2.xlsx') and she wants me to add a column that shows the profit margin as a percentage. The revenue is in column C and costs are in column D i think"`
+
+For the **should-trigger** queries (8-10), think about coverage. You want different phrasings of the same intent — some formal, some casual. Include cases where the user doesn't explicitly name the skill or file type but clearly needs it. Throw in some uncommon use cases and cases where this skill competes with another but should win.
+
+For the **should-not-trigger** queries (8-10), the most valuable ones are the near-misses — queries that share keywords or concepts with the skill but actually need something different. Think adjacent domains, ambiguous phrasing where a naive keyword match would trigger but shouldn't, and cases where the query touches on something the skill does but in a context where another tool is more appropriate.
+
+The key thing to avoid: don't make should-not-trigger queries obviously irrelevant. "Write a fibonacci function" as a negative test for a PDF skill is too easy — it doesn't test anything. The negative cases should be genuinely tricky.
+
+### Step 2: Review with user
+
+Present the eval set to the user for review using the HTML template:
+
+1. Read the template from `assets/eval_review.html`
+2. Replace the placeholders:
+   - `__EVAL_DATA_PLACEHOLDER__` → the JSON array of eval items (no quotes around it — it's a JS variable assignment)
+   - `__SKILL_NAME_PLACEHOLDER__` → the skill's name
+   - `__SKILL_DESCRIPTION_PLACEHOLDER__` → the skill's current description
+3. Write to a temp file (e.g., `/tmp/eval_review_<skill-name>.html`) and open it: `open /tmp/eval_review_<skill-name>.html`
+4. The user can edit queries, toggle should-trigger, add/remove entries, then click "Export Eval Set"
+5. The file downloads to `~/Downloads/eval_set.json` — check the Downloads folder for the most recent version in case there are multiple (e.g., `eval_set (1).json`)
+
+This step matters — bad eval queries lead to bad descriptions.
+
+### Step 3: Run the optimization loop
+
+Tell the user: "This will take some time — I'll run the optimization loop in the background and check on it periodically."
+
+Save the eval set to the workspace, then run in the background:
+
+```bash
+python -m scripts.run_loop \
+  --eval-set <path-to-trigger-eval.json> \
+  --skill-path <path-to-skill> \
+  --model <model-id-powering-this-session> \
+  --max-iterations 5 \
+  --verbose
+```
+
+Use the model ID from your system prompt (the one powering the current session) so the triggering test matches what the user actually experiences.
+
+While it runs, periodically tail the output to give the user updates on which iteration it's on and what the scores look like.
+
+This handles the full optimization loop automatically. It splits the eval set into 60% train and 40% held-out test, evaluates the current description (running each query 3 times to get a reliable trigger rate), then calls Claude to propose improvements based on what failed. It re-evaluates each new description on both train and test, iterating up to 5 times. When it's done, it opens an HTML report in the browser showing the results per iteration and returns JSON with `best_description` — selected by test score rather than train score to avoid overfitting.
+
+### How skill triggering works
+
+Understanding the triggering mechanism helps design better eval queries. Skills appear in Claude's `available_skills` list with their name + description, and Claude decides whether to consult a skill based on that description. The important thing to know is that Claude only consults skills for tasks it can't easily handle on its own — simple, one-step queries like "read this PDF" may not trigger a skill even if the description matches perfectly, because Claude can handle them directly with basic tools. Complex, multi-step, or specialized queries reliably trigger skills when the description matches.
+
+This means your eval queries should be substantive enough that Claude would actually benefit from consulting a skill. Simple queries like "read file X" are poor test cases — they won't trigger skills regardless of description quality.
+
+### Step 4: Apply the result
+
+Take `best_description` from the JSON output and update the skill's SKILL.md frontmatter. Show the user before/after and report the scores.
+
+---
+
+### Package and Present (only if `present_files` tool is available)
+
+Check whether you have access to the `present_files` tool. If you don't, skip this step. If you do, package the skill and present the .skill file to the user:
+
+```bash
+python -m scripts.package_skill <path/to/skill-folder>
+```
+
+After packaging, direct the user to the resulting `.skill` file path so they can install it.
+
+---
+
+## Claude.ai-specific instructions
+
+In Claude.ai, the core workflow is the same (draft → test → review → improve → repeat), but because Claude.ai doesn't have subagents, some mechanics change. Here's what to adapt:
+
+**Running test cases**: No subagents means no parallel execution. For each test case, read the skill's SKILL.md, then follow its instructions to accomplish the test prompt yourself. Do them one at a time. This is less rigorous than independent subagents (you wrote the skill and you're also running it, so you have full context), but it's a useful sanity check — and the human review step compensates. Skip the baseline runs — just use the skill to complete the task as requested.
+
+**Reviewing results**: If you can't open a browser (e.g., Claude.ai's VM has no display, or you're on a remote server), skip the browser reviewer entirely. Instead, present results directly in the conversation. For each test case, show the prompt and the output. If the output is a file the user needs to see (like a .docx or .xlsx), save it to the filesystem and tell them where it is so they can download and inspect it. Ask for feedback inline: "How does this look? Anything you'd change?"
+
+**Benchmarking**: Skip the quantitative benchmarking — it relies on baseline comparisons which aren't meaningful without subagents. Focus on qualitative feedback from the user.
+
+**The iteration loop**: Same as before — improve the skill, rerun the test cases, ask for feedback — just without the browser reviewer in the middle. You can still organize results into iteration directories on the filesystem if you have one.
+
+**Description optimization**: This section requires the `claude` CLI tool (specifically `claude -p`) which is only available in Claude Code. Skip it if you're on Claude.ai.
+
+**Blind comparison**: Requires subagents. Skip it.
+
+**Packaging**: The `package_skill.py` script works anywhere with Python and a filesystem. On Claude.ai, you can run it and the user can download the resulting `.skill` file.
+
+**Updating an existing skill**: The user might be asking you to update an existing skill, not create a new one. In this case:
+- **Preserve the original name.** Note the skill's directory name and `name` frontmatter field -- use them unchanged. E.g., if the installed skill is `research-helper`, output `research-helper.skill` (not `research-helper-v2`).
+- **Copy to a writeable location before editing.** The installed skill path may be read-only. Copy to `/tmp/skill-name/`, edit there, and package from the copy.
+- **If packaging manually, stage in `/tmp/` first**, then copy to the output directory -- direct writes may fail due to permissions.
+
+---
+
+## Cowork-Specific Instructions
+
+If you're in Cowork, the main things to know are:
+
+- You have subagents, so the main workflow (spawn test cases in parallel, run baselines, grade, etc.) all works. (However, if you run into severe problems with timeouts, it's OK to run the test prompts in series rather than parallel.)
+- You don't have a browser or display, so when generating the eval viewer, use `--static <output_path>` to write a standalone HTML file instead of starting a server. Then proffer a link that the user can click to open the HTML in their browser.
+- For whatever reason, the Cowork setup seems to disincline Claude from generating the eval viewer after running the tests, so just to reiterate: whether you're in Cowork or in Claude Code, after running tests, you should always generate the eval viewer for the human to look at examples before revising the skill yourself and trying to make corrections, using `generate_review.py` (not writing your own boutique html code). Sorry in advance but I'm gonna go all caps here: GENERATE THE EVAL VIEWER *BEFORE* evaluating inputs yourself. You want to get them in front of the human ASAP!
+- Feedback works differently: since there's no running server, the viewer's "Submit All Reviews" button will download `feedback.json` as a file. You can then read it from there (you may have to request access first).
+- Packaging works — `package_skill.py` just needs Python and a filesystem.
+- Description optimization (`run_loop.py` / `run_eval.py`) should work in Cowork just fine since it uses `claude -p` via subprocess, not a browser, but please save it until you've fully finished making the skill and the user agrees it's in good shape.
+- **Updating an existing skill**: The user might be asking you to update an existing skill, not create a new one. Follow the update guidance in the claude.ai section above.
+
+---
+
+## Reference files
+
+The agents/ directory contains instructions for specialized subagents. Read them when you need to spawn the relevant subagent.
+
+- `agents/grader.md` — How to evaluate assertions against outputs
+- `agents/comparator.md` — How to do blind A/B comparison between two outputs
+- `agents/analyzer.md` — How to analyze why one version beat another
+
+The references/ directory has additional documentation:
+- `references/schemas.md` — JSON structures for evals.json, grading.json, etc.
+
+---
+
+Repeating one more time the core loop here for emphasis:
+
+- Figure out what the skill is about
+- Draft or edit the skill
+- Run claude-with-access-to-the-skill on test prompts
+- With the user, evaluate the outputs:
+  - Create benchmark.json and run `eval-viewer/generate_review.py` to help the user review them
+  - Run quantitative evals
+- Repeat until you and the user are satisfied
+- Package the final skill and return it to the user.
+
+Please add steps to your TodoList, if you have such a thing, to make sure you don't forget. If you're in Cowork, please specifically put "Create evals JSON and run `eval-viewer/generate_review.py` so human can review test cases" in your TodoList to make sure it happens.
+
+Good luck!
+
+### high-end-visual-design
+_Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make AI designs look cheap or generic._
+
+# Agent Skill: Principal UI/UX Architect & Motion Choreographer (Awwwards-Tier)
+
+## 1. Meta Information & Core Directive
+
+**Persona:** Vanguard_UI_Architect
+
+**Objective:** You engineer $150k+ agency-level digital experiences, not just websites. Your output must exude haptic depth, cinematic spatial rhythm, obsessive micro-interactions, and flawless fluid motion.
+
+**The Variance Mandate:** NEVER generate the exact same layout or aesthetic twice in a row. You must dynamically combine different premium layout archetypes and texture profiles while strictly adhering to the elite "Apple-esque / Linear-tier" design language.
+
+## 2. THE "ABSOLUTE ZERO" DIRECTIVE (STRICT ANTI-PATTERNS)
+
+If your generated code includes ANY of the following, the design instantly fails:
+
+- **Banned Fonts:** Inter, Roboto, Arial, Open Sans, Helvetica. (Assume premium fonts like Geist, Clash Display, PP Editorial New, or Plus Jakarta Sans are available).
+- **Banned Icons:** Standard thick-stroked Lucide, FontAwesome, or Material Icons. Use only ultra-light, precise lines (e.g., Phosphor Light, Remix Line).
+- **Banned Borders & Shadows:** Generic 1px solid gray borders. Harsh, dark drop shadows (shadow-md, rgba(0,0,0,0.3)).
+- **Banned Layouts:** Edge-to-edge sticky navbars glued to the top. Symmetrical, boring 3-column Bootstrap-style grids without massive whitespace gaps.
+- **Banned Motion:** Standard linear or ease-in-out transitions. Instant state changes without interpolation.
+
+## 3. THE CREATIVE VARIANCE ENGINE
+
+Before writing code, silently "roll the dice" and select ONE combination from the following archetypes based on the prompt's context to ensure the output is uniquely tailored but always premium:
+
+### A. Vibe & Texture Archetypes (Pick 1)
+
+**Ethereal Glass (SaaS / AI / Tech):**
+Deepest OLED black (#050505), radial mesh gradients (e.g., subtle glowing purple/emerald orbs) in the background. Vantablack cards with heavy backdrop-blur-2xl and pure white/10 hairlines. Wide geometric Grotesk typography.
+
+**Editorial Luxury (Lifestyle / Real Estate / Agency):**
+Warm creams (#FDFBF7), muted sage, or deep espresso tones. High-contrast Variable Serif fonts for massive headings. Subtle CSS noise/film-grain overlay (opacity-[0.03]) for a physical paper feel.
+
+**Soft Structuralism (Consumer / Health / Portfolio):**
+Silver-grey or completely white backgrounds. Massive bold Grotesk typography. Airy, floating components with unbelievably soft, highly diffused ambient shadows.
+
+### B. Layout Archetypes (Pick 1)
+
+**The Asymmetrical Bento:**
+A masonry-like CSS Grid of varying card sizes (e.g., col-span-8 row-span-2 next to stacked col-span-4 cards) to break visual monotony.
+- Mobile Collapse: Falls back to a single-column stack (grid-cols-1) with generous vertical gaps (gap-6). All col-span overrides reset to col-span-1.
+
+**The Z-Axis Cascade:**
+Elements are stacked like physical cards, slightly overlapping each other with varying depths of field, some with a subtle -2deg or 3deg rotation to break the digital grid.
+- Mobile Collapse: Remove all rotations and negative-margin overlaps below 768px. Stack vertically with standard spacing. Overlapping elements cause touch-target conflicts on mobile.
+
+**The Editorial Split:**
+Massive typography on the left half (w-1/2), with interactive, scrollable horizontal image pills or staggered interactive cards on the right.
+- Mobile Collapse: Converts to a full-width vertical stack (w-full). Typography block sits on top, interactive content flows below with horizontal scroll preserved if needed.
+
+**Mobile Override (Universal):** Any asymmetric layout above md: MUST aggressively fall back to w-full, px-4, py-8 on viewports below 768px. Never use h-screen for full-height sections — always use min-h-[100dvh] to prevent iOS Safari viewport jumping.
+
+## 4. HAPTIC MICRO-AESTHETICS (COMPONENT MASTERY)
+
+### A. The "Double-Bezel" (Doppelrand / Nested Architecture)
+
+Never place a premium card, image, or container flatly on the background. They must look like physical, machined hardware (like a glass plate sitting in an aluminum tray) using nested enclosures.
+
+- **Outer Shell:** A wrapper div with a subtle background (bg-black/5 or bg-white/5), a hairline outer border (ring-1 ring-black/5 or border border-white/10), a specific padding (e.g., p-1.5 or p-2), and a large outer radius (rounded-[2rem]).
+- **Inner Core:** The actual content container inside the shell. It has its own distinct background color, its own inner highlight (shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]), and a mathematically calculated smaller radius (e.g., rounded-[calc(2rem-0.375rem)]) for concentric curves.
+
+### B. Nested CTA & "Island" Button Architecture
+
+- **Structure:** Primary interactive buttons must be fully rounded pills (rounded-full) with generous padding (px-6 py-3).
+- **The "Button-in-Button" Trailing Icon:** If a button has an arrow, it NEVER sits naked next to the text. It must be nested inside its own distinct circular wrapper (e.g., w-8 h-8 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center) placed completely flush with the main button's right inner padding.
+
+### C. Spatial Rhythm & Tension
+
+- **Macro-Whitespace:** Double your standard padding. Use py-24 to py-40 for sections. Allow the design to breathe heavily.
+- **Eyebrow Tags:** Precede major H1/H2s with a microscopic, pill-shaped badge (rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium).
+
+## 5. MOTION CHOREOGRAPHY (FLUID DYNAMICS)
+
+Never use default transitions. All motion must simulate real-world mass and spring physics. Use custom cubic-beziers (e.g., transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]).
+
+### A. The "Fluid Island" Nav & Hamburger Reveal
+
+- **Closed State:** The Navbar is a floating glass pill detached from the top (mt-6, mx-auto, w-max, rounded-full).
+- **The Hamburger Morph:** On click, the 2 or 3 lines of the hamburger icon must fluidly rotate and translate to form a perfect 'X' (rotate-45 and -rotate-45 with absolute positioning), not just disappear.
+- **The Modal Expansion:** The menu should open as a massive, screen-filling overlay with a heavy glass effect (backdrop-blur-3xl bg-black/80 or bg-white/80).
+- **Staggered Mask Reveal:** The navigation links inside the expanded state do not just appear. They fade in and slide up from an invisible box (translate-y-12 opacity-0 to translate-y-0 opacity-100) with a staggered delay (delay-100, delay-150, delay-200 for each item).
+
+### B. Magnetic Button Hover Physics
+
+Use the group utility. On hover, do not just change the background color. Scale the entire button down slightly (active:scale-[0.98]) to simulate physical pressing. The nested inner icon circle should translate diagonally (group-hover:translate-x-1 group-hover:-translate-y-[1px]) and scale up slightly (scale-105), creating internal kinetic tension.
+
+### C. Scroll Interpolation (Entry Animations)
+
+Elements never appear statically on load. As they enter the viewport, they must execute a gentle, heavy fade-up (translate-y-16 blur-md opacity-0 resolving to translate-y-0 blur-0 opacity-100 over 800ms+). For JavaScript-driven scroll reveals, use IntersectionObserver or Framer Motion's whileInView. Never use window.addEventListener('scroll') — it causes continuous reflows and kills mobile performance.
+
+## 6. PERFORMANCE GUARDRAILS
+
+- **GPU-Safe Animation:** Never animate top, left, width, or height. Animate exclusively via transform and opacity. Use will-change: transform sparingly and only on elements that are actively animating.
+- **Blur Constraints:** Apply backdrop-blur only to fixed or sticky elements (navbars, overlays). Never apply blur filters to scrolling containers or large content areas — this causes continuous GPU repaints and severe mobile frame drops.
+- **Grain/Noise Overlays:** Apply noise textures exclusively to fixed, pointer-events-none pseudo-elements (position: fixed; inset: 0; z-index: 50). Never attach them to scrolling containers.
+- **Z-Index Discipline:** Do not use arbitrary z-50 or z-[9999]. Reserve z-indexes strictly for systemic layers: sticky nav, modals, overlays, tooltips.
+
+## 7. EXECUTION PROTOCOL
+
+When generating UI code, follow this exact sequence:
+
+1. **[SILENT THOUGHT]** Roll the Variance Engine (Section 3). Choose your Vibe and Layout Archetypes based on the prompt's context to ensure a unique output.
+2. **[SCAFFOLD]** Establish the background texture, macro-whitespace scale, and massive typography sizes.
+3. **[ARCHITECT]** Build the DOM strictly using the "Double-Bezel" (Doppelrand) technique for all major cards, inputs, and feature grids. Use exaggerated squircle radii (rounded-[2rem]).
+4. **[CHOREOGRAPH]** Inject the custom cubic-bezier transitions, the staggered navigation reveals, and the button-in-button hover physics.
+5. **[OUTPUT]** Deliver flawless, pixel-perfect React/Tailwind/HTML code. Do not include basic, generic fallbacks.
+
+## 8. PRE-OUTPUT CHECKLIST
+
+Evaluate your code against this matrix before delivering. This is the last filter.
+
+- No banned fonts, icons, borders, shadows, layouts, or motion patterns from Section 2 are present
+- A Vibe Archetype and Layout Archetype from Section 3 were consciously selected and applied
+- All major cards and containers use the Double-Bezel nested architecture (outer shell + inner core)
+- CTA buttons use the Button-in-Button trailing icon pattern where applicable
+- Section padding is at minimum py-24 — the layout breathes heavily
+- All transitions use custom cubic-bezier curves — no linear or ease-in-out
+- Scroll entry animations are present — no element appears statically
+- Layout collapses gracefully below 768px to single-column with w-full and px-4
+- All animations use only transform and opacity — no layout-triggering properties
+- backdrop-blur is only applied to fixed/sticky elements, never to scrolling content
+- The overall impression reads as "$150k agency build", not "template with nice fonts"
+
+### stitch-design-taste
+_Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards — strict typography, calibrated color, asymmetric layouts, perpetual micro-motion, and hardware-accelerated performance._
+
+# Stitch Design Taste — Semantic Design System Skill
+
+## Overview
+
+This skill generates DESIGN.md files optimized for Google Stitch screen generation. It translates the battle-tested anti-slop frontend engineering directives into Stitch's native semantic design language — descriptive, natural-language rules paired with precise values that Stitch's AI agent can interpret to produce premium, non-generic interfaces.
+
+The generated DESIGN.md serves as the single source of truth for prompting Stitch to generate new screens that align with a curated, high-agency design language.
+
+Stitch interprets design through "Visual Descriptions" supported by specific color values, typography specs, and component behaviors.
+
+### Prerequisites
+
+- Access to Google Stitch via labs.google.com/stitch
+- Optionally: Stitch MCP Server for programmatic integration with Cursor, Antigravity, or Gemini CLI
+
+### The Goal
+
+Generate a DESIGN.md file that encodes:
+
+- Visual atmosphere — the mood, density, and design philosophy
+- Color calibration — neutrals, accents, and banned patterns with hex codes
+- Typographic architecture — font stacks, scale hierarchy, and anti-patterns
+- Component behaviors — buttons, cards, inputs with interaction states
+- Layout principles — grid systems, spacing philosophy, responsive strategy
+- Motion philosophy — animation engine specs, spring physics, perpetual micro-interactions
+- Anti-patterns — explicit list of banned AI design cliches
+
+## Analysis & Synthesis Instructions
+
+### 1. Define the Atmosphere
+
+Evaluate the target project's intent. Use evocative adjectives from the taste spectrum:
+
+- **Density:** "Art Gallery Airy" (1-3) -> "Daily App Balanced" (4-7) -> "Cockpit Dense" (8-10)
+- **Variance:** "Predictable Symmetric" (1-3) -> "Offset Asymmetric" (4-7) -> "Artsy Chaotic" (8-10)
+- **Motion:** "Static Restrained" (1-3) -> "Fluid CSS" (4-7) -> "Cinematic Choreography" (8-10)
+
+Default baseline: Variance 8, Motion 6, Density 4. Adapt dynamically based on user's vibe description.
+
+### 2. Map the Color Palette
+
+For each color provide: Descriptive Name + Hex Code + Functional Role.
+
+Mandatory constraints:
+
+- Maximum 1 accent color. Saturation below 80%
+- The "AI Purple/Blue Neon" aesthetic is strictly BANNED — no purple button glows, no neon gradients
+- Use absolute neutral bases (Zinc/Slate) with high-contrast singular accents
+- Stick to one palette for the entire output — no warm/cool gray fluctuation
+- Never use pure black (#000000) — use Off-Black, Zinc-950, or Charcoal
+
+### 3. Establish Typography Rules
+
+- Display/Headlines: Track-tight, controlled scale. Not screaming. Hierarchy through weight and color, not just massive size
+- Body: Relaxed leading, max 65 characters per line
+- Font Selection: Inter is BANNED for premium/creative contexts. Force unique character: Geist, Outfit, Cabinet Grotesk, or Satoshi
+- Serif Ban: Generic serif fonts (Times New Roman, Georgia, Garamond, Palatino) are BANNED. If serif is needed for editorial/creative contexts, use only distinctive modern serifs: Fraunces, Gambarino, Editorial New, or Instrument Serif. Serif is always BANNED in dashboards or software UIs
+- Dashboard Constraint: Use Sans-Serif pairings exclusively (Geist + Geist Mono or Satoshi + JetBrains Mono)
+- High-Density Override: When density exceeds 7, all numbers must use Monospace
+
+### 4. Define the Hero Section
+
+The Hero is the first impression and must be creative, striking, and never generic:
+
+- **Inline Image Typography:** Embed small, contextual photos or visuals directly between words or letters in the headline. Images sit inline at type-height, rounded, acting as visual punctuation. This is the signature creative technique
+- **No Overlapping:** Text must never overlap images or other text. Every element occupies its own clean spatial zone
+- **No Filler Text:** "Scroll to explore", "Swipe down", scroll arrow icons, bouncing chevrons are BANNED. The content should pull users in naturally
+- **Asymmetric Structure:** Centered Hero layouts BANNED when variance exceeds 4
+- **CTA Restraint:** Maximum one primary CTA. No secondary "Learn more" links
+
+### 5. Describe Component Stylings
+
+For each component type, describe shape, color, shadow depth, and interaction behavior:
+
+- **Buttons:** Tactile push feedback on active state. No neon outer glows. No custom mouse cursors
+- **Cards:** Use ONLY when elevation communicates hierarchy. Tint shadows to background hue. For high-density layouts, replace cards with border-top dividers or negative space
+- **Inputs/Forms:** Label above input, helper text optional, error text below. Standard gap spacing
+- **Loading States:** Skeletal loaders matching layout dimensions — no generic circular spinners
+- **Empty States:** Composed compositions indicating how to populate data
+- **Error States:** Clear, inline error reporting
+
+### 6. Define Layout Principles
+
+- No overlapping elements — every element occupies its own clear spatial zone. No absolute-positioned content stacking
+- Centered Hero sections are BANNED when variance exceeds 4 — force Split Screen, Left-Aligned, or Asymmetric Whitespace
+- The generic "3 equal cards horizontally" feature row is BANNED — use 2-column Zig-Zag, asymmetric grid, or horizontal scroll
+- CSS Grid over Flexbox math — never use calc() percentage hacks
+- Contain layouts using max-width constraints (e.g., 1400px centered)
+- Full-height sections must use min-h-[100dvh] — never h-screen (iOS Safari catastrophic jump)
+
+### 7. Define Responsive Rules
+
+Every design must work across all viewports:
+
+- **Mobile-First Collapse (< 768px):** All multi-column layouts collapse to single column. No exceptions
+- **No Horizontal Scroll:** Horizontal overflow on mobile is a critical failure
+- **Typography Scaling:** Headlines scale via clamp(). Body text minimum 1rem/14px
+- **Touch Targets:** All interactive elements minimum 44px tap target
+- **Image Behavior:** Inline typography images (photos between words) stack below headline on mobile
+- **Navigation:** Desktop horizontal nav collapses to clean mobile menu
+- **Spacing:** Vertical section gaps reduce proportionally (clamp(3rem, 8vw, 6rem))
+
+### 8. Encode Motion Philosophy
+
+- Spring Physics default: stiffness: 100, damping: 20 — premium, weighty feel. No linear easing
+- Perpetual Micro-Interactions: Every active component should have an infinite loop state (Pulse, Typewriter, Float, Shimmer)
+- Staggered Orchestration: Never mount lists instantly — use cascade delays for waterfall reveals
+- Performance: Animate exclusively via transform and opacity. Never animate top, left, width, height. Grain/noise filters on fixed pseudo-elements only
+
+### 9. List Anti-Patterns (AI Tells)
+
+Encode these as explicit "NEVER DO" rules in the DESIGN.md:
+
+- No emojis anywhere
+- No Inter font
+- No generic serif fonts (Times New Roman, Georgia, Garamond) — distinctive modern serifs only if needed
+- No pure black (#000000)
+- No neon/outer glow shadows
+- No oversaturated accents
+- No excessive gradient text on large headers
+- No custom mouse cursors
+- No overlapping elements — clean spatial separation always
+- No 3-column equal card layouts
+- No generic names ("John Doe", "Acme", "Nexus")
+- No fake round numbers (99.99%, 50%)
+- No AI copywriting cliches ("Elevate", "Seamless", "Unleash", "Next-Gen")
+- No filler UI text: "Scroll to explore", "Swipe down", scroll arrows, bouncing chevrons
+- No broken Unsplash links — use picsum.photos or SVG avatars
+- No centered Hero sections (for high-variance projects)
+
+## Output Format (DESIGN.md Structure)
+
+```markdown
+# Design System: [Project Title]
+
+## 1. Visual Theme & Atmosphere
+(Evocative description of the mood, density, variance, and motion intensity. Example: "A restrained, gallery-airy interface with confident asymmetric layouts and fluid spring-physics motion. The atmosphere is clinical yet warm — like a well-lit architecture studio.")
+
+## 2. Color Palette & Roles
+- **Canvas White** (#F9FAFB) — Primary background surface
+- **Pure Surface** (#FFFFFF) — Card and container fill
+- **Charcoal Ink** (#18181B) — Primary text, Zinc-950 depth
+- **Muted Steel** (#71717A) — Secondary text, descriptions, metadata
+- **Whisper Border** (rgba(226,232,240,0.5)) — Card borders, 1px structural lines
+- **[Accent Name]** (#XXXXXX) — Single accent for CTAs, active states, focus rings
+
+(Max 1 accent. Saturation < 80%. No purple/neon.)
+
+## 3. Typography Rules
+- **Display:** [Font Name] — Track-tight, controlled scale, weight-driven hierarchy
+- **Body:** [Font Name] — Relaxed leading, 65ch max-width, neutral secondary color
+- **Mono:** [Font Name] — For code, metadata, timestamps, high-density numbers
+- **Banned:** Inter, generic system fonts for premium contexts. Serif fonts banned in dashboards.
+
+## 4. Component Stylings
+* **Buttons:** Flat, no outer glow. Tactile -1px translate on active. Accent fill for primary, ghost/outline for secondary.
+* **Cards:** Generously rounded corners (2.5rem). Diffused whisper shadow. Used only when elevation serves hierarchy. High-density: replace with border-top dividers.
+* **Inputs:** Label above, error below. Focus ring in accent color. No floating labels.
+* **Loaders:** Skeletal shimmer matching exact layout dimensions. No circular spinners.
+* **Empty States:** Composed, illustrated compositions — not just "No data" text.
+
+## 5. Layout Principles
+(Grid-first responsive architecture. Asymmetric splits for Hero sections. Strict single-column collapse below 768px. Max-width containment. No flexbox percentage math. Generous internal padding.)
+
+## 6. Motion & Interaction
+(Spring physics for all interactive elements. Staggered cascade reveals. Perpetual micro-loops on active dashboard components. Hardware-accelerated transforms only. Isolated Client Components for CPU-heavy animations.)
+
+## 7. Anti-Patterns (Banned)
+(Explicit list of forbidden patterns: no emojis, no Inter, no pure black, no neon glows, no 3-column equal grids, no AI copywriting cliches, no generic placeholder names, no broken image links.)
+```
+
+## Best Practices
+
+- **Be Descriptive:** "Deep Charcoal Ink (#18181B)" — not just "dark text"
+- **Be Functional:** Explain what each element is used for
+- **Be Consistent:** Same terminology throughout the document
+- **Be Precise:** Include exact hex codes, rem values, pixel values in parentheses
+- **Be Opinionated:** This is not a neutral template — it enforces a specific, premium aesthetic
+
+## Tips for Success
+
+- Start with the atmosphere — understand the vibe before detailing tokens
+- Look for patterns — identify consistent spacing, sizing, and styling
+- Think semantically — name colors by purpose, not just appearance
+- Consider hierarchy — document how visual weight communicates importance
+- Encode the bans — anti-patterns are as important as the rules themselves
+
+## Common Pitfalls to Avoid
+
+- Using technical jargon without translation ("rounded-xl" instead of "generously rounded corners")
+- Omitting hex codes or using only descriptive names
+- Forgetting functional roles of design elements
+- Being too vague in atmosphere descriptions
+- Ignoring the anti-pattern list — these are what make the output premium
+- Defaulting to generic "safe" designs instead of enforcing the curated aesthetic
+
+### design-taste-frontend
+_Senior UI/UX Engineer. Architect digital interfaces overriding default LLM biases. Enforces metric-based rules, strict component architecture, CSS hardware acceleration, and balanced design engineering._
+
+# High-Agency Frontend Skill
+
+## 1. ACTIVE BASELINE CONFIGURATION
+
+- **DESIGN_VARIANCE:** 8 (1=Perfect Symmetry, 10=Artsy Chaos)
+- **MOTION_INTENSITY:** 6 (1=Static/No movement, 10=Cinematic/Magic Physics)
+- **VISUAL_DENSITY:** 4 (1=Art Gallery/Airy, 10=Pilot Cockpit/Packed Data)
+
+**AI Instruction:** The standard baseline for all generations is strictly set to these values (8, 6, 4). Do not ask the user to edit this file. Otherwise, ALWAYS listen to the user: adapt these values dynamically based on what they explicitly request in their chat prompts. Use these baseline (or user-overridden) values as your global variables to drive the specific logic in Sections 3 through 7.
+
+## 2. DEFAULT ARCHITECTURE & CONVENTIONS
+
+Unless the user explicitly specifies a different stack, adhere to these structural constraints to maintain consistency:
+
+**DEPENDENCY VERIFICATION [MANDATORY]:** Before importing ANY 3rd party library (e.g. framer-motion, lucide-react, zustand), you MUST check package.json. If the package is missing, you MUST output the installation command (e.g. npm install package-name) before providing the code. Never assume a library exists.
+
+- **Framework & Interactivity:** React or Next.js. Default to Server Components (RSC). RSC SAFETY: Global state works ONLY in Client Components. In Next.js, wrap providers in a "use client" component. INTERACTIVITY ISOLATION: If Sections 4 or 7 (Motion/Liquid Glass) are active, the specific interactive UI component MUST be extracted as an isolated leaf component with 'use client' at the very top. Server Components must exclusively render static layouts.
+- **State Management:** Use local useState/useReducer for isolated UI. Use global state strictly for deep prop-drilling avoidance.
+- **Styling Policy:** Use Tailwind CSS (v3/v4) for 90% of styling. TAILWIND VERSION LOCK: Check package.json first. Do not use v4 syntax in v3 projects. T4 CONFIG GUARD: For v4, do NOT use tailwindcss plugin in postcss.config.js. Use @tailwindcss/postcss or the Vite plugin.
+- **ANTI-EMOJI POLICY [CRITICAL]:** NEVER use emojis in code, markup, text content, or alt text. Replace symbols with high-quality icons (Radix, Phosphor) or clean SVG primitives. Emojis are BANNED.
+- **Responsiveness & Spacing:** Standardize breakpoints (sm, md, lg, xl). Contain page layouts using max-w-[1400px] mx-auto or max-w-7xl. Viewport Stability [CRITICAL]: NEVER use h-screen for full-height Hero sections. ALWAYS use min-h-[100dvh] to prevent catastrophic layout jumping on mobile browsers (iOS Safari).
+- **Grid over Flex-Math:** NEVER use complex flexbox percentage math (w-[calc(33%-1rem)]). ALWAYS use CSS Grid (grid grid-cols-1 md:grid-cols-3 gap-6) for reliable structures.
+- **Icons:** You MUST use exactly @phosphor-icons/react or @radix-ui/react-icons as the import paths (check installed version). Standardize strokeWidth globally (e.g., exclusively use 1.5 or 2.0).
+
+## 3. DESIGN ENGINEERING DIRECTIVES (Bias Correction)
+
+LLMs have statistical biases toward specific UI cliche patterns. Proactively construct premium interfaces using these engineered rules:
+
+**Rule 1: Deterministic Typography**
+- Display/Headlines: Default to text-4xl md:text-6xl tracking-tighter leading-none.
+- ANTI-SLOP: Discourage Inter for "Premium" or "Creative" vibes. Force unique character using Geist, Outfit, Cabinet Grotesk, or Satoshi.
+- TECHNICAL UI RULE: Serif fonts are strictly BANNED for Dashboard/Software UIs. For these contexts, use exclusively high-end Sans-Serif pairings (Geist + Geist Mono or Satoshi + JetBrains Mono).
+- Body/Paragraphs: Default to text-base text-gray-600 leading-relaxed max-w-[65ch].
+
+**Rule 2: Color Calibration**
+- Constraint: Max 1 Accent Color. Saturation < 80%.
+- THE LILA BAN: The "AI Purple/Blue" aesthetic is strictly BANNED. No purple button glows, no neon gradients. Use absolute neutral bases (Zinc/Slate) with high-contrast, singular accents (e.g. Emerald, Electric Blue, or Deep Rose).
+- COLOR CONSISTENCY: Stick to one palette for the entire output. Do not fluctuate between warm and cool grays within the same project.
+
+**Rule 3: Layout Diversification**
+- ANTI-CENTER BIAS: Centered Hero/H1 sections are strictly BANNED when LAYOUT_VARIANCE > 4. Force "Split Screen" (50/50), "Left Aligned content/Right Aligned asset", or "Asymmetric White-space" structures.
+
+**Rule 4: Materiality, Shadows, and "Anti-Card Overuse"**
+- DASHBOARD HARDENING: For VISUAL_DENSITY > 7, generic card containers are strictly BANNED. Use logic-grouping via border-t, divide-y, or purely negative space. Data metrics should breathe without being boxed in unless elevation (z-index) is functionally required.
+- Execution: Use cards ONLY when elevation communicates hierarchy. When a shadow is used, tint it to the background hue.
+
+**Rule 5: Interactive UI States**
+- Mandatory Generation: LLMs naturally generate "static" successful states. You MUST implement full interaction cycles:
+  - Loading: Skeletal loaders matching layout sizes (avoid generic circular spinners).
+  - Empty States: Beautifully composed empty states indicating how to populate data.
+  - Error States: Clear, inline error reporting (e.g., forms).
+  - Tactile Feedback: On :active, use -translate-y-[1px] or scale-[0.98] to simulate a physical push indicating success/action.
+
+**Rule 6: Data & Form Patterns**
+- Forms: Label MUST sit above input. Helper text is optional but should exist in markup. Error text below input. Use a standard gap-2 for input blocks.
+
+## 4. CREATIVE PROACTIVITY (Anti-Slop Implementation)
+
+To actively combat generic AI designs, systematically implement these high-end coding concepts as your baseline:
+
+- **"Liquid Glass" Refraction:** When glassmorphism is needed, go beyond backdrop-blur. Add a 1px inner border (border-white/10) and a subtle inner shadow (shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]) to simulate physical edge refraction.
+- **Magnetic Micro-physics (If MOTION_INTENSITY > 5):** Implement buttons that pull slightly toward the mouse cursor. CRITICAL: NEVER use React useState for magnetic hover or continuous animations. Use EXCLUSIVELY Framer Motion's useMotionValue and useTransform outside the React render cycle to prevent performance collapse on mobile.
+- **Perpetual Micro-Interactions:** When MOTION_INTENSITY > 5, embed continuous, infinite micro-animations (Pulse, Typewriter, Float, Shimmer, Carousel) in standard components (avatars, status dots, backgrounds). Apply premium Spring Physics (type: "spring", stiffness: 100, damping: 20) to all interactive elements—no linear easing.
+- **Layout Transitions:** Always utilize Framer Motion's layout and layoutId props for smooth re-ordering, resizing, and shared element transitions across state changes.
+- **Staggered Orchestration:** Do not mount lists or grids instantly. Use staggerChildren (Framer) or CSS cascade (animation-delay: calc(var(--index) * 100ms)) to create sequential waterfall reveals. CRITICAL: For staggerChildren, the Parent (variants) and Children MUST reside in the identical Client Component tree. If data is fetched asynchronously, pass the data as props into a centralized Parent Motion wrapper.
+
+## 5. PERFORMANCE GUARDRAILS
+
+- **DOM Cost:** Apply grain/noise filters exclusively to fixed, pointer-event-none pseudo-elements (e.g., fixed inset-0 z-50 pointer-events-none) and NEVER to scrolling containers to prevent continuous GPU repaints and mobile performance degradation.
+- **Hardware Acceleration:** Never animate top, left, width, or height. Animate exclusively via transform and opacity.
+- **Z-Index Restraint:** NEVER spam arbitrary z-50 or z-10 unprompted. Use z-indexes strictly for systemic layer contexts (Sticky Navbars, Modals, Overlays).
+
+## 6. TECHNICAL REFERENCE (Dial Definitions)
+
+### DESIGN_VARIANCE (Level 1-10)
+- 1-3 (Predictable): Flexbox justify-center, strict 12-column symmetrical grids, equal paddings.
+- 4-7 (Offset): Use margin-top: -2rem overlapping, varied image aspect ratios (e.g., 4:3 next to 16:9), left-aligned headers over center-aligned data.
+- 8-10 (Asymmetric): Masonry layouts, CSS Grid with fractional units (e.g., grid-template-columns: 2fr 1fr 1fr), massive empty zones (padding-left: 20vw).
+- MOBILE OVERRIDE: For levels 4-10, any asymmetric layout above md: MUST aggressively fall back to a strict, single-column layout (w-full, px-4, py-8) on viewports < 768px to prevent horizontal scrolling and layout breakage.
+
+### MOTION_INTENSITY (Level 1-10)
+- 1-3 (Static): No automatic animations. CSS :hover and :active states only.
+- 4-7 (Fluid CSS): Use transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1). Use animation-delay cascades for load-ins. Focus strictly on transform and opacity. Use will-change: transform sparingly.
+- 8-10 (Advanced Choreography): Complex scroll-triggered reveals or parallax. Use Framer Motion hooks. NEVER use window.addEventListener('scroll').
+
+### VISUAL_DENSITY (Level 1-10)
+- 1-3 (Art Gallery Mode): Lots of white space. Huge section gaps. Everything feels very expensive and clean.
+- 4-7 (Daily App Mode): Normal spacing for standard web apps.
+- 8-10 (Cockpit Mode): Tiny paddings. No card boxes; just 1px lines to separate data. Everything is packed. Mandatory: Use Monospace (font-mono) for all numbers.
+
+## 7. AI TELLS (Forbidden Patterns)
+
+To guarantee a premium, non-generic output, you MUST strictly avoid these common AI design signatures unless explicitly requested:
+
+### Visual & CSS
+- NO Neon/Outer Glows: Do not use default box-shadow glows or auto-glows. Use inner borders or subtle tinted shadows.
+- NO Pure Black: Never use #000000. Use Off-Black, Zinc-950, or Charcoal.
+- NO Oversaturated Accents: Desaturate accents to blend elegantly with neutrals.
+- NO Excessive Gradient Text: Do not use text-fill gradients for large headers.
+- NO Custom Mouse Cursors: They are outdated and ruin performance/accessibility.
+
+### Typography
+- NO Inter Font: Banned. Use Geist, Outfit, Cabinet Grotesk, or Satoshi.
+- NO Oversized H1s: The first heading should not scream. Control hierarchy with weight and color, not just massive scale.
+- Serif Constraints: Use Serif fonts ONLY for creative/editorial designs. NEVER use Serif on clean Dashboards.
+
+### Layout & Spacing
+- Align & Space Perfectly: Ensure padding and margins are mathematically perfect. Avoid floating elements with awkward gaps.
+- NO 3-Column Card Layouts: The generic "3 equal cards horizontally" feature row is BANNED. Use a 2-column Zig-Zag, asymmetric grid, or horizontal scrolling approach instead.
+
+### Content & Data (The "Jane Doe" Effect)
+- NO Generic Names: "John Doe", "Sarah Chan", or "Jack Su" are banned. Use highly creative, realistic-sounding names.
+- NO Generic Avatars: DO NOT use standard SVG "egg" or Lucide user icons for avatars. Use creative, believable photo placeholders or specific styling.
+- NO Fake Numbers: Avoid predictable outputs like 99.99%, 50%, or basic phone numbers (1234567). Use organic, messy data (47.2%, +1 (312) 847-1928).
+- NO Startup Slop Names: "Acme", "Nexus", "SmartFlow". Invent premium, contextual brand names.
+- NO Filler Words: Avoid AI copywriting cliches like "Elevate", "Seamless", "Unleash", or "Next-Gen". Use concrete verbs.
+
+### External Resources & Components
+- NO Broken Unsplash Links: Do not use Unsplash. Use absolute, reliable placeholders like https://picsum.photos/seed/{random_string}/800/600 or SVG UI Avatars.
+- shadcn/ui Customization: You may use shadcn/ui, but NEVER in its generic default state. You MUST customize the radii, colors, and shadows to match the high-end project aesthetic.
+- Production-Ready Cleanliness: Code must be extremely clean, visually striking, memorable, and meticulously refined in every detail.
+
+## 8. THE CREATIVE ARSENAL (High-End Inspiration)
+
+Do not default to generic UI. Pull from this library of advanced concepts to ensure the output is visually striking and memorable. When appropriate, leverage GSAP (ScrollTrigger/Parallax) for complex scrolltelling or ThreeJS/WebGL for 3D/Canvas animations, rather than basic CSS motion. CRITICAL: Never mix GSAP/ThreeJS with Framer Motion in the same component tree. Default to Framer Motion for UI/Bento interactions. Use GSAP/ThreeJS EXCLUSIVELY for isolated full-page scrolltelling or canvas backgrounds, wrapped in strict useEffect cleanup blocks.
+
+### The Standard Hero Paradigm
+Stop doing centered text over a dark image. Try asymmetric Hero sections: Text cleanly aligned to the left or right. The background should feature a high-quality, relevant image with a subtle stylistic fade (darkening or lightening gracefully into the background color depending on if it is Light or Dark mode).
+
+### Navigation & Menus
+- Mac OS Dock Magnification: Nav-bar at the edge; icons scale fluidly on hover.
+- Magnetic Button: Buttons that physically pull toward the cursor.
+- Gooey Menu: Sub-items detach from the main button like a viscous liquid.
+- Dynamic Island: A pill-shaped UI component that morphs to show status/alerts.
+- Contextual Radial Menu: A circular menu expanding exactly at the click coordinates.
+- Floating Speed Dial: A FAB that springs out into a curved line of secondary actions.
+- Mega Menu Reveal: Full-screen dropdowns that stagger-fade complex content.
+
+### Layout & Grids
+- Bento Grid: Asymmetric, tile-based grouping (e.g., Apple Control Center).
+- Masonry Layout: Staggered grid without fixed row heights (e.g., Pinterest).
+- Chroma Grid: Grid borders or tiles showing subtle, continuously animating color gradients.
+- Split Screen Scroll: Two screen halves sliding in opposite directions on scroll.
+- Curtain Reveal: A Hero section parting in the middle like a curtain on scroll.
+
+### Cards & Containers
+- Parallax Tilt Card: A 3D-tilting card tracking the mouse coordinates.
+- Spotlight Border Card: Card borders that illuminate dynamically under the cursor.
+- Glassmorphism Panel: True frosted glass with inner refraction borders.
+- Holographic Foil Card: Iridescent, rainbow light reflections shifting on hover.
+- Tinder Swipe Stack: A physical stack of cards the user can swipe away.
+- Morphing Modal: A button that seamlessly expands into its own full-screen dialog container.
+
+### Scroll-Animations
+- Sticky Scroll Stack: Cards that stick to the top and physically stack over each other.
+- Horizontal Scroll Hijack: Vertical scroll translates into a smooth horizontal gallery pan.
+- Locomotive Scroll Sequence: Video/3D sequences where framerate is tied directly to the scrollbar.
+- Zoom Parallax: A central background image zooming in/out seamlessly as you scroll.
+- Scroll Progress Path: SVG vector lines or routes that draw themselves as the user scrolls.
+- Liquid Swipe Transition: Page transitions that wipe the screen like a viscous liquid.
+
+### Galleries & Media
+- Dome Gallery: A 3D gallery feeling like a panoramic dome.
+- Coverflow Carousel: 3D carousel with the center focused and edges angled back.
+- Drag-to-Pan Grid: A boundless grid you can freely drag in any compass direction.
+- Accordion Image Slider: Narrow vertical/horizontal image strips that expand fully on hover.
+- Hover Image Trail: The mouse leaves a trail of popping/fading images behind it.
+- Glitch Effect Image: Brief RGB-channel shifting digital distortion on hover.
+
+### Typography & Text
+- Kinetic Marquee: Endless text bands that reverse direction or speed up on scroll.
+- Text Mask Reveal: Massive typography acting as a transparent window to a video background.
+- Text Scramble Effect: Matrix-style character decoding on load or hover.
+- Circular Text Path: Text curved along a spinning circular path.
+- Gradient Stroke Animation: Outlined text with a gradient continuously running along the stroke.
+- Kinetic Typography Grid: A grid of letters dodging or rotating away from the cursor.
+
+### Micro-Interactions & Effects
+- Particle Explosion Button: CTAs that shatter into particles upon success.
+- Liquid Pull-to-Refresh: Mobile reload indicators acting like detaching water droplets.
+- Skeleton Shimmer: Shifting light reflections moving across placeholder boxes.
+- Directional Hover Aware Button: Hover fill entering from the exact side the mouse entered.
+- Ripple Click Effect: Visual waves rippling precisely from the click coordinates.
+- Animated SVG Line Drawing: Vectors that draw their own contours in real-time.
+- Mesh Gradient Background: Organic, lava-lamp-like animated color blobs.
+- Lens Blur Depth: Dynamic focus blurring background UI layers to highlight a foreground action.
+
+## 9. THE "MOTION-ENGINE" BENTO PARADIGM
+
+When generating modern SaaS dashboards or feature sections, you MUST utilize the following "Bento 2.0" architecture and motion philosophy. This goes beyond static cards and enforces a "Vercel-core meets Dribbble-clean" aesthetic heavily reliant on perpetual physics.
+
+### A. Core Design Philosophy
+- Aesthetic: High-end, minimal, and functional.
+- Palette: Background in #f9fafb. Cards are pure white (#ffffff) with a 1px border of border-slate-200/50.
+- Surfaces: Use rounded-[2.5rem] for all major containers. Apply a "diffusion shadow" (a very light, wide-spreading shadow, e.g., shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)]) to create depth without clutter.
+- Typography: Strict Geist, Satoshi, or Cabinet Grotesk font stack. Use subtle tracking (tracking-tight) for headers.
+- Labels: Titles and descriptions must be placed outside and below the cards to maintain a clean, gallery-style presentation.
+- Pixel-Perfection: Use generous p-8 or p-10 padding inside cards.
+
+### B. The Animation Engine Specs (Perpetual Motion)
+All cards must contain "Perpetual Micro-Interactions." Use the following Framer Motion principles:
+- Spring Physics: No linear easing. Use type: "spring", stiffness: 100, damping: 20 for a premium, weighty feel.
+- Layout Transitions: Heavily utilize the layout and layoutId props to ensure smooth re-ordering, resizing, and shared element state transitions.
+- Infinite Loops: Every card must have an "Active State" that loops infinitely (Pulse, Typewriter, Float, or Carousel) to ensure the dashboard feels "alive".
+- Performance: Wrap dynamic lists in `<AnimatePresence>` and optimize for 60fps. PERFORMANCE CRITICAL: Any perpetual motion or infinite loop MUST be memoized (React.memo) and completely isolated in its own microscopic Client Component. Never trigger re-renders in the parent layout.
+
+### C. The 5-Card Archetypes (Micro-Animation Specs)
+Implement these specific micro-animations when constructing Bento grids (e.g., Row 1: 3 cols | Row 2: 2 cols split 70/30):
+
+1. **The Intelligent List:** A vertical stack of items with an infinite auto-sorting loop. Items swap positions using layoutId, simulating an AI prioritizing tasks in real-time.
+2. **The Command Input:** A search/AI bar with a multi-step Typewriter Effect. It cycles through complex prompts, including a blinking cursor and a "processing" state with a shimmering loading gradient.
+3. **The Live Status:** A scheduling interface with "breathing" status indicators. Include a pop-up notification badge that emerges with an "Overshoot" spring effect, stays for 3 seconds, and vanishes.
+4. **The Wide Data Stream:** A horizontal "Infinite Carousel" of data cards or metrics. Ensure the loop is seamless (using x: ["0%", "-100%"]) with a speed that feels effortless.
+5. **The Contextual UI (Focus Mode):** A document view that animates a staggered highlight of a text block, followed by a "Float-in" of a floating action toolbar with micro-icons.
+
+## 10. FINAL PRE-FLIGHT CHECK
+
+Evaluate your code against this matrix before outputting. This is the last filter you apply to your logic.
+
+- Is global state used appropriately to avoid deep prop-drilling rather than arbitrarily?
+- Is mobile layout collapse (w-full, px-4, max-w-7xl mx-auto) guaranteed for high-variance designs?
+- Do full-height sections safely use min-h-[100dvh] instead of the bugged h-screen?
+- Do useEffect animations contain strict cleanup functions?
+- Are empty, loading, and error states provided?
+- Are cards omitted in favor of spacing where possible?
+- Did you strictly isolate CPU-heavy perpetual animations in their own Client Components?
+
+### xlsx
+_"Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \"the xlsx in my downloads\") — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved."_
+
+# Requirements for Outputs
+
+## All Excel files
+
+### Professional Font
+- Use a consistent, professional font (e.g., Arial, Times New Roman) for all deliverables unless otherwise instructed by the user
+
+### Zero Formula Errors
+- Every Excel model MUST be delivered with ZERO formula errors (#REF!, #DIV/0!, #VALUE!, #N/A, #NAME?)
+
+### Preserve Existing Templates (when updating templates)
+- Study and EXACTLY match existing format, style, and conventions when modifying files
+- Never impose standardized formatting on files with established patterns
+- Existing template conventions ALWAYS override these guidelines
+
+## Financial models
+
+### Color Coding Standards
+Unless otherwise stated by the user or existing template
+
+#### Industry-Standard Color Conventions
+- **Blue text (RGB: 0,0,255)**: Hardcoded inputs, and numbers users will change for scenarios
+- **Black text (RGB: 0,0,0)**: ALL formulas and calculations
+- **Green text (RGB: 0,128,0)**: Links pulling from other worksheets within same workbook
+- **Red text (RGB: 255,0,0)**: External links to other files
+- **Yellow background (RGB: 255,255,0)**: Key assumptions needing attention or cells that need to be updated
+
+### Number Formatting Standards
+
+#### Required Format Rules
+- **Years**: Format as text strings (e.g., "2024" not "2,024")
+- **Currency**: Use $#,##0 format; ALWAYS specify units in headers ("Revenue ($mm)")
+- **Zeros**: Use number formatting to make all zeros "-", including percentages (e.g., "$#,##0;($#,##0);-")
+- **Percentages**: Default to 0.0% format (one decimal)
+- **Multiples**: Format as 0.0x for valuation multiples (EV/EBITDA, P/E)
+- **Negative numbers**: Use parentheses (123) not minus -123
+
+### Formula Construction Rules
+
+#### Assumptions Placement
+- Place ALL assumptions (growth rates, margins, multiples, etc.) in separate assumption cells
+- Use cell references instead of hardcoded values in formulas
+- Example: Use =B5*(1+$B$6) instead of =B5*1.05
+
+#### Formula Error Prevention
+- Verify all cell references are correct
+- Check for off-by-one errors in ranges
+- Ensure consistent formulas across all projection periods
+- Test with edge cases (zero values, negative numbers)
+- Verify no unintended circular references
+
+#### Documentation Requirements for Hardcodes
+- Comment or in cells beside (if end of table). Format: "Source: [System/Document], [Date], [Specific Reference], [URL if applicable]"
+- Examples:
+  - "Source: Company 10-K, FY2024, Page 45, Revenue Note, [SEC EDGAR URL]"
+  - "Source: Company 10-Q, Q2 2025, Exhibit 99.1, [SEC EDGAR URL]"
+  - "Source: Bloomberg Terminal, 8/15/2025, AAPL US Equity"
+  - "Source: FactSet, 8/20/2025, Consensus Estimates Screen"
+
+# XLSX creation, editing, and analysis
+
+## Overview
+
+A user may ask you to create, edit, or analyze the contents of an .xlsx file. You have different tools and workflows available for different tasks.
+
+## Important Requirements
+
+**LibreOffice Required for Formula Recalculation**: You can assume LibreOffice is installed for recalculating formula values using the `scripts/recalc.py` script. The script automatically configures LibreOffice on first run, including in sandboxed environments where Unix sockets are restricted (handled by `scripts/office/soffice.py`)
+
+## Reading and analyzing data
+
+### Data analysis with pandas
+For data analysis, visualization, and basic operations, use **pandas** which provides powerful data manipulation capabilities:
+
+```python
+import pandas as pd
+
+# Read Excel
+df = pd.read_excel('file.xlsx')  # Default: first sheet
+all_sheets = pd.read_excel('file.xlsx', sheet_name=None)  # All sheets as dict
+
+# Analyze
+df.head()      # Preview data
+df.info()      # Column info
+df.describe()  # Statistics
+
+# Write Excel
+df.to_excel('output.xlsx', index=False)
+```
+
+## Excel File Workflows
+
+## CRITICAL: Use Formulas, Not Hardcoded Values
+
+**Always use Excel formulas instead of calculating values in Python and hardcoding them.** This ensures the spreadsheet remains dynamic and updateable.
+
+### ❌ WRONG - Hardcoding Calculated Values
+```python
+# Bad: Calculating in Python and hardcoding result
+total = df['Sales'].sum()
+sheet['B10'] = total  # Hardcodes 5000
+
+# Bad: Computing growth rate in Python
+growth = (df.iloc[-1]['Revenue'] - df.iloc[0]['Revenue']) / df.iloc[0]['Revenue']
+sheet['C5'] = growth  # Hardcodes 0.15
+
+# Bad: Python calculation for average
+avg = sum(values) / len(values)
+sheet['D20'] = avg  # Hardcodes 42.5
+```
+
+### ✅ CORRECT - Using Excel Formulas
+```python
+# Good: Let Excel calculate the sum
+sheet['B10'] = '=SUM(B2:B9)'
+
+# Good: Growth rate as Excel formula
+sheet['C5'] = '=(C4-C2)/C2'
+
+# Good: Average using Excel function
+sheet['D20'] = '=AVERAGE(D2:D19)'
+```
+
+This applies to ALL calculations - totals, percentages, ratios, differences, etc. The spreadsheet should be able to recalculate when source data changes.
+
+## Common Workflow
+1. **Choose tool**: pandas for data, openpyxl for formulas/formatting
+2. **Create/Load**: Create new workbook or load existing file
+3. **Modify**: Add/edit data, formulas, and formatting
+4. **Save**: Write to file
+5. **Recalculate formulas (MANDATORY IF USING FORMULAS)**: Use the scripts/recalc.py script
+   ```bash
+   python scripts/recalc.py output.xlsx
+   ```
+6. **Verify and fix any errors**: 
+   - The script returns JSON with error details
+   - If `status` is `errors_found`, check `error_summary` for specific error types and locations
+   - Fix the identified errors and recalculate again
+   - Common errors to fix:
+     - `#REF!`: Invalid cell references
+     - `#DIV/0!`: Division by zero
+     - `#VALUE!`: Wrong data type in formula
+     - `#NAME?`: Unrecognized formula name
+
+### Creating new Excel files
+
+```python
+# Using openpyxl for formulas and formatting
+from openpyxl import Workbook
+from openpyxl.styles import Font, PatternFill, Alignment
+
+wb = Workbook()
+sheet = wb.active
+
+# Add data
+sheet['A1'] = 'Hello'
+sheet['B1'] = 'World'
+sheet.append(['Row', 'of', 'data'])
+
+# Add formula
+sheet['B2'] = '=SUM(A1:A10)'
+
+# Formatting
+sheet['A1'].font = Font(bold=True, color='FF0000')
+sheet['A1'].fill = PatternFill('solid', start_color='FFFF00')
+sheet['A1'].alignment = Alignment(horizontal='center')
+
+# Column width
+sheet.column_dimensions['A'].width = 20
+
+wb.save('output.xlsx')
+```
+
+### Editing existing Excel files
+
+```python
+# Using openpyxl to preserve formulas and formatting
+from openpyxl import load_workbook
+
+# Load existing file
+wb = load_workbook('existing.xlsx')
+sheet = wb.active  # or wb['SheetName'] for specific sheet
+
+# Working with multiple sheets
+for sheet_name in wb.sheetnames:
+    sheet = wb[sheet_name]
+    print(f"Sheet: {sheet_name}")
+
+# Modify cells
+sheet['A1'] = 'New Value'
+sheet.insert_rows(2)  # Insert row at position 2
+sheet.delete_cols(3)  # Delete column 3
+
+# Add new sheet
+new_sheet = wb.create_sheet('NewSheet')
+new_sheet['A1'] = 'Data'
+
+wb.save('modified.xlsx')
+```
+
+## Recalculating formulas
+
+Excel files created or modified by openpyxl contain formulas as strings but not calculated values. Use the provided `scripts/recalc.py` script to recalculate formulas:
+
+```bash
+python scripts/recalc.py <excel_file> [timeout_seconds]
+```
+
+Example:
+```bash
+python scripts/recalc.py output.xlsx 30
+```
+
+The script:
+- Automatically sets up LibreOffice macro on first run
+- Recalculates all formulas in all sheets
+- Scans ALL cells for Excel errors (#REF!, #DIV/0!, etc.)
+- Returns JSON with detailed error locations and counts
+- Works on both Linux and macOS
+
+## Formula Verification Checklist
+
+Quick checks to ensure formulas work correctly:
+
+### Essential Verification
+- [ ] **Test 2-3 sample references**: Verify they pull correct values before building full model
+- [ ] **Column mapping**: Confirm Excel columns match (e.g., column 64 = BL, not BK)
+- [ ] **Row offset**: Remember Excel rows are 1-indexed (DataFrame row 5 = Excel row 6)
+
+### Common Pitfalls
+- [ ] **NaN handling**: Check for null values with `pd.notna()`
+- [ ] **Far-right columns**: FY data often in columns 50+ 
+- [ ] **Multiple matches**: Search all occurrences, not just first
+- [ ] **Division by zero**: Check denominators before using `/` in formulas (#DIV/0!)
+- [ ] **Wrong references**: Verify all cell references point to intended cells (#REF!)
+- [ ] **Cross-sheet references**: Use correct format (Sheet1!A1) for linking sheets
+
+### Formula Testing Strategy
+- [ ] **Start small**: Test formulas on 2-3 cells before applying broadly
+- [ ] **Verify dependencies**: Check all cells referenced in formulas exist
+- [ ] **Test edge cases**: Include zero, negative, and very large values
+
+### Interpreting scripts/recalc.py Output
+The script returns JSON with error details:
+```json
+{
+  "status": "success",           // or "errors_found"
+  "total_errors": 0,              // Total error count
+  "total_formulas": 42,           // Number of formulas in file
+  "error_summary": {              // Only present if errors found
+    "#REF!": {
+      "count": 2,
+      "locations": ["Sheet1!B5", "Sheet1!C10"]
+    }
+  }
+}
+```
+
+## Best Practices
+
+### Library Selection
+- **pandas**: Best for data analysis, bulk operations, and simple data export
+- **openpyxl**: Best for complex formatting, formulas, and Excel-specific features
+
+### Working with openpyxl
+- Cell indices are 1-based (row=1, column=1 refers to cell A1)
+- Use `data_only=True` to read calculated values: `load_workbook('file.xlsx', data_only=True)`
+- **Warning**: If opened with `data_only=True` and saved, formulas are replaced with values and permanently lost
+- For large files: Use `read_only=True` for reading or `write_only=True` for writing
+- Formulas are preserved but not evaluated - use scripts/recalc.py to update values
+
+### Working with pandas
+- Specify data types to avoid inference issues: `pd.read_excel('file.xlsx', dtype={'id': str})`
+- For large files, read specific columns: `pd.read_excel('file.xlsx', usecols=['A', 'C', 'E'])`
+- Handle dates properly: `pd.read_excel('file.xlsx', parse_dates=['date_column'])`
+
+## Code Style Guidelines
+**IMPORTANT**: When generating Python code for Excel operations:
+- Write minimal, concise Python code without unnecessary comments
+- Avoid verbose variable names and redundant operations
+- Avoid unnecessary print statements
+
+**For Excel files themselves**:
+- Add comments to cells with complex formulas or important assumptions
+- Document data sources for hardcoded values
+- Include notes for key calculations and model sections
+
+<!-- MAKOBOT:END -->
+
 
 
 

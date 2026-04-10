@@ -11,6 +11,7 @@ import {
   SortSelect,
   ListingCard,
   ExchangeEmpty,
+  TrendingSection,
 } from "./components";
 import type { ExchangeListing } from "@/lib/exchange";
 
@@ -24,7 +25,20 @@ export default function ExchangePage() {
   const [sort, setSort] = useState("newest");
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(false);
+  const [trending, setTrending] = useState<ExchangeListing[]>([]);
+  const [featured, setFeatured] = useState<ExchangeListing[]>([]);
   const PAGE_SIZE = 21;
+
+  // Load trending/featured once
+  useEffect(() => {
+    fetch("/api/exchange/trending")
+      .then((r) => r.json())
+      .then((data) => {
+        setTrending(data.trending || []);
+        setFeatured(data.featured || []);
+      })
+      .catch(() => {});
+  }, []);
 
   const fetchListings = useCallback(async (pageNum = 0) => {
     setLoading(true);
@@ -114,6 +128,19 @@ export default function ExchangePage() {
           </div>
         </div>
       </section>
+
+      {/* Trending + Featured */}
+      {!search && !category && !platform && (
+        <TrendingSection trending={trending} featured={featured} />
+      )}
+
+      {/* Divider */}
+      {!search && !category && !platform && trending.length > 0 && (
+        <div className="max-w-6xl mx-auto px-6 mb-6">
+          <div className="border-t border-[#374151]/50" />
+          <h2 className="text-lg font-bold text-[#E8EDF3] mt-6 mb-2">All Listings</h2>
+        </div>
+      )}
 
       {/* Filters */}
       <section className="px-6 pb-6">

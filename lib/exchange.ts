@@ -35,6 +35,7 @@ export interface ExchangeListing {
   content: string | null;
   file_name: string | null;
   file_size: number;
+  screenshot_url: string | null;
   status: "pending" | "approved" | "rejected";
   rejection_reason: string | null;
   download_count: number;

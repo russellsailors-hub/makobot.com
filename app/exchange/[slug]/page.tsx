@@ -10,6 +10,10 @@ import {
   StarRating,
   ContentPreview,
   ReviewCard,
+  InstallBox,
+  ShareButton,
+  CopyContentButton,
+  RemixButton,
 } from "../components";
 import { getCategoryLabel } from "@/lib/exchange";
 import type { ExchangeListing, ExchangeReview } from "@/lib/exchange";
@@ -173,7 +177,10 @@ export default function ListingDetailPage() {
 
             {/* Author + stats row */}
             <div className="flex flex-wrap items-center gap-4 text-sm text-[#8B95A8]">
-              <div className="flex items-center gap-2">
+              <Link
+                href={`/exchange/user/${listing.user_id}`}
+                className="flex items-center gap-2 hover:text-[#3B82F6] transition-colors"
+              >
                 {listing.author_avatar && (
                   <img
                     src={listing.author_avatar}
@@ -182,7 +189,7 @@ export default function ListingDetailPage() {
                   />
                 )}
                 <span>{listing.author_name}</span>
-              </div>
+              </Link>
               <span>
                 {new Date(listing.created_at).toLocaleDateString()}
               </span>
@@ -206,9 +213,33 @@ export default function ListingDetailPage() {
           </div>
 
           {/* Platforms */}
-          <div className="mb-6">
+          <div className="mb-4">
             <PlatformPills platforms={listing.platforms} />
           </div>
+
+          {/* Action buttons */}
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <ShareButton slug={listing.slug} />
+            {listing.content && <CopyContentButton content={listing.content} />}
+            <RemixButton listing={listing} />
+          </div>
+
+          {/* Install Box */}
+          <div className="mb-6">
+            <InstallBox listing={listing} />
+          </div>
+
+          {/* Screenshot */}
+          {listing.screenshot_url && (
+            <div className="mb-6">
+              <h2 className="text-lg font-semibold text-[#E8EDF3] mb-3">Preview</h2>
+              <img
+                src={listing.screenshot_url}
+                alt={`Screenshot of ${listing.title}`}
+                className="w-full rounded-xl border border-[#374151]"
+              />
+            </div>
+          )}
 
           {/* Description */}
           <div className="bg-[#252B3B] rounded-xl p-6 border border-[#374151] mb-6">

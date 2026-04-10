@@ -1,24 +1,45 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { Suspense } from "react";
 import { Footer } from "../../components";
 import { CATEGORIES, PLATFORMS } from "@/lib/exchange";
 
-export default function SubmitPage() {
+function SubmitForm() {
   const { data: session } = useSession();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [platforms, setPlatforms] = useState<string[]>([]);
   const [content, setContent] = useState("");
+  const [screenshotUrl, setScreenshotUrl] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isRemix, setIsRemix] = useState(false);
+
+  // Pre-fill from remix query params
+  useEffect(() => {
+    const remixId = searchParams.get("remix");
+    if (remixId) {
+      setIsRemix(true);
+      const t = searchParams.get("title");
+      const c = searchParams.get("category");
+      const p = searchParams.get("platforms");
+      if (t) setTitle(t);
+      if (c) setCategory(c);
+      if (p) { try { setPlatforms(JSON.parse(p)); } catch {} }
+      // Fetch original content for remixing
+      fetch(`/api/exchange/my-listings`)
+        .catch(() => {});
+    }
+  }, [searchParams]);
 
   function togglePlatform(value: string) {
     setPlatforms((prev) =>
@@ -49,6 +70,7 @@ export default function SubmitPage() {
       formData.set("category", category);
       formData.set("platforms", JSON.stringify(platforms));
       if (content.trim()) formData.set("content", content.trim());
+      if (screenshotUrl.trim()) formData.set("screenshot_url", screenshotUrl.trim());
       if (file) formData.set("file", file);
 
       const res = await fetch("/api/exchange/listings", {
@@ -243,6 +265,41 @@ export default function SubmitPage() {
               )}
             </div>
 
+            {/* Screenshot URL */}
+            <div>
+              <label className="block text-sm font-medium text-[#E8EDF3] mb-2">
+                Screenshot or preview image URL (optional)
+              </label>
+              <p className="text-xs text-[#6B7280] mb-2">
+                Paste a URL to a screenshot showing your skill, prompt, or config in action.
+                Use any image hosting service (Imgur, GitHub, etc.).
+              </p>
+              <input
+                type="url"
+                value={screenshotUrl}
+                onChange={(e) => setScreenshotUrl(e.target.value)}
+                placeholder="https://i.imgur.com/example.png"
+                className="w-full px-4 py-3 rounded-lg bg-[#252B3B] border border-[#374151] text-[#E8EDF3] text-sm placeholder-[#6B7280] focus:outline-none focus:border-[#3B82F6] transition-colors"
+              />
+              {screenshotUrl && (
+                <div className="mt-3">
+                  <img
+                    src={screenshotUrl}
+                    alt="Preview"
+                    className="max-h-48 rounded-lg border border-[#374151]"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Remix notice */}
+            {isRemix && (
+              <div className="bg-[#8B5CF6]/10 border border-[#8B5CF6]/30 rounded-lg px-4 py-3 text-sm text-[#8B5CF6]">
+                This is a remix. The original author will be credited automatically.
+              </div>
+            )}
+
             {/* Submit */}
             <div className="pt-4">
               <button
@@ -263,5 +320,13 @@ export default function SubmitPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function SubmitPage() {
+  return (
+    <Suspense>
+      <SubmitForm />
+    </Suspense>
   );
 }
