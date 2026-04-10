@@ -359,7 +359,7 @@ export function ContentPreview({
   return (
     <div className="relative">
       <pre
-        className={`bg-[#1E2330] rounded-lg p-4 text-sm text-[#C0C8D8] font-mono overflow-x-auto whitespace-pre-wrap break-words leading-relaxed border border-[#374151] transition-all duration-300 ${
+        className={`bg-[#1E2330] rounded-lg p-4 text-sm text-[#C0C8D8] font-mono overflow-x-auto whitespace-pre-wrap break-words leading-relaxed border border-[#374151] transition-all duration-300 styled-scrollbar ${
           expanded ? "max-h-none" : "max-h-[400px] overflow-y-auto"
         }`}
       >

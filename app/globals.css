@@ -91,6 +91,27 @@ html {
   animation: float 4s ease-in-out infinite;
 }
 
+/* Visible scrollbar for dark content boxes */
+.styled-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #3B82F6 #1E2330;
+}
+.styled-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+.styled-scrollbar::-webkit-scrollbar-track {
+  background: #1E2330;
+  border-radius: 8px;
+}
+.styled-scrollbar::-webkit-scrollbar-thumb {
+  background: #3B82F6;
+  border-radius: 8px;
+  border: 2px solid #1E2330;
+}
+.styled-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #2563EB;
+}
+
 /* Badge pill styles */
 .badge-pill {
   display: inline-flex;
