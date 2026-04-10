@@ -11,6 +11,7 @@ const navItems = [
   { href: "/admin/keys", label: "Keys", icon: "🔑" },
   { href: "/admin/analytics", label: "Analytics", icon: "📈" },
   { href: "/admin/exchange", label: "Exchange", icon: "🔄" },
+  { href: "/admin/services", label: "Services", icon: "🔗" },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -84,9 +85,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <p className="text-xs text-[#6B7280] truncate">{session.user.email}</p>
             </div>
           </div>
-          <a href="/" className="block mt-3 text-xs text-[#6B7280] hover:text-[#8B95A8]">
-            &larr; Back to site
-          </a>
+          <div className="flex gap-3 mt-3">
+            <a href="/" className="text-xs text-[#6B7280] hover:text-[#3B82F6] transition-colors">
+              &larr; Main Site
+            </a>
+            <a href="/exchange" className="text-xs text-[#6B7280] hover:text-[#3B82F6] transition-colors">
+              Exchange
+            </a>
+          </div>
         </div>
       </aside>
 
