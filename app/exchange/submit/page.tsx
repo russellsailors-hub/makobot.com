@@ -23,6 +23,8 @@ function SubmitForm() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isRemix, setIsRemix] = useState(false);
+  const [githubUrl, setGithubUrl] = useState("");
+  const [importing, setImporting] = useState(false);
 
   // Pre-fill from remix query params
   useEffect(() => {
@@ -140,6 +142,54 @@ function SubmitForm() {
               {error}
             </div>
           )}
+
+          {/* GitHub Import */}
+          <div className="bg-[#252B3B] rounded-xl p-5 border border-[#374151] mb-8">
+            <h3 className="text-sm font-semibold text-[#E8EDF3] mb-3 flex items-center gap-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              Import from GitHub
+            </h3>
+            <p className="text-xs text-[#6B7280] mb-3">
+              Paste a link to a file on GitHub and we will auto-fill the form for you.
+            </p>
+            <div className="flex gap-2">
+              <input
+                type="url"
+                value={githubUrl}
+                onChange={(e) => setGithubUrl(e.target.value)}
+                placeholder="https://github.com/user/repo/blob/main/CLAUDE.md"
+                className="flex-1 px-4 py-2.5 rounded-lg bg-[#1E2330] border border-[#374151] text-[#E8EDF3] text-sm placeholder-[#6B7280] focus:outline-none focus:border-[#3B82F6] transition-colors"
+              />
+              <button
+                type="button"
+                disabled={!githubUrl.trim() || importing}
+                onClick={async () => {
+                  setImporting(true);
+                  setError(null);
+                  try {
+                    const res = await fetch("/api/exchange/import-github", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ url: githubUrl }),
+                    });
+                    const data = await res.json();
+                    if (!res.ok) { setError(data.error); setImporting(false); return; }
+                    if (data.suggestedTitle) setTitle(data.suggestedTitle);
+                    if (data.suggestedDescription) setDescription(data.suggestedDescription);
+                    if (data.suggestedCategory) setCategory(data.suggestedCategory);
+                    if (data.suggestedPlatforms) setPlatforms(data.suggestedPlatforms);
+                    if (data.content) setContent(data.content);
+                  } catch { setError("Failed to import from GitHub."); }
+                  setImporting(false);
+                }}
+                className="px-5 py-2.5 rounded-lg bg-[#3B82F6] hover:bg-[#2563EB] disabled:opacity-50 text-white text-sm font-semibold transition-colors shrink-0"
+              >
+                {importing ? "Importing..." : "Import"}
+              </button>
+            </div>
+          </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Title */}

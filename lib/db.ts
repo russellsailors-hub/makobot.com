@@ -103,6 +103,50 @@ export async function setupDatabase() {
     )
   `;
   await sql`
+    CREATE TABLE IF NOT EXISTS exchange_collections (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) NOT NULL,
+      title VARCHAR(200) NOT NULL,
+      slug VARCHAR(200) UNIQUE NOT NULL,
+      description TEXT NOT NULL,
+      is_public BOOLEAN DEFAULT TRUE,
+      created_at TIMESTAMP DEFAULT NOW(),
+      updated_at TIMESTAMP DEFAULT NOW()
+    )
+  `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS exchange_collection_items (
+      id SERIAL PRIMARY KEY,
+      collection_id INTEGER REFERENCES exchange_collections(id) ON DELETE CASCADE NOT NULL,
+      listing_id INTEGER REFERENCES exchange_listings(id) ON DELETE CASCADE NOT NULL,
+      sort_order INTEGER DEFAULT 0,
+      added_at TIMESTAMP DEFAULT NOW(),
+      UNIQUE(collection_id, listing_id)
+    )
+  `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS exchange_requests (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) NOT NULL,
+      title VARCHAR(200) NOT NULL,
+      description TEXT NOT NULL,
+      category VARCHAR(50),
+      platforms TEXT[] DEFAULT '{}',
+      upvote_count INTEGER DEFAULT 0,
+      status VARCHAR(20) DEFAULT 'open',
+      created_at TIMESTAMP DEFAULT NOW()
+    )
+  `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS exchange_request_upvotes (
+      id SERIAL PRIMARY KEY,
+      request_id INTEGER REFERENCES exchange_requests(id) ON DELETE CASCADE NOT NULL,
+      user_id INTEGER REFERENCES users(id) NOT NULL,
+      created_at TIMESTAMP DEFAULT NOW(),
+      UNIQUE(request_id, user_id)
+    )
+  `;
+  await sql`
     CREATE TABLE IF NOT EXISTS exchange_downloads (
       id SERIAL PRIMARY KEY,
       listing_id INTEGER REFERENCES exchange_listings(id) ON DELETE CASCADE NOT NULL,
@@ -734,6 +778,156 @@ export async function getExchangeStats() {
     approvedCount: parseInt(approved[0].count as string),
     totalDownloads: parseInt(downloads[0].count as string),
   };
+}
+
+// ─── EXCHANGE: COLLECTIONS ───
+export async function createExchangeCollection(userId: number, title: string, description: string) {
+  const sql = getDb();
+  const slug = title.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").slice(0, 60);
+  const result = await sql`
+    INSERT INTO exchange_collections (user_id, title, slug, description)
+    VALUES (${userId}, ${title}, ${"temp-" + Date.now()}, ${description})
+    RETURNING *
+  `;
+  const id = result[0].id;
+  const finalSlug = `${slug}-${id}`;
+  await sql`UPDATE exchange_collections SET slug = ${finalSlug} WHERE id = ${id}`;
+  result[0].slug = finalSlug;
+  return result[0];
+}
+
+export async function addToCollection(collectionId: number, listingId: number) {
+  const sql = getDb();
+  await sql`
+    INSERT INTO exchange_collection_items (collection_id, listing_id)
+    VALUES (${collectionId}, ${listingId})
+    ON CONFLICT (collection_id, listing_id) DO NOTHING
+  `;
+}
+
+export async function removeFromCollection(collectionId: number, listingId: number) {
+  const sql = getDb();
+  await sql`DELETE FROM exchange_collection_items WHERE collection_id = ${collectionId} AND listing_id = ${listingId}`;
+}
+
+export async function getCollection(slug: string) {
+  const sql = getDb();
+  const collection = await sql`
+    SELECT ec.*, u.name as author_name, u.avatar_url as author_avatar
+    FROM exchange_collections ec
+    JOIN users u ON ec.user_id = u.id
+    WHERE ec.slug = ${slug}
+  `;
+  if (collection.length === 0) return null;
+
+  const items = await sql`
+    SELECT el.*, u.name as author_name, u.avatar_url as author_avatar
+    FROM exchange_collection_items eci
+    JOIN exchange_listings el ON eci.listing_id = el.id
+    JOIN users u ON el.user_id = u.id
+    WHERE eci.collection_id = ${collection[0].id} AND el.status = 'approved'
+    ORDER BY eci.sort_order ASC
+  `;
+
+  return {
+    ...collection[0],
+    items: items.map((l: Record<string, unknown>) => { const { file_data, ...rest } = l; return rest; }),
+  };
+}
+
+export async function getPublicCollections(limit = 20) {
+  const sql = getDb();
+  return sql`
+    SELECT ec.*, u.name as author_name, u.avatar_url as author_avatar,
+      (SELECT COUNT(*) FROM exchange_collection_items WHERE collection_id = ec.id) as item_count
+    FROM exchange_collections ec
+    JOIN users u ON ec.user_id = u.id
+    WHERE ec.is_public = true
+    ORDER BY ec.created_at DESC
+    LIMIT ${limit}
+  `;
+}
+
+export async function getUserCollections(userId: number) {
+  const sql = getDb();
+  return sql`
+    SELECT ec.*,
+      (SELECT COUNT(*) FROM exchange_collection_items WHERE collection_id = ec.id) as item_count
+    FROM exchange_collections ec
+    WHERE ec.user_id = ${userId}
+    ORDER BY ec.created_at DESC
+  `;
+}
+
+export async function deleteCollection(collectionId: number, userId: number) {
+  const sql = getDb();
+  await sql`DELETE FROM exchange_collections WHERE id = ${collectionId} AND user_id = ${userId}`;
+}
+
+// ─── EXCHANGE: REQUESTS ───
+export async function createExchangeRequest(userId: number, data: { title: string; description: string; category?: string; platforms?: string[] }) {
+  const sql = getDb();
+  const result = await sql`
+    INSERT INTO exchange_requests (user_id, title, description, category, platforms)
+    VALUES (${userId}, ${data.title}, ${data.description}, ${data.category || null}, ${data.platforms || []})
+    RETURNING *
+  `;
+  return result[0];
+}
+
+export async function getExchangeRequests(sort = "newest", limit = 50) {
+  const sql = getDb();
+  if (sort === "most-upvoted") {
+    return sql`
+      SELECT er.*, u.name as author_name, u.avatar_url as author_avatar
+      FROM exchange_requests er
+      JOIN users u ON er.user_id = u.id
+      WHERE er.status = 'open'
+      ORDER BY er.upvote_count DESC, er.created_at DESC
+      LIMIT ${limit}
+    `;
+  }
+  return sql`
+    SELECT er.*, u.name as author_name, u.avatar_url as author_avatar
+    FROM exchange_requests er
+    JOIN users u ON er.user_id = u.id
+    WHERE er.status = 'open'
+    ORDER BY er.created_at DESC
+    LIMIT ${limit}
+  `;
+}
+
+export async function upvoteExchangeRequest(requestId: number, userId: number) {
+  const sql = getDb();
+  const existing = await sql`SELECT id FROM exchange_request_upvotes WHERE request_id = ${requestId} AND user_id = ${userId}`;
+  if (existing.length > 0) {
+    // Undo upvote
+    await sql`DELETE FROM exchange_request_upvotes WHERE request_id = ${requestId} AND user_id = ${userId}`;
+    await sql`UPDATE exchange_requests SET upvote_count = upvote_count - 1 WHERE id = ${requestId}`;
+    return false;
+  } else {
+    await sql`INSERT INTO exchange_request_upvotes (request_id, user_id) VALUES (${requestId}, ${userId})`;
+    await sql`UPDATE exchange_requests SET upvote_count = upvote_count + 1 WHERE id = ${requestId}`;
+    return true;
+  }
+}
+
+export async function getUserUpvotes(userId: number) {
+  const sql = getDb();
+  const rows = await sql`SELECT request_id FROM exchange_request_upvotes WHERE user_id = ${userId}`;
+  return rows.map((r: Record<string, unknown>) => r.request_id as number);
+}
+
+export async function getRelatedListings(listingId: number, category: string, limit = 4) {
+  const sql = getDb();
+  return sql`
+    SELECT el.*, u.name as author_name, u.avatar_url as author_avatar
+    FROM exchange_listings el
+    JOIN users u ON el.user_id = u.id
+    WHERE el.status = 'approved' AND el.id != ${listingId} AND el.category = ${category}
+    ORDER BY el.download_count DESC, el.rating_avg DESC
+    LIMIT ${limit}
+  `;
 }
 
 // ─── EXCHANGE: TRENDING ───

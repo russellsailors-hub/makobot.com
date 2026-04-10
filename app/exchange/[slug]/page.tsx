@@ -14,6 +14,7 @@ import {
   ShareButton,
   CopyContentButton,
   RemixButton,
+  ListingCard,
 } from "../components";
 import { getCategoryLabel } from "@/lib/exchange";
 import type { ExchangeListing, ExchangeReview } from "@/lib/exchange";
@@ -31,6 +32,7 @@ export default function ListingDetailPage() {
   const [reviewComment, setReviewComment] = useState("");
   const [submittingReview, setSubmittingReview] = useState(false);
   const [downloading, setDownloading] = useState(false);
+  const [related, setRelated] = useState<(ExchangeListing)[]>([]);
 
   useEffect(() => {
     async function load() {
@@ -44,6 +46,13 @@ export default function ListingDetailPage() {
         const data = await res.json();
         setListing(data.listing);
         setReviews(data.reviews || []);
+        // Load related listings
+        if (data.listing) {
+          fetch(`/api/exchange/related?id=${data.listing.id}&category=${data.listing.category}`)
+            .then(r => r.json())
+            .then(d => setRelated(d.related || []))
+            .catch(() => {});
+        }
       } catch {
         setError("Failed to load listing");
       }
@@ -354,6 +363,18 @@ export default function ListingDetailPage() {
               </p>
             )}
           </div>
+
+          {/* Also Popular */}
+          {related.length > 0 && (
+            <div className="border-t border-[#374151] pt-8 mt-8">
+              <h2 className="text-xl font-bold text-[#E8EDF3] mb-6">Also Popular in {getCategoryLabel(listing.category)}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {related.map((r) => (
+                  <ListingCard key={r.id} listing={r} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

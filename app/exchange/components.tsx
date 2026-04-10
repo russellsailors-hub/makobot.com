@@ -14,6 +14,8 @@ export function ExchangeNav() {
 
   const links = [
     { href: "/exchange", label: "Browse", icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" },
+    { href: "/exchange/collections", label: "Collections", icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" },
+    { href: "/exchange/requests", label: "Requests", icon: "M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01" },
     { href: "/exchange/submit", label: "Submit", icon: "M12 5v14M5 12h14" },
     { href: "/exchange/my-listings", label: "My Listings", icon: "M4 6h16M4 10h16M4 14h16M4 18h16", auth: true },
   ];
