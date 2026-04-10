@@ -36,6 +36,11 @@ yarn-error.log*
 # vercel
 .vercel
 
+# MakoBot injected files (personal preferences)
+CLAUDE.md
+AGENTS.md
+.cursorrules
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
