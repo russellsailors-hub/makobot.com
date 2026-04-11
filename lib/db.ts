@@ -982,6 +982,167 @@ export async function getRelatedListings(listingId: number, category: string, li
   `;
 }
 
+// ─── EXCHANGE: VERSIONS ───
+export async function createExchangeVersion(listingId: number, version: string, changelog: string, content: string) {
+  const sql = getDb();
+  const result = await sql`
+    INSERT INTO exchange_versions (listing_id, version, changelog, content)
+    VALUES (${listingId}, ${version}, ${changelog}, ${content})
+    RETURNING *
+  `;
+  await sql`UPDATE exchange_listings SET current_version = ${version}, updated_at = NOW() WHERE id = ${listingId}`;
+  return result[0];
+}
+
+export async function getExchangeVersions(listingId: number) {
+  const sql = getDb();
+  return sql`
+    SELECT * FROM exchange_versions WHERE listing_id = ${listingId} ORDER BY created_at DESC
+  `;
+}
+
+// ─── EXCHANGE: COMMENTS ───
+export async function createExchangeComment(listingId: number, userId: number, body: string, parentId?: number) {
+  const sql = getDb();
+  const result = await sql`
+    INSERT INTO exchange_comments (listing_id, user_id, body, parent_id)
+    VALUES (${listingId}, ${userId}, ${body}, ${parentId || null})
+    RETURNING *
+  `;
+  return result[0];
+}
+
+export async function getExchangeComments(listingId: number) {
+  const sql = getDb();
+  return sql`
+    SELECT ec.*, u.username, u.display_name, u.avatar_url, u.is_verified
+    FROM exchange_comments ec
+    JOIN users u ON ec.user_id = u.id
+    WHERE ec.listing_id = ${listingId}
+    ORDER BY ec.created_at ASC
+  `;
+}
+
+export async function deleteExchangeComment(commentId: number, userId: number, isAdmin: boolean) {
+  const sql = getDb();
+  if (isAdmin) {
+    await sql`DELETE FROM exchange_comments WHERE id = ${commentId}`;
+  } else {
+    await sql`DELETE FROM exchange_comments WHERE id = ${commentId} AND user_id = ${userId}`;
+  }
+}
+
+// ─── EXCHANGE: CREATOR ANALYTICS ───
+export async function incrementExchangeView(listingId: number) {
+  const sql = getDb();
+  await sql`UPDATE exchange_listings SET view_count = view_count + 1 WHERE id = ${listingId}`;
+}
+
+export async function getCreatorAnalytics(userId: number) {
+  const sql = getDb();
+  const [totals, topListings, monthlyDownloads] = await Promise.all([
+    sql`
+      SELECT
+        COUNT(*) as total_listings,
+        COALESCE(SUM(view_count), 0) as total_views,
+        COALESCE(SUM(download_count), 0) as total_downloads,
+        COALESCE(AVG(CASE WHEN rating_count > 0 THEN rating_avg ELSE NULL END), 0) as avg_rating,
+        COALESCE(SUM(rating_count), 0) as total_reviews
+      FROM exchange_listings
+      WHERE user_id = ${userId} AND status = 'approved'
+    `,
+    sql`
+      SELECT id, title, slug, view_count, download_count, rating_avg, rating_count
+      FROM exchange_listings
+      WHERE user_id = ${userId} AND status = 'approved'
+      ORDER BY download_count DESC
+      LIMIT 10
+    `,
+    sql`
+      SELECT DATE_TRUNC('day', created_at) as date, COUNT(*) as count
+      FROM exchange_downloads
+      WHERE listing_id IN (SELECT id FROM exchange_listings WHERE user_id = ${userId})
+      AND created_at > NOW() - INTERVAL '30 days'
+      GROUP BY DATE_TRUNC('day', created_at)
+      ORDER BY date ASC
+    `,
+  ]);
+
+  return {
+    totals: {
+      listings: parseInt(totals[0].total_listings as string),
+      views: parseInt(totals[0].total_views as string),
+      downloads: parseInt(totals[0].total_downloads as string),
+      avgRating: parseFloat(totals[0].avg_rating as string),
+      reviews: parseInt(totals[0].total_reviews as string),
+    },
+    topListings,
+    downloadsPerDay: monthlyDownloads,
+  };
+}
+
+// ─── EXCHANGE: REMIX TREES ───
+export async function getListingRemixTree(listingId: number): Promise<{ original: Record<string, unknown> | null; forks: Record<string, unknown>[] }> {
+  const sql = getDb();
+  // Get the listing
+  const current = await sql`SELECT * FROM exchange_listings WHERE id = ${listingId}`;
+  if (current.length === 0) return { original: null, forks: [] };
+
+  // Get the original (if this is a fork)
+  let original = null;
+  if (current[0].forked_from) {
+    const orig = await sql`
+      SELECT el.*, u.username as author_username, u.display_name as author_display
+      FROM exchange_listings el
+      JOIN users u ON el.user_id = u.id
+      WHERE el.id = ${current[0].forked_from}
+    `;
+    if (orig.length > 0) {
+      const { file_data, author_name, author_email, ...rest } = orig[0];
+      original = rest;
+    }
+  }
+
+  // Get forks of this listing
+  const forks = await sql`
+    SELECT el.*, u.username as author_username, u.display_name as author_display
+    FROM exchange_listings el
+    JOIN users u ON el.user_id = u.id
+    WHERE el.forked_from = ${listingId} AND el.status = 'approved'
+    ORDER BY el.created_at DESC
+  `;
+  const cleanForks = forks.map(({ file_data, author_name, author_email, ...rest }) => rest);
+
+  return { original, forks: cleanForks };
+}
+
+// ─── EXCHANGE: SEMANTIC SEARCH (simple text-based for now) ───
+export async function semanticSearchListings(query: string, limit = 20) {
+  const sql = getDb();
+  // Use PostgreSQL full-text search with ranking
+  const searchQuery = query.trim().split(/\s+/).join(" | ");
+  return sql`
+    SELECT el.*, u.username as author_username, u.avatar_url as author_avatar,
+      ts_rank(
+        to_tsvector('english', el.title || ' ' || el.description || ' ' || COALESCE(el.content, '')),
+        to_tsquery('english', ${searchQuery})
+      ) as rank
+    FROM exchange_listings el
+    JOIN users u ON el.user_id = u.id
+    WHERE el.status = 'approved'
+      AND to_tsvector('english', el.title || ' ' || el.description || ' ' || COALESCE(el.content, ''))
+          @@ to_tsquery('english', ${searchQuery})
+    ORDER BY rank DESC
+    LIMIT ${limit}
+  `;
+}
+
+// ─── EXCHANGE: VERIFIED USER ───
+export async function setUserVerified(userId: number, verified: boolean) {
+  const sql = getDb();
+  await sql`UPDATE users SET is_verified = ${verified} WHERE id = ${userId}`;
+}
+
 // ─── EXCHANGE: TRENDING ───
 export async function getTrendingExchangeListings(limit = 6) {
   const sql = getDb();

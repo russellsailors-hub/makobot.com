@@ -34,6 +34,10 @@ export default function ListingDetailPage() {
   const [submittingReview, setSubmittingReview] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [related, setRelated] = useState<(ExchangeListing)[]>([]);
+  const [comments, setComments] = useState<Array<{ id: number; user_id: number; username: string; display_name: string; avatar_url: string; is_verified: boolean; body: string; created_at: string }>>([]);
+  const [commentBody, setCommentBody] = useState("");
+  const [submittingComment, setSubmittingComment] = useState(false);
+  const [remixTree, setRemixTree] = useState<{ original: { id: number; title: string; slug: string; author_username: string } | null; forks: Array<{ id: number; title: string; slug: string; author_username: string }> }>({ original: null, forks: [] });
 
   useEffect(() => {
     async function load() {
@@ -47,12 +51,16 @@ export default function ListingDetailPage() {
         const data = await res.json();
         setListing(data.listing);
         setReviews(data.reviews || []);
-        // Load related listings
+        // Load related listings, comments, track view
         if (data.listing) {
-          fetch(`/api/exchange/related?id=${data.listing.id}&category=${data.listing.category}`)
-            .then(r => r.json())
-            .then(d => setRelated(d.related || []))
-            .catch(() => {});
+          const lid = data.listing.id;
+          fetch(`/api/exchange/related?id=${lid}&category=${data.listing.category}`)
+            .then(r => r.json()).then(d => setRelated(d.related || [])).catch(() => {});
+          fetch(`/api/exchange/listings/${lid}/comments`)
+            .then(r => r.json()).then(d => setComments(d.comments || [])).catch(() => {});
+          fetch(`/api/exchange/listings/${lid}/view`, { method: "POST" }).catch(() => {});
+          fetch(`/api/exchange/listings/${lid}/remix-tree`)
+            .then(r => r.json()).then(d => setRemixTree({ original: d.original, forks: d.forks || [] })).catch(() => {});
         }
       } catch {
         setError("Failed to load listing");
@@ -90,6 +98,25 @@ export default function ListingDetailPage() {
       alert("Download failed. Please try again.");
     }
     setDownloading(false);
+  }
+
+  async function handleCommentSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!listing || !commentBody.trim()) return;
+    setSubmittingComment(true);
+    try {
+      const res = await fetch(`/api/exchange/listings/${listing.id}/comments`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ body: commentBody.trim() }),
+      });
+      if (res.ok) {
+        setCommentBody("");
+        const d = await fetch(`/api/exchange/listings/${listing.id}/comments`).then(r => r.json());
+        setComments(d.comments || []);
+      }
+    } catch { alert("Failed to post comment."); }
+    setSubmittingComment(false);
   }
 
   async function handleReviewSubmit(e: React.FormEvent) {
@@ -455,6 +482,120 @@ export default function ListingDetailPage() {
                 No reviews yet. Be the first to review this listing.
               </p>
             )}
+          </div>
+
+          {/* Remix Tree */}
+          {(remixTree.original || remixTree.forks.length > 0) && (
+            <div className="border-t border-[#374151] pt-8 mt-8">
+              <h2 className="text-xl font-bold text-[#E8EDF3] mb-4">
+                <span className="inline-flex items-center gap-2">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth={2}>
+                    <circle cx="12" cy="18" r="3" />
+                    <circle cx="6" cy="6" r="3" />
+                    <circle cx="18" cy="6" r="3" />
+                    <path d="M18 9a9 9 0 01-9 9M6 9a9 9 0 009 9" />
+                  </svg>
+                  Remix Tree
+                </span>
+              </h2>
+              {remixTree.original && (
+                <div className="bg-[#252B3B] rounded-xl p-4 border border-[#374151] mb-3">
+                  <p className="text-xs text-[#8B95A8] mb-2">Forked from</p>
+                  <Link href={`/exchange/${remixTree.original.slug}`} className="text-sm font-medium text-[#3B82F6] hover:text-[#60A5FA]">
+                    {remixTree.original.title}
+                  </Link>
+                  <p className="text-xs text-[#6B7280] mt-1">by @{remixTree.original.author_username}</p>
+                </div>
+              )}
+              {remixTree.forks.length > 0 && (
+                <div className="bg-[#252B3B] rounded-xl p-4 border border-[#374151]">
+                  <p className="text-xs text-[#8B95A8] mb-3">Remixed by the community ({remixTree.forks.length})</p>
+                  <div className="space-y-2">
+                    {remixTree.forks.map((fork) => (
+                      <div key={fork.id} className="flex items-center justify-between py-2 border-b border-[#374151]/50 last:border-0">
+                        <Link href={`/exchange/${fork.slug}`} className="text-sm text-[#E8EDF3] hover:text-[#3B82F6] truncate">
+                          {fork.title}
+                        </Link>
+                        <span className="text-xs text-[#6B7280] ml-2">@{fork.author_username}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Discussions / Comments */}
+          <div className="border-t border-[#374151] pt-8 mt-8">
+            <h2 className="text-xl font-bold text-[#E8EDF3] mb-6">
+              Discussion <span className="text-[#8B95A8] font-normal text-base">({comments.length})</span>
+            </h2>
+
+            {session?.user ? (
+              <form onSubmit={handleCommentSubmit} className="bg-[#252B3B] rounded-xl p-5 border border-[#374151] mb-6">
+                <p className="text-sm font-medium text-[#E8EDF3] mb-3">Ask a question or share a tip</p>
+                <textarea
+                  value={commentBody}
+                  onChange={(e) => setCommentBody(e.target.value)}
+                  placeholder="Type your comment..."
+                  rows={3}
+                  maxLength={2000}
+                  className="w-full px-4 py-3 rounded-lg bg-[#1E2330] border border-[#374151] text-[#E8EDF3] text-sm placeholder-[#6B7280] focus:outline-none focus:border-[#3B82F6] transition-colors resize-none"
+                />
+                <button
+                  type="submit"
+                  disabled={!commentBody.trim() || submittingComment}
+                  className="mt-3 px-5 py-2 rounded-lg bg-[#3B82F6] hover:bg-[#2563EB] disabled:opacity-50 text-white text-sm font-semibold transition-colors"
+                >
+                  {submittingComment ? "Posting..." : "Post Comment"}
+                </button>
+              </form>
+            ) : (
+              <div className="bg-[#252B3B] rounded-xl p-5 border border-[#374151] mb-6 text-center">
+                <p className="text-sm text-[#8B95A8]">
+                  <Link href="/get-key" className="text-[#3B82F6] hover:text-[#60A5FA]">Sign in</Link> to join the discussion.
+                </p>
+              </div>
+            )}
+
+            {comments.length > 0 ? (
+              <div className="space-y-3">
+                {comments.map((c) => (
+                  <div key={c.id} className="bg-[#252B3B] rounded-lg p-4 border border-[#374151]">
+                    <div className="flex items-center gap-2 mb-2">
+                      {c.avatar_url && <img src={c.avatar_url} alt="" className="w-6 h-6 rounded-full" />}
+                      <Link href={`/exchange/user/${c.user_id}`} className="text-sm font-medium text-[#3B82F6] hover:text-[#60A5FA]">
+                        @{c.username}
+                      </Link>
+                      {c.is_verified && (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="#3B82F6">
+                          <title>Verified</title>
+                          <path d="M12 2L9.75 3.75 7.5 3 6 5l-2.25.75L3 8l1.5 1.5L3 11l.75 2.25L3 16l1.5 1.5L3 19l2.25.75L6 22l1.5-1.5L9 22l2.25-1.5L13.5 22 15 20.5l2.25.75L18 19l2.25-.75L21 16l-1.5-1.5L21 13l-.75-2.25L21 8l-2.25-.75L18 5l-1.5-1.5L15 4l-2.25-1.5L12 2zm-1.5 14.5L6 12l1.5-1.5L10.5 13.5 16.5 7.5 18 9l-7.5 7.5z"/>
+                        </svg>
+                      )}
+                      <span className="text-xs text-[#4B5563] ml-auto">{new Date(c.created_at).toLocaleDateString()}</span>
+                    </div>
+                    <p className="text-sm text-[#C0C8D8] leading-relaxed whitespace-pre-wrap">{c.body}</p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-[#6B7280]">No comments yet. Start the conversation.</p>
+            )}
+          </div>
+
+          {/* Embed badge link */}
+          <div className="border-t border-[#374151] pt-8 mt-8">
+            <Link
+              href={`/exchange/embed?slug=${listing.slug}`}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#252B3B] border border-[#374151] hover:border-[#3B82F6]/50 text-sm text-[#8B95A8] hover:text-[#E8EDF3] transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+              Get Embed Badge
+            </Link>
           </div>
 
           {/* Also Popular */}

@@ -18,6 +18,7 @@ export function ExchangeNav() {
     { href: "/exchange/requests", label: "Requests", icon: "M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01", color: "#F59E0B" },
     { href: "/exchange/submit", label: "Submit", icon: "M12 5v14M5 12h14", color: "#10B981" },
     { href: "/exchange/my-listings", label: "My Listings", icon: "M4 6h16M4 10h16M4 14h16M4 18h16", color: "#3B82F6", auth: true },
+    { href: "/exchange/creator-analytics", label: "Analytics", icon: "M3 3v18h18M7 12l3-3 4 4 5-5", color: "#10B981", auth: true },
     { href: "/exchange/profile", label: "My Profile", icon: "M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 3a4 4 0 110 8 4 4 0 010-8z", color: "#F59E0B", auth: true },
   ];
 

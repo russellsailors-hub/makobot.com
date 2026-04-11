@@ -154,6 +154,7 @@ export async function POST(request: Request) {
     const platformsRaw = formData.get("platforms") as string;
     const content = formData.get("content") as string | null;
     const screenshotUrl = formData.get("screenshot_url") as string | null;
+    const forkedFrom = formData.get("forked_from") as string | null;
     const file = formData.get("file") as File | null;
 
     // Validate required fields
@@ -214,6 +215,12 @@ export async function POST(request: Request) {
       file_size: fileSize,
       screenshot_url: screenshotUrl?.trim() || null,
     });
+
+    // If this is a remix, set forked_from
+    if (forkedFrom && !isNaN(parseInt(forkedFrom))) {
+      const sql = (await import("@neondatabase/serverless")).neon(process.env.DATABASE_URL!);
+      await sql`UPDATE exchange_listings SET forked_from = ${parseInt(forkedFrom)} WHERE id = ${listing.id}`;
+    }
 
     // AI Auto-moderation: auto-approve if content passes quality checks
     const autoApproved = await autoModerate(listing.id, title.trim(), description.trim(), content?.trim() || null);

@@ -44,12 +44,28 @@ export default function ExchangePage() {
   const fetchListings = useCallback(async (pageNum = 0) => {
     setLoading(true);
     try {
+      // Use semantic search when there's a query, regular endpoint otherwise
+      if (search.trim().length >= 2) {
+        const res = await fetch(`/api/exchange/semantic-search?q=${encodeURIComponent(search.trim())}`);
+        const data = await res.json();
+        const items = data.results || [];
+        // Apply category/platform filters client-side on semantic results
+        const filtered = items.filter((l: ExchangeListing) => {
+          if (category && l.category !== category) return false;
+          if (platform && !l.platforms.includes(platform as typeof l.platforms[number])) return false;
+          return true;
+        });
+        setHasMore(false);
+        setListings(filtered.slice(0, PAGE_SIZE));
+        setLoading(false);
+        return;
+      }
+
       const params = new URLSearchParams();
       if (category) params.set("category", category);
       if (platform) params.set("platform", platform);
-      if (search.trim()) params.set("search", search.trim());
       params.set("sort", sort);
-      params.set("limit", String(PAGE_SIZE + 1)); // fetch one extra to check if more exist
+      params.set("limit", String(PAGE_SIZE + 1));
       params.set("offset", String(pageNum * PAGE_SIZE));
 
       const res = await fetch(`/api/exchange/listings?${params}`);

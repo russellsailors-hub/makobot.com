@@ -74,6 +74,8 @@ function SubmitForm() {
       if (content.trim()) formData.set("content", content.trim());
       if (screenshotUrl.trim()) formData.set("screenshot_url", screenshotUrl.trim());
       if (file) formData.set("file", file);
+      const remixId = searchParams.get("remix");
+      if (remixId) formData.set("forked_from", remixId);
 
       const res = await fetch("/api/exchange/listings", {
         method: "POST",

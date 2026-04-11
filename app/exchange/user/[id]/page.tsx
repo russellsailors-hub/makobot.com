@@ -9,7 +9,7 @@ import { ListingCard, StarRating } from "../../components";
 import type { ExchangeListing } from "@/lib/exchange";
 
 interface UserProfile {
-  user: { id: number; name: string; username: string; display_name: string; avatar_url: string; bio: string; created_at: string };
+  user: { id: number; name: string; username: string; display_name: string; avatar_url: string; bio: string; is_verified: boolean; created_at: string };
   listings: ExchangeListing[];
   stats: { totalListings: number; totalDownloads: number; avgRating: number; totalReviews: number };
 }
@@ -89,6 +89,13 @@ export default function UserProfilePage() {
                   <h1 className="text-2xl font-bold text-[#E8EDF3]">
                     {user.display_name || user.username || "User"}
                   </h1>
+                  {user.is_verified && (
+                    <span title="Verified Creator" className="inline-flex items-center">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="#3B82F6">
+                        <path d="M12 2L9.75 3.75 7.5 3 6 5l-2.25.75L3 8l1.5 1.5L3 11l.75 2.25L3 16l1.5 1.5L3 19l2.25.75L6 22l1.5-1.5L9 22l2.25-1.5L13.5 22 15 20.5l2.25.75L18 19l2.25-.75L21 16l-1.5-1.5L21 13l-.75-2.25L21 8l-2.25-.75L18 5l-1.5-1.5L15 4l-2.25-1.5L12 2zm-1.5 14.5L6 12l1.5-1.5L10.5 13.5 16.5 7.5 18 9l-7.5 7.5z" />
+                      </svg>
+                    </span>
+                  )}
                   {isOwnProfile && (
                     <Link
                       href="/exchange/profile"
