@@ -26,6 +26,7 @@ export async function setupDatabase() {
       username VARCHAR(50) UNIQUE,
       display_name VARCHAR(100),
       bio TEXT,
+      github_username VARCHAR(100),
       created_at TIMESTAMP DEFAULT NOW()
     )
   `;
@@ -166,18 +167,38 @@ export async function findOrCreateUser(profile: {
   email: string;
   name: string;
   avatar_url: string;
+  github_username?: string;
 }) {
   const sql = getDb();
+
+  // Check by oauth ID first, then by email (handles users who sign in with both providers)
   const existing = await sql`
     SELECT * FROM users WHERE google_id = ${profile.google_id}
   `;
-  if (existing.length > 0) return existing[0];
+  if (existing.length > 0) {
+    // Update github_username if signing in with GitHub and we didn't have it
+    if (profile.github_username && !existing[0].github_username) {
+      await sql`UPDATE users SET github_username = ${profile.github_username} WHERE id = ${existing[0].id}`;
+    }
+    return existing[0];
+  }
 
-  // Generate default username from email
-  const defaultUsername = profile.email.split("@")[0].toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 30);
+  // Check if user exists by email (signed in with different provider before)
+  const byEmail = await sql`SELECT * FROM users WHERE email = ${profile.email}`;
+  if (byEmail.length > 0) {
+    // Link this provider to existing account
+    if (profile.github_username && !byEmail[0].github_username) {
+      await sql`UPDATE users SET github_username = ${profile.github_username} WHERE id = ${byEmail[0].id}`;
+    }
+    return byEmail[0];
+  }
+
+  // Generate default username from GitHub username or email
+  const defaultUsername = (profile.github_username || profile.email.split("@")[0])
+    .toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 30);
   const result = await sql`
-    INSERT INTO users (google_id, email, name, avatar_url, username, display_name)
-    VALUES (${profile.google_id}, ${profile.email}, ${profile.name}, ${profile.avatar_url}, ${defaultUsername}, ${profile.name})
+    INSERT INTO users (google_id, email, name, avatar_url, username, display_name, github_username)
+    VALUES (${profile.google_id}, ${profile.email}, ${profile.name}, ${profile.avatar_url}, ${defaultUsername}, ${profile.name}, ${profile.github_username || null})
     RETURNING *
   `;
   return result[0];

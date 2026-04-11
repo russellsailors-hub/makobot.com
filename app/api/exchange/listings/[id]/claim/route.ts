@@ -3,7 +3,7 @@ import { auth } from "@/lib/auth";
 import { getUserByEmail } from "@/lib/db";
 import { neon } from "@neondatabase/serverless";
 
-// POST /api/exchange/listings/[id]/claim — Request to claim an imported listing
+// POST /api/exchange/listings/[id]/claim — Claim an imported listing
 export async function POST(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -16,12 +16,6 @@ export async function POST(
 
     const { id } = await params;
     const listingId = parseInt(id);
-    const body = await request.json().catch(() => ({}));
-    const githubUsername = (body.github_username || "").trim();
-
-    if (!githubUsername) {
-      return NextResponse.json({ error: "Enter your GitHub username so we can verify ownership" }, { status: 400 });
-    }
 
     const sql = neon(process.env.DATABASE_URL!);
 
@@ -30,39 +24,48 @@ export async function POST(
     if (rows.length === 0) return NextResponse.json({ error: "Listing not found" }, { status: 404 });
     if (!rows[0].source_url) return NextResponse.json({ error: "This listing is not a community import" }, { status: 400 });
 
-    // Log the claim request as an event for admin review
-    await sql`
-      INSERT INTO events (type, data, user_id, ip)
-      VALUES (
-        'claim_request',
-        ${JSON.stringify({
+    const sourceAuthor = (rows[0].source_author as string || "").toLowerCase();
+    const userGithub = (user.github_username as string || "").toLowerCase();
+
+    // If user signed in with GitHub and their username matches -- instant transfer
+    if (userGithub && sourceAuthor && userGithub === sourceAuthor) {
+      await sql`UPDATE exchange_listings SET user_id = ${user.id}, source_url = NULL, source_author = NULL, updated_at = NOW() WHERE id = ${listingId}`;
+      return NextResponse.json({
+        ok: true,
+        autoApproved: true,
+        message: "Verified. Your GitHub account matches the original author. Listing transferred to your account.",
+      });
+    }
+
+    // If user has a GitHub account but it doesn't match
+    if (userGithub && sourceAuthor && userGithub !== sourceAuthor) {
+      // Log the attempt
+      await sql`
+        INSERT INTO events (type, data, user_id, ip)
+        VALUES ('claim_request', ${JSON.stringify({
           listing_id: listingId,
           listing_title: rows[0].title,
           source_author: rows[0].source_author,
-          claimed_github_username: githubUsername,
+          user_github: userGithub,
           user_email: session.user.email,
-          user_id: user.id,
-          username: user.username,
-        })},
-        ${user.id},
-        'server'
-      )
-    `;
-
-    // Auto-approve if GitHub username matches source_author exactly
-    if (rows[0].source_author && githubUsername.toLowerCase() === (rows[0].source_author as string).toLowerCase()) {
-      await sql`UPDATE exchange_listings SET user_id = ${user.id}, source_url = NULL, source_author = NULL, updated_at = NOW() WHERE id = ${listingId}`;
-      return NextResponse.json({ ok: true, autoApproved: true, message: "GitHub username matches. Listing transferred to your account." });
+          status: "denied_mismatch",
+        })}, ${user.id}, 'server')
+      `;
+      return NextResponse.json({
+        error: `Your GitHub username (@${userGithub}) does not match the original author (@${sourceAuthor}). Only the original author can claim this listing.`,
+      }, { status: 403 });
     }
 
-    // Otherwise, pending admin review
-    return NextResponse.json({
-      ok: true,
-      autoApproved: false,
-      message: "Claim request submitted. An admin will verify your ownership and transfer the listing.",
-    });
+    // If user doesn't have a GitHub account linked
+    if (!userGithub) {
+      return NextResponse.json({
+        error: "Sign in with GitHub to claim this listing. Your GitHub account must match the original author.",
+      }, { status: 400 });
+    }
+
+    return NextResponse.json({ error: "Unable to verify ownership" }, { status: 400 });
   } catch (error) {
     console.error("Claim error:", error);
-    return NextResponse.json({ error: "Failed to submit claim" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to process claim" }, { status: 500 });
   }
 }

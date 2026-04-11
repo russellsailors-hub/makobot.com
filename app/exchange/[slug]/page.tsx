@@ -253,14 +253,8 @@ export default function ListingDetailPage() {
               {session?.user && (
                 <button
                   onClick={async () => {
-                    const ghUser = prompt("Enter your GitHub username to verify ownership.\n\nIf it matches the original author, the listing transfers instantly. Otherwise, an admin will review your request.");
-                    if (!ghUser) return;
                     try {
-                      const res = await fetch(`/api/exchange/listings/${listing.id}/claim`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ github_username: ghUser.trim() }),
-                      });
+                      const res = await fetch(`/api/exchange/listings/${listing.id}/claim`, { method: "POST" });
                       const d = await res.json();
                       if (res.ok) {
                         alert(d.message);
