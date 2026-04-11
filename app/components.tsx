@@ -146,7 +146,7 @@ export function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1E2330]/90 backdrop-blur-md border-b border-[#374151]/50">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
-        <a href="#hero" className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
           <Logo size={36} />
           <span className="text-lg font-bold text-[#E8EDF3]">MakoBot</span>
         </a>
@@ -154,25 +154,25 @@ export function Nav() {
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8">
           <a
-            href="#how-it-works"
+            href="/#how-it-works"
             className="text-sm text-[#8B95A8] hover:text-[#E8EDF3] transition-colors"
           >
             How It Works
           </a>
           <a
-            href="#features"
+            href="/#features"
             className="text-sm text-[#8B95A8] hover:text-[#E8EDF3] transition-colors"
           >
             Features
           </a>
           <a
-            href="#compatibility"
+            href="/#compatibility"
             className="text-sm text-[#8B95A8] hover:text-[#E8EDF3] transition-colors"
           >
             Compatibility
           </a>
           <a
-            href="#compare"
+            href="/#compare"
             className="text-sm text-[#8B95A8] hover:text-[#E8EDF3] transition-colors"
           >
             Compare
@@ -184,7 +184,7 @@ export function Nav() {
             Exchange
           </a>
           <a
-            href="#download"
+            href="/#download"
             className="inline-flex items-center px-5 py-2 rounded-lg bg-[#3B82F6] hover:bg-[#2563EB] text-white text-sm font-semibold transition-colors"
           >
             Download
@@ -225,28 +225,28 @@ export function Nav() {
       {open && (
         <div className="md:hidden bg-[#252B3B] border-t border-[#374151] px-6 py-4 flex flex-col gap-4">
           <a
-            href="#how-it-works"
+            href="/#how-it-works"
             onClick={() => setOpen(false)}
             className="text-sm text-[#C0C8D8]"
           >
             How It Works
           </a>
           <a
-            href="#features"
+            href="/#features"
             onClick={() => setOpen(false)}
             className="text-sm text-[#C0C8D8]"
           >
             Features
           </a>
           <a
-            href="#compatibility"
+            href="/#compatibility"
             onClick={() => setOpen(false)}
             className="text-sm text-[#C0C8D8]"
           >
             Compatibility
           </a>
           <a
-            href="#compare"
+            href="/#compare"
             onClick={() => setOpen(false)}
             className="text-sm text-[#C0C8D8]"
           >
@@ -260,7 +260,7 @@ export function Nav() {
             Exchange
           </a>
           <a
-            href="#download"
+            href="/#download"
             onClick={() => setOpen(false)}
             className="inline-flex items-center justify-center px-5 py-2 rounded-lg bg-[#3B82F6] text-white text-sm font-semibold"
           >
