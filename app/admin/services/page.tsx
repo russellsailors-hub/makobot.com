@@ -39,8 +39,8 @@ const services = [
   },
   {
     name: "GitHub Releases (Downloads)",
-    url: "https://github.com/russellsailors-hub/MakoBot/releases",
-    description: "MakoBot.zip (desktop app installer) is hosted on GitHub Releases. v2.0.0 Build 72 is the current release. The /get-key download button points here.",
+    url: "https://github.com/russellsailors-hub/makobot.com/releases",
+    description: "MakoBot-Setup.zip (desktop app installer, signed with Azure Trusted Signing) is hosted on GitHub Releases on the makobot.com repo. v2.0.0 Build 74 is the current release. The /get-key download button points here via the DOWNLOAD_URL env var.",
     category: "Distribution",
   },
   {
