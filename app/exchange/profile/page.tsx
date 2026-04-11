@@ -15,6 +15,7 @@ export default function EditProfilePage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [editingAvatar, setEditingAvatar] = useState(false);
 
   useEffect(() => {
     fetch("/api/exchange/profile")
@@ -104,20 +105,48 @@ export default function EditProfilePage() {
             <div className="bg-[#10B981]/10 border border-[#10B981]/30 text-[#10B981] rounded-lg px-4 py-3 text-sm mb-6">Profile saved.</div>
           )}
 
-          {/* Avatar preview */}
+          {/* Avatar + identity */}
           <div className="flex items-center gap-4 mb-8">
-            {avatarUrl ? (
-              <img src={avatarUrl} alt="" className="w-16 h-16 rounded-full border-2 border-[#3B82F6]" />
-            ) : (
-              <div className="w-16 h-16 rounded-full bg-[#374151] flex items-center justify-center text-[#6B7280] text-xl font-bold">
-                {(username || "?")[0].toUpperCase()}
+            <button
+              type="button"
+              onClick={() => setEditingAvatar(!editingAvatar)}
+              className="relative group shrink-0"
+            >
+              {avatarUrl ? (
+                <img src={avatarUrl} alt="" className="w-20 h-20 rounded-full border-2 border-[#3B82F6] group-hover:opacity-70 transition-opacity" />
+              ) : (
+                <div className="w-20 h-20 rounded-full bg-[#374151] flex items-center justify-center text-[#6B7280] text-2xl font-bold border-2 border-[#3B82F6] group-hover:opacity-70 transition-opacity">
+                  {(username || "?")[0].toUpperCase()}
+                </div>
+              )}
+              <div className="absolute inset-0 rounded-full flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2}>
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                  <circle cx="12" cy="13" r="4" />
+                </svg>
               </div>
-            )}
+            </button>
             <div>
               <p className="text-lg font-semibold text-[#E8EDF3]">{displayName || username}</p>
               <p className="text-sm text-[#3B82F6]">@{username || "username"}</p>
+              <p className="text-xs text-[#6B7280] mt-1">Click avatar to change</p>
             </div>
           </div>
+
+          {/* Avatar URL input (shown on click) */}
+          {editingAvatar && (
+            <div className="bg-[#252B3B] rounded-xl p-4 border border-[#374151] mb-6">
+              <label className="block text-sm font-medium text-[#E8EDF3] mb-2">Avatar Image URL</label>
+              <input
+                type="url"
+                value={avatarUrl}
+                onChange={(e) => setAvatarUrl(e.target.value)}
+                placeholder="https://i.imgur.com/your-photo.jpg"
+                className="w-full px-4 py-3 rounded-lg bg-[#1E2330] border border-[#374151] text-[#E8EDF3] text-sm placeholder-[#6B7280] focus:outline-none focus:border-[#3B82F6] transition-colors"
+              />
+              <p className="text-xs text-[#6B7280] mt-2">Paste a URL to any image. Your Google photo is used by default.</p>
+            </div>
+          )}
 
           <form onSubmit={handleSave} className="space-y-6">
             {/* Username */}
@@ -148,19 +177,6 @@ export default function EditProfilePage() {
                 placeholder="How you want your name displayed"
                 className="w-full px-4 py-3 rounded-lg bg-[#252B3B] border border-[#374151] text-[#E8EDF3] text-sm placeholder-[#6B7280] focus:outline-none focus:border-[#3B82F6] transition-colors"
               />
-            </div>
-
-            {/* Avatar URL */}
-            <div>
-              <label className="block text-sm font-medium text-[#E8EDF3] mb-2">Avatar Image URL</label>
-              <input
-                type="url"
-                value={avatarUrl}
-                onChange={(e) => setAvatarUrl(e.target.value)}
-                placeholder="https://example.com/your-photo.jpg"
-                className="w-full px-4 py-3 rounded-lg bg-[#252B3B] border border-[#374151] text-[#E8EDF3] text-sm placeholder-[#6B7280] focus:outline-none focus:border-[#3B82F6] transition-colors"
-              />
-              <p className="text-xs text-[#6B7280] mt-1">Your Google profile photo is used by default. Paste a URL to use a different image.</p>
             </div>
 
             {/* Bio */}
