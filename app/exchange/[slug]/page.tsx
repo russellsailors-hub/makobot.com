@@ -253,11 +253,19 @@ export default function ListingDetailPage() {
               {session?.user && (
                 <button
                   onClick={async () => {
-                    if (!confirm("Claim this listing as yours? You must be the original author.")) return;
+                    const ghUser = prompt("Enter your GitHub username to verify ownership.\n\nIf it matches the original author, the listing transfers instantly. Otherwise, an admin will review your request.");
+                    if (!ghUser) return;
                     try {
-                      const res = await fetch(`/api/exchange/listings/${listing.id}/claim`, { method: "POST" });
-                      if (res.ok) { alert("Listing claimed. It is now in your My Listings."); window.location.reload(); }
-                      else { const d = await res.json(); alert(d.error || "Failed to claim."); }
+                      const res = await fetch(`/api/exchange/listings/${listing.id}/claim`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ github_username: ghUser.trim() }),
+                      });
+                      const d = await res.json();
+                      if (res.ok) {
+                        alert(d.message);
+                        if (d.autoApproved) window.location.reload();
+                      } else { alert(d.error || "Failed to claim."); }
                     } catch { alert("Failed to claim."); }
                   }}
                   className="shrink-0 px-4 py-2 rounded-lg bg-[#F59E0B]/10 border border-[#F59E0B]/30 text-[#F59E0B] text-sm font-semibold hover:bg-[#F59E0B]/20 transition-colors"
