@@ -46,7 +46,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar */}
       <aside className="w-64 bg-[#252B3B] border-r border-[#374151] flex flex-col">
         <div className="p-5 border-b border-[#374151]">
-          <Link href="/admin" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <Logo size={32} />
             <div>
               <p className="text-sm font-bold text-[#E8EDF3]">MakoBot</p>
