@@ -55,14 +55,17 @@ export async function POST(request: Request) {
           send({ type: "progress", imported, skipped, errors, message: `Searching: ${search.q.slice(0, 50)}...` });
 
           // GitHub Code Search API
+          const ghHeaders: Record<string, string> = {
+            Accept: "application/vnd.github.v3+json",
+            "User-Agent": "MakoBot-Exchange-Scraper",
+          };
+          if (process.env.GITHUB_TOKEN) {
+            ghHeaders.Authorization = `token ${process.env.GITHUB_TOKEN}`;
+          }
+
           const res = await fetch(
             `https://api.github.com/search/code?q=${encodeURIComponent(search.q)}&per_page=${Math.min(perQuery, 30)}&sort=indexed&order=desc`,
-            {
-              headers: {
-                Accept: "application/vnd.github.v3+json",
-                "User-Agent": "MakoBot-Exchange-Scraper",
-              },
-            }
+            { headers: ghHeaders }
           );
 
           if (!res.ok) {
