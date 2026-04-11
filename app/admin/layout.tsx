@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Logo } from "../components";
@@ -92,6 +92,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <a href="/exchange" className="text-xs text-[#6B7280] hover:text-[#3B82F6] transition-colors">
               Exchange
             </a>
+            <button onClick={() => signOut({ callbackUrl: "/" })} className="text-xs text-[#6B7280] hover:text-[#DC2626] transition-colors ml-auto">
+              Sign Out
+            </button>
           </div>
         </div>
       </aside>

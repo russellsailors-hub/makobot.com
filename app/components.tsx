@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 /* ─── LOGO ─── */
 export function Logo({ size = 64 }: { size?: number }) {
@@ -201,6 +201,15 @@ export function Nav() {
               Admin
             </a>
           )}
+          {session?.user && (
+            <button
+              onClick={() => signOut({ callbackUrl: "/" })}
+              className="text-sm text-[#8B95A8] hover:text-[#DC2626] transition-colors"
+              title="Sign out"
+            >
+              Sign Out
+            </button>
+          )}
         </div>
 
         {/* Mobile menu button */}
@@ -279,6 +288,14 @@ export function Nav() {
             >
               Admin
             </a>
+          )}
+          {session?.user && (
+            <button
+              onClick={() => { setOpen(false); signOut({ callbackUrl: "/" }); }}
+              className="text-sm text-[#DC2626] text-left"
+            >
+              Sign Out
+            </button>
           )}
         </div>
       )}
