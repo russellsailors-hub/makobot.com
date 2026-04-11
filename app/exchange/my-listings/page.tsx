@@ -95,7 +95,14 @@ export default function MyListingsPage() {
                   key={listing.id}
                   className="bg-[#252B3B] rounded-xl p-5 border border-[#374151]"
                 >
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start gap-4">
+                    {listing.screenshot_url && (
+                      <img
+                        src={listing.screenshot_url}
+                        alt=""
+                        className="w-20 h-20 rounded-lg object-cover shrink-0 border border-[#374151]"
+                      />
+                    )}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3 mb-2">
                         <h3 className="text-base font-semibold text-[#E8EDF3] truncate">
