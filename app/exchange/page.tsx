@@ -98,10 +98,10 @@ export default function ExchangePage() {
       {/* Hero Section */}
       <section className="pt-8 pb-12 px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <Logo size={48} />
+          <div className="inline-flex items-center justify-center gap-4 mb-6">
+            <Logo size={56} />
             <div className="text-left">
-              <h1 className="text-3xl sm:text-4xl font-bold text-[#E8EDF3]">
+              <h1 className="text-3xl sm:text-4xl font-bold text-[#E8EDF3] leading-tight">
                 AI Skills Exchange
               </h1>
               <p className="text-sm text-[#8B95A8]">
