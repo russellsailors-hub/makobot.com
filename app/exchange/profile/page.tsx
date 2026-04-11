@@ -16,6 +16,7 @@ export default function EditProfilePage() {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [editingAvatar, setEditingAvatar] = useState(false);
+  const [uploadingAvatar, setUploadingAvatar] = useState(false);
 
   useEffect(() => {
     fetch("/api/exchange/profile")
@@ -133,10 +134,49 @@ export default function EditProfilePage() {
             </div>
           </div>
 
-          {/* Avatar URL input (shown on click) */}
+          {/* Avatar upload (shown on click) */}
           {editingAvatar && (
-            <div className="bg-[#252B3B] rounded-xl p-4 border border-[#374151] mb-6">
-              <label className="block text-sm font-medium text-[#E8EDF3] mb-2">Avatar Image URL</label>
+            <div className="bg-[#252B3B] rounded-xl p-4 border border-[#374151] mb-6 space-y-4">
+              {/* File upload */}
+              <div>
+                <label className="block text-sm font-medium text-[#E8EDF3] mb-2">Upload an image</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    if (!file) return;
+                    if (file.size > 2 * 1024 * 1024) { setError("Image must be under 2MB"); return; }
+                    setUploadingAvatar(true);
+                    setError(null);
+                    try {
+                      const formData = new FormData();
+                      formData.set("avatar", file);
+                      const res = await fetch("/api/exchange/profile", { method: "POST", body: formData });
+                      const data = await res.json();
+                      if (res.ok) {
+                        setAvatarUrl(data.avatar_url);
+                        setEditingAvatar(false);
+                      } else {
+                        setError(data.error || "Upload failed");
+                      }
+                    } catch { setError("Upload failed. Please try again."); }
+                    setUploadingAvatar(false);
+                  }}
+                  className="block text-sm text-[#8B95A8] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#3B82F6] file:text-white hover:file:bg-[#2563EB] file:cursor-pointer"
+                />
+                {uploadingAvatar && <p className="text-xs text-[#3B82F6] mt-2">Uploading...</p>}
+                <p className="text-xs text-[#6B7280] mt-2">JPG, PNG, GIF, or WebP. Max 2MB.</p>
+              </div>
+
+              {/* OR divider */}
+              <div className="flex items-center gap-3">
+                <div className="flex-1 border-t border-[#374151]" />
+                <span className="text-xs text-[#6B7280]">or paste a URL</span>
+                <div className="flex-1 border-t border-[#374151]" />
+              </div>
+
+              {/* URL input */}
               <input
                 type="url"
                 value={avatarUrl}
@@ -144,7 +184,6 @@ export default function EditProfilePage() {
                 placeholder="https://i.imgur.com/your-photo.jpg"
                 className="w-full px-4 py-3 rounded-lg bg-[#1E2330] border border-[#374151] text-[#E8EDF3] text-sm placeholder-[#6B7280] focus:outline-none focus:border-[#3B82F6] transition-colors"
               />
-              <p className="text-xs text-[#6B7280] mt-2">Paste a URL to any image. Your Google photo is used by default.</p>
             </div>
           )}
 

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { getUserByEmail, updateUserProfile } from "@/lib/db";
+import { neon } from "@neondatabase/serverless";
 
 // GET /api/exchange/profile — Get current user's profile
 export async function GET() {
@@ -67,5 +68,45 @@ export async function PATCH(request: Request) {
   } catch (error) {
     console.error("Profile PATCH error:", error);
     return NextResponse.json({ error: "Failed to update profile" }, { status: 500 });
+  }
+}
+
+// POST /api/exchange/profile — Upload avatar image
+export async function POST(request: Request) {
+  try {
+    const session = await auth();
+    if (!session?.user?.email) return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
+    const user = await getUserByEmail(session.user.email);
+    if (!user) return NextResponse.json({ error: "User not found" }, { status: 404 });
+
+    const formData = await request.formData();
+    const file = formData.get("avatar") as File | null;
+
+    if (!file || file.size === 0) {
+      return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
+    }
+
+    // Max 2MB
+    if (file.size > 2 * 1024 * 1024) {
+      return NextResponse.json({ error: "Image must be under 2MB" }, { status: 400 });
+    }
+
+    // Only images
+    if (!file.type.startsWith("image/")) {
+      return NextResponse.json({ error: "File must be an image" }, { status: 400 });
+    }
+
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+
+    const sql = neon(process.env.DATABASE_URL!);
+    await sql`UPDATE users SET avatar_data = ${buffer}, avatar_type = ${file.type}, avatar_url = ${`/api/exchange/avatar/${user.id}?v=${Date.now()}`} WHERE id = ${user.id}`;
+
+    return NextResponse.json({
+      avatar_url: `/api/exchange/avatar/${user.id}?v=${Date.now()}`,
+    });
+  } catch (error) {
+    console.error("Avatar upload error:", error);
+    return NextResponse.json({ error: "Failed to upload avatar" }, { status: 500 });
   }
 }
