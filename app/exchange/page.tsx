@@ -99,7 +99,7 @@ export default function ExchangePage() {
           </p>
           {totalCount > 0 && (
             <p className="text-sm text-[#6B7280] mb-8">
-              <span className="text-2xl font-bold text-[#3B82F6]">{totalCount.toLocaleString()}</span>
+              <span className="text-2xl font-bold text-[#EC4899]">{totalCount.toLocaleString()}</span>
               <span className="ml-2">listings and growing</span>
             </p>
           )}
