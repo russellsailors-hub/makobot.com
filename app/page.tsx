@@ -82,7 +82,7 @@ export default function Home() {
         {/* Real app screenshots */}
         <div className="mt-16 w-full max-w-4xl mx-auto space-y-6">
           <Image
-            src="/images/dashboard-activity.png"
+            src="/images/dashboard-activity.webp"
             alt="MakoBot dashboard — Activity tab showing live feed, context budget, storage breakdown, and MCP server status"
             width={1200}
             height={800}
@@ -90,7 +90,7 @@ export default function Home() {
             priority
           />
           <Image
-            src="/images/dashboard-skills.png"
+            src="/images/dashboard-skills.webp"
             alt="MakoBot dashboard — Skills tab showing AI skill library with per-project assignment"
             width={1200}
             height={800}
