@@ -15,6 +15,7 @@ import {
   CopyContentButton,
   RemixButton,
   ListingCard,
+  TryItSandbox,
 } from "../components";
 import { getCategoryLabel } from "@/lib/exchange";
 import type { ExchangeListing, ExchangeReview } from "@/lib/exchange";
@@ -344,6 +345,13 @@ export default function ListingDetailPage() {
               {listing.description}
             </p>
           </div>
+
+          {/* Try It Sandbox */}
+          {listing.content && ["prompts", "configs", "skills", "agents"].includes(listing.category) && (
+            <div className="mb-6">
+              <TryItSandbox content={listing.content} />
+            </div>
+          )}
 
           {/* Content Preview */}
           {listing.content && (

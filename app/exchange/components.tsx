@@ -436,6 +436,303 @@ export function ReviewCard({ review }: { review: ExchangeReview }) {
   );
 }
 
+/* ─── TRY IT SANDBOX (Bring Your Own Key) ─── */
+type Provider = "anthropic" | "openai" | "google";
+
+const PROVIDER_INFO: Record<Provider, { label: string; model: string; keyLabel: string; keyPrefix: string; docsUrl: string }> = {
+  anthropic: {
+    label: "Claude",
+    model: "claude-haiku-4-5",
+    keyLabel: "Anthropic API Key",
+    keyPrefix: "sk-ant-",
+    docsUrl: "https://console.anthropic.com/settings/keys",
+  },
+  openai: {
+    label: "ChatGPT",
+    model: "gpt-4o-mini",
+    keyLabel: "OpenAI API Key",
+    keyPrefix: "sk-",
+    docsUrl: "https://platform.openai.com/api-keys",
+  },
+  google: {
+    label: "Gemini",
+    model: "gemini-2.0-flash",
+    keyLabel: "Google AI Studio API Key",
+    keyPrefix: "",
+    docsUrl: "https://aistudio.google.com/apikey",
+  },
+};
+
+export function TryItSandbox({ content }: { content: string }) {
+  const [provider, setProvider] = useState<Provider>("anthropic");
+  const [apiKey, setApiKey] = useState("");
+  const [userInput, setUserInput] = useState("");
+  const [result, setResult] = useState("");
+  const [running, setRunning] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [showKey, setShowKey] = useState(false);
+  const [saveKey, setSaveKey] = useState(false);
+
+  // Load saved key from localStorage on mount
+  useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem(`makobot_key_${provider}`);
+      if (saved) {
+        setApiKey(saved);
+        setSaveKey(true);
+      }
+    }
+  });
+
+  function switchProvider(p: Provider) {
+    setProvider(p);
+    setError(null);
+    setResult("");
+    // Load saved key for new provider
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem(`makobot_key_${p}`);
+      setApiKey(saved || "");
+      setSaveKey(!!saved);
+    }
+  }
+
+  async function runSandbox() {
+    setError(null);
+    setResult("");
+
+    if (!apiKey.trim()) {
+      setError(`Please paste your ${PROVIDER_INFO[provider].keyLabel}`);
+      return;
+    }
+
+    if (!userInput.trim()) {
+      setError("Please enter some input to test with");
+      return;
+    }
+
+    // Save key to localStorage if requested
+    if (saveKey && typeof window !== "undefined") {
+      localStorage.setItem(`makobot_key_${provider}`, apiKey.trim());
+    } else if (typeof window !== "undefined") {
+      localStorage.removeItem(`makobot_key_${provider}`);
+    }
+
+    setRunning(true);
+
+    try {
+      let responseText = "";
+
+      if (provider === "anthropic") {
+        const res = await fetch("https://api.anthropic.com/v1/messages", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": apiKey.trim(),
+            "anthropic-version": "2023-06-01",
+            "anthropic-dangerous-direct-browser-access": "true",
+          },
+          body: JSON.stringify({
+            model: PROVIDER_INFO.anthropic.model,
+            max_tokens: 2048,
+            system: content,
+            messages: [{ role: "user", content: userInput }],
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error?.message || "API error");
+        responseText = data.content?.[0]?.text || "No response";
+      } else if (provider === "openai") {
+        const res = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiKey.trim()}`,
+          },
+          body: JSON.stringify({
+            model: PROVIDER_INFO.openai.model,
+            messages: [
+              { role: "system", content },
+              { role: "user", content: userInput },
+            ],
+            max_tokens: 2048,
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error?.message || "API error");
+        responseText = data.choices?.[0]?.message?.content || "No response";
+      } else if (provider === "google") {
+        const res = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${PROVIDER_INFO.google.model}:generateContent?key=${apiKey.trim()}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              systemInstruction: { parts: [{ text: content }] },
+              contents: [{ role: "user", parts: [{ text: userInput }] }],
+              generationConfig: { maxOutputTokens: 2048 },
+            }),
+          }
+        );
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error?.message || "API error");
+        responseText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
+      }
+
+      setResult(responseText);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Request failed");
+    }
+
+    setRunning(false);
+  }
+
+  return (
+    <div className="bg-[#252B3B] rounded-xl border border-[#374151] overflow-hidden">
+      <div className="px-5 py-4 border-b border-[#374151] flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth={2}>
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+          <h3 className="text-base font-semibold text-[#E8EDF3]">Try It Now</h3>
+          <span className="text-xs px-2 py-0.5 rounded-full bg-[#F59E0B]/15 text-[#F59E0B] font-semibold">BETA</span>
+        </div>
+        <div className="text-xs text-[#6B7280]">
+          Your key stays in your browser
+        </div>
+      </div>
+
+      <div className="p-5 space-y-4">
+        {/* Provider tabs */}
+        <div className="flex gap-2">
+          {(Object.keys(PROVIDER_INFO) as Provider[]).map((p) => (
+            <button
+              key={p}
+              onClick={() => switchProvider(p)}
+              className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                provider === p
+                  ? "bg-[#3B82F6] text-white"
+                  : "bg-[#1E2330] text-[#8B95A8] border border-[#374151] hover:text-[#E8EDF3]"
+              }`}
+            >
+              {PROVIDER_INFO[p].label}
+            </button>
+          ))}
+        </div>
+
+        {/* API Key */}
+        <div>
+          <div className="flex items-center justify-between mb-1">
+            <label className="text-xs text-[#8B95A8]">{PROVIDER_INFO[provider].keyLabel}</label>
+            <a href={PROVIDER_INFO[provider].docsUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-[#3B82F6] hover:text-[#60A5FA]">
+              Get a key
+            </a>
+          </div>
+          <div className="relative">
+            <input
+              type={showKey ? "text" : "password"}
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+              placeholder={`${PROVIDER_INFO[provider].keyPrefix}...`}
+              className="w-full px-3 py-2.5 pr-10 rounded-lg bg-[#1E2330] border border-[#374151] text-[#E8EDF3] text-sm font-mono placeholder-[#4B5563] focus:outline-none focus:border-[#3B82F6]"
+            />
+            <button
+              type="button"
+              onClick={() => setShowKey(!showKey)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-[#6B7280] hover:text-[#E8EDF3] p-1"
+            >
+              {showKey ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24" />
+                  <line x1="1" y1="1" x2="23" y2="23" />
+                </svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              )}
+            </button>
+          </div>
+          <label className="flex items-center gap-2 mt-2 text-xs text-[#6B7280] cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={saveKey}
+              onChange={(e) => setSaveKey(e.target.checked)}
+              className="accent-[#3B82F6]"
+            />
+            Remember this key (saved in your browser only)
+          </label>
+        </div>
+
+        {/* User Input */}
+        <div>
+          <label className="block text-xs text-[#8B95A8] mb-1">Your input</label>
+          <textarea
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+            rows={3}
+            placeholder="Type something to test the skill..."
+            className="w-full px-3 py-2.5 rounded-lg bg-[#1E2330] border border-[#374151] text-[#E8EDF3] text-sm placeholder-[#4B5563] focus:outline-none focus:border-[#3B82F6] resize-none"
+          />
+        </div>
+
+        {/* Run button */}
+        <button
+          onClick={runSandbox}
+          disabled={running}
+          className="w-full py-2.5 rounded-lg bg-[#F59E0B] hover:bg-[#D97706] disabled:opacity-50 text-white font-semibold text-sm transition-colors flex items-center justify-center gap-2"
+        >
+          {running ? (
+            <>
+              <svg className="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+              </svg>
+              Running on {PROVIDER_INFO[provider].label}...
+            </>
+          ) : (
+            <>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" />
+              </svg>
+              Run with {PROVIDER_INFO[provider].label}
+            </>
+          )}
+        </button>
+
+        {/* Error */}
+        {error && (
+          <div className="bg-[#DC2626]/10 border border-[#DC2626]/30 text-[#DC2626] rounded-lg px-4 py-3 text-sm">
+            {error}
+          </div>
+        )}
+
+        {/* Result */}
+        {result && (
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-xs text-[#8B95A8]">Response from {PROVIDER_INFO[provider].label}</label>
+              <button
+                onClick={() => { navigator.clipboard.writeText(result); }}
+                className="text-xs text-[#3B82F6] hover:text-[#60A5FA] font-medium"
+              >
+                Copy
+              </button>
+            </div>
+            <div className="bg-[#1E2330] rounded-lg p-4 text-sm text-[#C0C8D8] border border-[#374151] whitespace-pre-wrap max-h-[400px] overflow-y-auto styled-scrollbar">
+              {result}
+            </div>
+          </div>
+        )}
+
+        {/* Privacy note */}
+        <div className="text-xs text-[#6B7280] bg-[#1E2330] rounded-lg p-3 border border-[#374151]">
+          <strong className="text-[#8B95A8]">Privacy:</strong> Your API key is sent directly from your browser to {PROVIDER_INFO[provider].label}. It never passes through MakoBot servers. Want this built in? <a href="/#download" className="text-[#3B82F6] hover:text-[#60A5FA]">Get MakoBot</a> — the desktop app manages all your AI sessions and memory locally.
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── EMPTY STATE ─── */
 export function ExchangeEmpty({ message }: { message: string }) {
   return (
