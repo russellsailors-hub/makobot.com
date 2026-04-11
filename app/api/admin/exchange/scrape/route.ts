@@ -73,8 +73,8 @@ export async function POST(request: Request) {
             send({ type: "warning", message: `GitHub API error (${res.status}): ${errText.slice(0, 100)}` });
             // Rate limit -- wait and continue
             if (res.status === 403) {
-              send({ type: "warning", message: "Rate limited. Waiting 10 seconds..." });
-              await new Promise((r) => setTimeout(r, 10000));
+              send({ type: "warning", message: "Rate limited. Waiting 60 seconds..." });
+              await new Promise((r) => setTimeout(r, 60000));
             }
             errors++;
             continue;
@@ -140,8 +140,9 @@ export async function POST(request: Request) {
             }
           }
 
-          // Small delay between queries to avoid rate limiting
-          await new Promise((r) => setTimeout(r, 2000));
+          // Wait 8 seconds between queries -- GitHub code search allows ~10 requests/minute
+          send({ type: "progress", imported, skipped, errors, message: "Waiting for rate limit cooldown..." });
+          await new Promise((r) => setTimeout(r, 8000));
         } catch {
           errors++;
         }
