@@ -287,11 +287,35 @@ export async function getKeyByUserId(userId: number) {
 export async function getAllKeys(limit = 100, offset = 0) {
   const sql = getDb();
   return sql`
-    SELECT lk.*, u.email, u.name
+    SELECT
+      lk.*,
+      u.email,
+      u.name,
+      ld.version AS last_download_version,
+      ld.created_at AS last_download_at,
+      (SELECT COUNT(*) FROM downloads WHERE user_id = lk.user_id) AS download_count
     FROM license_keys lk
     JOIN users u ON lk.user_id = u.id
+    LEFT JOIN LATERAL (
+      SELECT version, created_at
+      FROM downloads
+      WHERE user_id = lk.user_id
+      ORDER BY created_at DESC
+      LIMIT 1
+    ) ld ON TRUE
     ORDER BY lk.created_at DESC
     LIMIT ${limit} OFFSET ${offset}
+  `;
+}
+
+export async function getDownloadsByKey(keyId: number) {
+  const sql = getDb();
+  return sql`
+    SELECT d.id, d.version, d.ip, d.user_agent, d.created_at
+    FROM downloads d
+    JOIN license_keys lk ON lk.user_id = d.user_id
+    WHERE lk.id = ${keyId}
+    ORDER BY d.created_at DESC
   `;
 }
 

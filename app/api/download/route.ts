@@ -12,8 +12,11 @@ export async function POST(req: NextRequest) {
   const userAgent = req.headers.get("user-agent") || "unknown";
   const userId = parseInt(session.user.id);
 
-  await trackDownload(userId, ip, userAgent);
-  await trackEvent("download", { version: "2.0.0", email: session.user.email }, userId, ip);
+  const build = process.env.CURRENT_BUILD?.trim() || "unknown";
+  const version = `v2.0.0 Build ${build}`;
+
+  await trackDownload(userId, ip, userAgent, version);
+  await trackEvent("download", { version, email: session.user.email }, userId, ip);
 
   // Return the download URL — configure via env var
   const downloadUrl = process.env.DOWNLOAD_URL || "#";
